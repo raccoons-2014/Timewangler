@@ -1,5 +1,10 @@
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe TimePeriod, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:time_period) { create(:time_period)}
+
+  it "has a name" do
+    expect(time_period.name).to be_a String
+  end
 end
