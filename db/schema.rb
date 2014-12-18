@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20141218222447) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +48,12 @@ ActiveRecord::Schema.define(version: 20141218222447) do
   end
 
   add_index "hero_cards", ["time_period_id"], name: "index_hero_cards_on_time_period_id", using: :btree
+
+  create_table "matchups", force: true do |t|
+    t.integer "game_id"
+    t.integer "player1_id"
+    t.integer "player2_id"
+  end
 
   create_table "time_periods", force: true do |t|
     t.string   "name",       null: false

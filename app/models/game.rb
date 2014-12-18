@@ -1,4 +1,5 @@
 class Game < ActiveRecord::Base
-has_many :matches, through: :players
-has_many :players, class_name: "User"
+has_many :matchups
+has_a :winner, class_name: "User", through: :matchups
+has_a :loser, class_name: "User", through: :matchups
 end

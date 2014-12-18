@@ -14,13 +14,13 @@ RSpec.describe User, :type => :model do
     end
 
     it "validates for email addresses" do
-      dude = build(:user, email: "murok.com")
-      expect(dude.valid?).to be false
+      expect(invalid_user.valid?).to be false
     end
- # context "associations" do
-  #   it {  should have_many :matchups }
-  #   it {  should have_many :games}
-  # end
+
+ context "associations" do
+    it {  should have_many :matchups }
+    it {  should have_many :games}
+  end
 
 
 end
