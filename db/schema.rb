@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141218191012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "heros", force: true do |t|
+  create_table "hero_cards", force: true do |t|
     t.string   "name"
     t.integer  "time_period_id"
     t.text     "description"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141218191012) do
     t.datetime "updated_at"
   end
 
-  add_index "heros", ["time_period_id"], name: "index_heros_on_time_period_id", using: :btree
+  add_index "hero_cards", ["time_period_id"], name: "index_hero_cards_on_time_period_id", using: :btree
 
   create_table "time_periods", force: true do |t|
     t.string   "name"

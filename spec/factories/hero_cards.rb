@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :hero do
+  factory :hero_card do
     name Faker::Name.name
     time_period rand(1..5)
     description Faker::Lorem.sentence
