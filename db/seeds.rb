@@ -25,4 +25,5 @@ end
 
 HeroCard.where(:id => 16..30).each do |hero|
 	deck2.deck_card_relationships.create(hero_card: hero)
+
 end
