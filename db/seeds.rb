@@ -12,5 +12,5 @@ end
 
 
 30.times do
-  Hero.create(name: Faker::Name.name)
+  Hero.create(name: Faker::Name.name, time_period_id: rand(1..5), description: Faker::Lorem.sentence, strength: rand(1..5), intelligence: rand(1..5), charisma: rand(1..5))
 end
