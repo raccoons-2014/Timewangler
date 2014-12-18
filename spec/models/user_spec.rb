@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe User, :type => :model do
-  let(:user) {create(:user)}
+  let(:user) {build(:user)}
   let(:invalid_user) {build(:invalid_user)}
 
     it "is valid with a username, email address, and password" do
@@ -18,8 +18,7 @@ RSpec.describe User, :type => :model do
     end
 
  context "associations" do
-    it {  should have_many :matchups }
-    it {  should have_many :games}
+    xit {  should have_many :matches }
   end
 
 

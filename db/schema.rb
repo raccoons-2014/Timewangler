@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20141218222447) do
 
   add_index "hero_cards", ["time_period_id"], name: "index_hero_cards_on_time_period_id", using: :btree
 
-  create_table "matchups", force: true do |t|
-    t.integer "game_id"
-    t.integer "player1_id"
-    t.integer "player2_id"
+  create_table "matches", force: true do |t|
+    t.integer "player_one_id"
+    t.integer "player_two_id"
+    t.integer "winner_id"
   end
 
   create_table "time_periods", force: true do |t|

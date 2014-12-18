@@ -6,7 +6,7 @@ FactoryGirl.define do
 
     factory :invalid_user do
       username nil
-      email { "murokwuz.com" }
+      email { "murokwuzhere.com" }
       password nil
     end
   end
