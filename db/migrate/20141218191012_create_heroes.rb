@@ -1,6 +1,6 @@
-class CreateHeros < ActiveRecord::Migration
+class Createheroes < ActiveRecord::Migration
   def change
-    create_table :heros do |t|
+    create_table :heroes do |t|
       t.string :name
       t.references :time_period, index: true
       t.text :description

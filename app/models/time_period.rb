@@ -1,3 +1,3 @@
 class TimePeriod < ActiveRecord::Base
-  has_many :heros
+  has_many :heroes
 end
