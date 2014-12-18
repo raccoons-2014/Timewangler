@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :time_period do
-    name Faker::Internet.adjective
+    name Faker::Lorem.word
   end
 end

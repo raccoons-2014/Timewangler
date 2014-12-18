@@ -40,7 +40,7 @@ gem 'debugger', group: [:development, :test]
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'byebug'
+  # gem 'byebug'
   gem 'faker'
   gem 'pry'
   gem 'factory_girl_rails'
