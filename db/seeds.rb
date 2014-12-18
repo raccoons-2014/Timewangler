@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+5.times do
+  TimePeriod.create(name: Faker::Lorem.word)
+end
+
+
+30.times do
+  HeroCard.create(name: Faker::Name.name, time_period_id: rand(1..5), description: Faker::Lorem.sentence, strength: rand(1..5), intelligence: rand(1..5), charisma: rand(1..5))
+end
