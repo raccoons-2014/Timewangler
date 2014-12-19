@@ -1,9 +1,10 @@
 describe("Player", function() {
   var player;
-  var deck = ["Abraham Lincoln", "Albert Einstein", "Mahatma Gandhi", "Pootie Tang", "Bruce Lee", "Florida Man"];
+  var deck;
 
   beforeEach(function() {
     player = new Player(deck, 30);
+    deck = ["Abraham Lincoln", "Albert Einstein", "Mahatma Gandhi", "Pootie Tang", "Bruce Lee", "Florida Man"];
   });
 
   it("has a health property", function() {
@@ -17,6 +18,13 @@ describe("Player", function() {
   it("has a deck that contains 6 objects.", function() {
     player.drawHand();
     expect(player.hand.length).toEqual(6);
+  });
+
+  it("has a playCard function that pops cards from this.hand", function() {
+    player.drawHand();
+    console.log(player.hand.length);
+    console.log(player.playCard());
+    expect(typeof player.playCard()).toEqual("string");
   });
 
 });
