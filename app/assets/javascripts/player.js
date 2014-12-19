@@ -6,7 +6,6 @@ var Player = function(deck, health) {
 
 Player.prototype.drawHand = function() {
   while (this.hand.length < 6) {
-      console.log(this.deck);
       this.hand.push(this.deck.pop());
     };
 };
