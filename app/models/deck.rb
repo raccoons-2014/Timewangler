@@ -5,7 +5,4 @@ class Deck < ActiveRecord::Base
   has_many :hero_cards, through: :deck_card_relationships
 
 
-  def hand
-
-  end
 end
