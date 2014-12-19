@@ -13,4 +13,3 @@ Player.prototype.drawHand = function() {
 Player.prototype.playCard = function() {
   return this.hand.pop();
 };
-
