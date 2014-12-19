@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20141218235231) do
   create_table "deck_card_relationships", force: true do |t|
     t.integer  "hero_card_id"
     t.integer  "deck_id"
+  end
 
   create_table "games", force: true do |t|
     t.integer  "player_one_id"
