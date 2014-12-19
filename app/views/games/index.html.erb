@@ -1,4 +1,9 @@
 games index
 <br>
-<%= @user1.username %> <br>
-<%= @user2.username %>
+player1: <%= @user1.username %> <br>
+player2: <%= @user2.username %> <br>
+
+player1 deck:
+<%= @deck1.each do |card| %>
+  <%= card.id %>
+<% end %>

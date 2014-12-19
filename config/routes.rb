@@ -60,4 +60,5 @@ Rails.application.routes.draw do
   resources :hero_cards
   resources :users
 
+
 end
