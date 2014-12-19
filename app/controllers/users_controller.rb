@@ -13,7 +13,10 @@ class UsersController < ApplicationController
     if @user2.save
       session[:user2_id] = @user2.id
     end
-    redirect_to decks_path
+
+    new_game = Game.create(player_one: @user1, player_two: @user2)
+    redirect_to game_path(new_game)
+
   end
 
   private
