@@ -33,29 +33,14 @@ class DecksController < ApplicationController
   end
 
   def deck1
-    @user1 = User.find(session[:user1_id])
-    @deck1 = Deck.create(user: @user1)
-
-    15.times do
-      DeckCardRelationship.create(hero_card: @all_cards.pop, deck: @deck1)
-    end
-    @deck1.to_json
+    @deck1 = HeroCard.all.shuffle[1..15]
+    render :json => @deck1.to_json
   end
 
   def deck2
-    @user2 = User.find(session[:user2_id])
-    @deck2 = Deck.create(user: @user2)
-
-    15.times do
-      DeckCardRelationship.create(hero_card: @all_cards.pop, deck: @deck2)
-    end
-    @deck2.to_json
+    @deck2 = HeroCard.all.shuffle[1..15]
+    render :json => @deck2.to_json
   end
 
-  def index
-    shuffle_all
-    deck1
-    deck2
-  end
 
 end
