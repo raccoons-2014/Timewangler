@@ -11,24 +11,23 @@ describe("Player", function() {
   beforeEach(function() {
     deck = [abe, albert, gandhi, pootie, bruce, florida];
     player = new Player(deck, 30);
-  });
+    });
 
-  it("has a health property", function() {
-    expect(player.health).toEqual(30);
-  });
+    it("has a health property", function() {
+      expect(player.health).toEqual(30);
+    });
 
-  it("has a deck", function() {
-    expect(typeof player.deck).toEqual("object");
-  });
+    it("has a deck", function() {
+      expect(typeof player.deck).toEqual("object");
+    });
 
-  it("has a deck that contains 6 objects.", function() {
-    player.drawHand();
-    expect(player.hand.length).toEqual(6);
-  });
+    it("has a deck that contains 6 objects.", function() {
+      player.drawHand();
+      expect(player.hand.length).toEqual(6);
+    });
 
-  it("has a playCard function that pops cards from this.hand", function() {
-    player.drawHand();
-    expect(typeof player.playCard()).toEqual("object");
-  });
-
+    it("has a playCard function that pops cards from this.hand", function() {
+      player.drawHand();
+      expect(typeof player.playCard()).toEqual("object");
+    });
 });
