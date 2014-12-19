@@ -53,4 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root :to => "games#new"
+  resources :games
+  resources :decks
+  resources :hero_cards
+  resources :users
+
 end
