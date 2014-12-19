@@ -4,11 +4,7 @@ function Game(playerOne, playerTwo) {
   this.playerOne = playerOne;
   this.playerTwo = playerTwo;
   this.round = { playerOneCard: null, playerTwoCard: null }
-  //
-  this.playerOne.round = null
-  this.playerTwo.round = null
-  //
-  this.round = { {playerOneCard: null, player: this.playerOne}, {playerTwoCard: null, player: this.playerTwo} }
+
 };
 
 Game.prototype.isWon = function() {
@@ -24,21 +20,20 @@ Game.prototype.resolveRound = function() {
   var playerTwoMove = this.round.playerTwoCard;
 
   if ( playerOneMove && playerTwoMove ) {
-    this.sumStats(playerOneMove)
-    this.sumStats(playerTwoMove)
+    var self = this;
+    console.log(self.sumStats(playerOneMove));
+    console.log(self.sumStats(playerTwoMove));
+
+    if (this.sumStats(playerOneMove) === this.sumStats(playerTwoMove) ) {
+      console.log("tie");
+    } else if ( this.sumStats(playerOneMove) > this.sumStats(playerTwoMove) ) {
+      this.playerTwo.health -= this.sumStats(playerOneMove)
+      console.log("playerOne won")
+    } else {
+      this.playerOne.health -= this.sumStats(playerTwoMove)
+      console.log("playerTwo won")
+    }   
   }
-  //
-  var playerOneMove = this.playerOne.round;
-  var playerTwoMove = this.playerTwo.round;
-
-  if ( this.playerOne.round && this.playerTwo.round ) {
-    this.sumStats(this.playerOne.round)
-    this.sumStats(this.playerTwo.round)
-    Math.max(this.sumStats(playerOneMove), this.sumStats(playerTwoMove))
-  }
-  // UNFINISHED
-
-
 }
 
 Game.prototype.sumStats = function(card) {
