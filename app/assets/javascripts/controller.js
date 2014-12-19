@@ -29,8 +29,8 @@ $(document).ready(function() {
         dataType: "JSON"
     }).done(function(playerTwoResponse) {
       var playerTwoDeck = playerTwoResponse;
-          player1 = new Player(playerOneDeck, 30);
-          player2 = new Player(playerTwoDeck, 30);
+          var player1 = new Player(playerOneDeck, 30);
+          var player2 = new Player(playerTwoDeck, 30);
 
           runGame(player1, player2);
 
