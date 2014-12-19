@@ -13,7 +13,6 @@ var Player = function(deck, player) {
   },
 
   this.playCard = function() {
-    console.log(this.hand)
    return this.hand.pop();
   }
   // this.hand = function() {
