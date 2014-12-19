@@ -57,5 +57,6 @@ Rails.application.routes.draw do
   resources :games
   resources :decks
   resources :hero_cards
+  resources :users
 
 end

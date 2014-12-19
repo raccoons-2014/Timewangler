@@ -1,14 +1,8 @@
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+<%= form_for @player_1, @player_2 do |f| %>
+  <%= f.label :user1[:username] %>
+  <%= f.text_field :user1[:username] %><br>
   <br>
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-  <br>
-  <%# if @user.new_record? %>
+
   <%=f.submit %>
 
 <% end %>

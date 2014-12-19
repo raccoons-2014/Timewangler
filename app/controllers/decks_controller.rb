@@ -14,4 +14,6 @@ class DecksController < ApplicationController
     deck = deck.shuffle
   end
 
+
+
 end
