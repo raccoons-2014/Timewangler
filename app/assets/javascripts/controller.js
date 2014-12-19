@@ -1,25 +1,20 @@
 $(document).ready(function() {
   console.log("controller loaded");
+
   function runGame(playerOne,playerTwo) {
-
+    playerOne.number = 1;
+    playerTwo.number = 2;
     game = new Game(playerOne, playerTwo);
-    // console.log("this");
-    // console.log(game);
-    // console.log(game.playerOne);
 
-    // console.log("player one hand:");
-    // console.log("player hand after playing one card:");
-    // console.log(game.playerOne.hand);
-    // console.log("player hand after drawing cards:");
-    game.playerOne.drawHand();
-    game.round.playerOneCard = game.playerOne.playCard();
-    game.playerTwo.drawHand();
-    game.round.playerTwoCard = game.playerTwo.playCard();
-    console.log(game.resolveRound());
+    while ( game.isWon() == false ) {
+      game.playerOne.drawHand();
+      game.round.playerOneCard = game.playerOne.playCard();
+      game.playerTwo.drawHand();
+      game.round.playerTwoCard = game.playerTwo.playCard();
+      game.resolveRound();
+    }
+    console.log(game.winner.number);
   }
-
-
-
 
   $.ajax({
     type: "GET",
