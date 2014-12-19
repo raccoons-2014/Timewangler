@@ -1,6 +1,11 @@
 describe("Player", function() {
   var player;
   var deck;
+  var abe = { name: "Abraham Lincoln" }
+  var albert = { name: "Albert Einstein"}
+  var pootie = { name: "Mahatma Gandhi" }
+  var bruce = { name: "Bruce Lee" }
+  var florida = { name: "Florida Man" }
 
   beforeEach(function() {
     player = new Player(deck, 30);
