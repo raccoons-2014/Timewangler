@@ -1,6 +1,6 @@
-class CreateDeckCards < ActiveRecord::Migration
+class CreateDeckCardRelationships < ActiveRecord::Migration
   def change
-    create_table :deck_cards do |t|
+    create_table :deck_card_relationships do |t|
       t.references :hero_card, index: true
       t.references :deck, index: true
 

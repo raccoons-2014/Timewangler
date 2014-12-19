@@ -20,9 +20,9 @@ deck1 = Deck.create(user_id: 1)
 deck2 = Deck.create(user_id: 2)
 
 HeroCard.where(:id => 1..15).each do |hero|
-	deck1.deck_cards.create(hero_card: hero)
+	deck1.deck_card_relationships.create(hero_card: hero)
 end
 
 HeroCard.where(:id => 16..30).each do |hero|
-	deck2.deck_cards.create(hero_card: hero)
+	deck2.deck_card_relationships.create(hero_card: hero)
 end

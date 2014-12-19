@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :deck_card do
-    hero_card nil
-    deck nil
+    hero_card
+    deck
   end
 end

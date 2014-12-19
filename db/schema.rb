@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 20141218222447) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "deck_cards", force: true do |t|
+  create_table "deck_card_relationships", force: true do |t|
     t.integer  "hero_card_id"
     t.integer  "deck_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "deck_cards", ["deck_id"], name: "index_deck_cards_on_deck_id", using: :btree
-  add_index "deck_cards", ["hero_card_id"], name: "index_deck_cards_on_hero_card_id", using: :btree
+  add_index "deck_card_relationships", ["deck_id"], name: "index_deck_card_relationships_on_deck_id", using: :btree
+  add_index "deck_card_relationships", ["hero_card_id"], name: "index_deck_card_relationships_on_hero_card_id", using: :btree
 
   create_table "decks", force: true do |t|
     t.integer  "user_id",    null: false
