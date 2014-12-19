@@ -56,7 +56,11 @@ Rails.application.routes.draw do
 
   root :to => "games#new"
   resources :games
+
+  get "decks/player_one", to: "decks#deck1"
+  get "decks/player_two", to: "decks#deck2"
   resources :decks
+
   resources :hero_cards
   resources :users
 
