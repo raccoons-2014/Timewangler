@@ -9,10 +9,24 @@ function Game(playerOne, playerTwo) {
 
 Game.prototype.isWon = function() {
   if (this.playerOne.health <= 0 || this.playerTwo.health <= 0) {
-    return true;
+    if (this.playerOne.health <= 0) {
+      this.winner = this.playerTwo;
+      return true;
+    } else if (this.playerTwo.health <= 0) {
+      this.winner = this.playerOne;
+      return true;
+    }
   } else {
     return false;
   };
+}
+
+Game.prototype.playerCardsEmpty = function() {
+  if (this.playerOne.deck.length === 0) {
+    this.winner = this.playerTwo;
+  } else if (this.playerTwo.deck.length === 0) {
+    this.winner = this.playerOne;
+  }
 }
 
 Game.prototype.resolveRound = function() {
@@ -21,18 +35,13 @@ Game.prototype.resolveRound = function() {
 
   if ( playerOneMove && playerTwoMove ) {
     var self = this;
-    console.log(self.sumStats(playerOneMove));
-    console.log(self.sumStats(playerTwoMove));
-
+    
     if (this.sumStats(playerOneMove) === this.sumStats(playerTwoMove) ) {
-      console.log("tie");
     } else if ( this.sumStats(playerOneMove) > this.sumStats(playerTwoMove) ) {
       this.playerTwo.health -= this.sumStats(playerOneMove)
-      console.log("playerOne won")
     } else {
       this.playerOne.health -= this.sumStats(playerTwoMove)
-      console.log("playerTwo won")
-    }   
+    }
   }
 }
 
