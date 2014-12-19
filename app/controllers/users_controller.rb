@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
 
-  def new
-  end
-
   def create
     @user1 = User.new user_params1
     @user2 = User.new user_params2
