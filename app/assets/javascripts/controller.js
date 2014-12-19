@@ -1,16 +1,21 @@
 $(document).ready(function() {
   console.log("controller loaded");
   function runGame(playerOne,playerTwo) {
+
     game = new Game(playerOne, playerTwo);
+    // console.log("this");
+    // console.log(game);
+    // console.log(game.playerOne);
+
+    // console.log("player one hand:");
+    // console.log("player hand after playing one card:");
+    // console.log(game.playerOne.hand);
+    // console.log("player hand after drawing cards:");
     game.playerOne.drawHand();
-    console.log("player one hand:");
-    console.log(game.playerOne.hand);
-    game.playerOne.playCard();
-    console.log("player hand after playing one card:");
-    console.log(game.playerOne.hand);
-    console.log("player hand after drawing cards:");
-    game.playerOne.drawHand();
-    console.log(game.playerOne.hand);
+    game.round.playerOneCard = game.playerOne.playCard();
+    game.playerTwo.drawHand();
+    game.round.playerTwoCard = game.playerTwo.playCard();
+    console.log(game.resolveRound());
   }
 
 
@@ -29,20 +34,11 @@ $(document).ready(function() {
         dataType: "JSON"
     }).done(function(playerTwoResponse) {
       var playerTwoDeck = playerTwoResponse;
-      // Callback to main game loop here.
-
-      // ----------------Main Game------------------------
-
-          // make 2 player instances from the player model. load the player1 and player2 deck from the ajax response.
-
           player1 = new Player(playerOneDeck, 30);
           player2 = new Player(playerTwoDeck, 30);
 
           runGame(player1, player2);
 
-
-
     })
-
   });
 })
