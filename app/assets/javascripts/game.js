@@ -1,32 +1,50 @@
-$.ajax({
-  type: "GET",
-  url:  "/decks/player_one",
-  dataType: "JSON"
-}).done(function(playerOneResponse) {
-  var playerOneDeck = playerOneResponse;
+console.log("game loaded");
 
-  $.ajax({
-      type: "GET",
-      url:  "/decks/player_two",
-      dataType: "JSON"
-  }).done(function(playerTwoResponse) {
-    var playerTwoDeck = playerTwoResponse;
-    // Callback to main game loop here.
+function Game(playerOne, playerTwo) {
+  this.playerOne = playerOne;
+  this.playerTwo = playerTwo;
+  this.round = { playerOneCard: null, playerTwoCard: null }
 
-    // ----------------Main Game------------------------
+};
 
-        // make 2 player instances from the player model. load the player1 and player2 deck from the ajax response.
+Game.prototype.isWon = function() {
+  if (this.playerOne.health <= 0 || this.playerTwo.health <= 0) {
+    if (this.playerOne.health <= 0) {
+      this.winner = this.playerTwo;
+      return true;
+    } else if (this.playerTwo.health <= 0) {
+      this.winner = this.playerOne;
+      return true;
+    }
+  } else {
+    return false;
+  };
+}
 
-        player1 = new Player(playerOneDeck, 30);
+Game.prototype.playerCardsEmpty = function() {
+  if (this.playerOne.deck.length === 0) {
+    this.winner = this.playerTwo;
+  } else if (this.playerTwo.deck.length === 0) {
+    this.winner = this.playerOne;
+  }
+}
 
-        player2 = new Player(playerTwoDeck, 30);
+Game.prototype.resolveRound = function() {
+  var playerOneMove = this.round.playerOneCard;
+  var playerTwoMove = this.round.playerTwoCard;
 
-        // game = new Game(player1, player2);
+  if ( playerOneMove && playerTwoMove ) {
+    var self = this;
+    
+    if (this.sumStats(playerOneMove) === this.sumStats(playerTwoMove) ) {
+    } else if ( this.sumStats(playerOneMove) > this.sumStats(playerTwoMove) ) {
+      this.playerTwo.health -= this.sumStats(playerOneMove)
+    } else {
+      this.playerOne.health -= this.sumStats(playerTwoMove)
+    }
+  }
+}
 
-
-
-  })
-
-});
-
-
+Game.prototype.sumStats = function(card) {
+  return card.charisma + card.intelligence + card.strength;
+}
