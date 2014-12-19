@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user2.save
       session[:user2_id] = @user2.id
     end
-    redirect_to games_path
+    redirect_to decks_path
   end
 
   private
