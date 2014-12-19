@@ -4,10 +4,10 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
 
-    factory :invalid_user do
-      username nil
-      email { "murokwuzhere.com" }
-      password nil
-    end
+    # factory :invalid_user do
+    #   username nil
+    #   email { "murokwuzhere.com" }
+    #   password nil
+    # end
   end
 end
