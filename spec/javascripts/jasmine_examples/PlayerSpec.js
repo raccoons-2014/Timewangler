@@ -7,7 +7,7 @@ describe("Player", function() {
     song = new Song();
   });
 
-  it("should be able to play a Song", function() {
+  xit("should be able to play a Song", function() {
     player.play(song);
     expect(player.currentlyPlayingSong).toEqual(song);
 
@@ -21,14 +21,14 @@ describe("Player", function() {
       player.pause();
     });
 
-    it("should indicate that the song is currently paused", function() {
+    xit("should indicate that the song is currently paused", function() {
       expect(player.isPlaying).toBeFalsy();
 
       // demonstrates use of 'not' with a custom matcher
       expect(player).not.toBePlaying(song);
     });
 
-    it("should be possible to resume", function() {
+    xit("should be possible to resume", function() {
       player.resume();
       expect(player.isPlaying).toBeTruthy();
       expect(player.currentlyPlayingSong).toEqual(song);
@@ -36,7 +36,7 @@ describe("Player", function() {
   });
 
   // demonstrates use of spies to intercept and test method calls
-  it("tells the current song if the user has made it a favorite", function() {
+  xit("tells the current song if the user has made it a favorite", function() {
     spyOn(song, 'persistFavoriteStatus');
 
     player.play(song);
@@ -47,7 +47,7 @@ describe("Player", function() {
 
   //demonstrates use of expected exceptions
   describe("#resume", function() {
-    it("should throw an exception if song is already playing", function() {
+    xit("should throw an exception if song is already playing", function() {
       player.play(song);
 
       expect(function() {

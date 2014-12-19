@@ -9,4 +9,4 @@ var Game = function(playerOne, playerTwo) {
     }
   },
   this.rounds = 0
-}
+};
