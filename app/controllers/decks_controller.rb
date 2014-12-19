@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
 
+
   def deck1
     @deck1 = HeroCard.all.shuffle[1..15]
     render :json => @deck1.to_json
