@@ -3,6 +3,12 @@ console.log("game loaded");
 function Game(playerOne, playerTwo) {
   this.playerOne = playerOne;
   this.playerTwo = playerTwo;
+  this.round = { playerOneCard: null, playerTwoCard: null }
+  //
+  this.playerOne.round = null
+  this.playerTwo.round = null
+  //
+  this.round = { {playerOneCard: null, player: this.playerOne}, {playerTwoCard: null, player: this.playerTwo} }
 };
 
 Game.prototype.isWon = function() {
