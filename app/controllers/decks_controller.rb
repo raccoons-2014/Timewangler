@@ -39,7 +39,7 @@ class DecksController < ApplicationController
     15.times do
       DeckCardRelationship.create(hero_card: @all_cards.pop, deck: @deck1)
     end
-    @deck1
+    @deck1.to_json
   end
 
   def deck2
@@ -49,7 +49,7 @@ class DecksController < ApplicationController
     15.times do
       DeckCardRelationship.create(hero_card: @all_cards.pop, deck: @deck2)
     end
-    @deck2
+    @deck2.to_json
   end
 
   def index
