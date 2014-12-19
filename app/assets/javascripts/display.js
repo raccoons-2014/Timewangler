@@ -3,6 +3,7 @@ var Display = function() {
 }
 
 var display = new Display;
+// Note for later: Add displayVictory, add displayRoundResults.
 
 Display.prototype.displayCard = function(id, card) {
   $("#"+id+" span.name").html(card.name);
