@@ -10,6 +10,7 @@ $(document).ready(function() {
 
       $('#player-1-button').click(function(){
         game.playerOne.drawHand();
+        display.displayHand(game.playerOne.hand);
         game.round.playerOneCard = game.playerOne.playCard();
         console.log(game.round);
 
@@ -17,6 +18,7 @@ $(document).ready(function() {
 
       $('#player-2-button').click(function(){
         game.playerTwo.drawHand();
+        display.displayHand(game.playerTwo.hand);
         game.round.playerTwoCard = game.playerTwo.playCard();
         console.log(game.resolveRound());
       })
