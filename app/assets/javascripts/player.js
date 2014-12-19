@@ -1,7 +1,7 @@
 // Player Health
 // Incomplete
-var Player = function(deck, player) {
-  this.health = 30,
+var Player = function(deck, health) {
+  this.health = health,
   this.deck = deck,
   this.hand = [],
   this.drawHand = function() {
