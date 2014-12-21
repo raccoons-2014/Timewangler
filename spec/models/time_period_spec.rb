@@ -9,6 +9,6 @@ RSpec.describe TimePeriod, :type => :model do
   end
 
   context "associations" do
-    it {  should have_many :hero_cards }
+    it {  should have_many :cards }
   end
 end
