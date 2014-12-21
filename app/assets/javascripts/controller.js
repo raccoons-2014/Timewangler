@@ -35,6 +35,7 @@ $(document).ready(function() {
       // console.log(game.winner.number);
     }
 
+// Fire events.
     $.ajax({
       type: "GET",
       url:  "/decks/player_one",
