@@ -16,15 +16,29 @@ ActiveRecord::Schema.define(version: 20141218235231) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cards", force: true do |t|
+    t.string   "card_type",      null: false
+    t.string   "name",           null: false
+    t.text     "description",    null: false
+    t.integer  "strength",       null: false
+    t.integer  "intelligence",   null: false
+    t.integer  "charisma",       null: false
+    t.integer  "time_period_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cards", ["time_period_id"], name: "index_cards_on_time_period_id", using: :btree
+
   create_table "deck_card_relationships", force: true do |t|
-    t.integer  "hero_card_id"
+    t.integer  "card_id"
     t.integer  "deck_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "deck_card_relationships", ["card_id"], name: "index_deck_card_relationships_on_card_id", using: :btree
   add_index "deck_card_relationships", ["deck_id"], name: "index_deck_card_relationships_on_deck_id", using: :btree
-  add_index "deck_card_relationships", ["hero_card_id"], name: "index_deck_card_relationships_on_hero_card_id", using: :btree
 
   create_table "decks", force: true do |t|
     t.integer  "user_id",    null: false
@@ -41,19 +55,6 @@ ActiveRecord::Schema.define(version: 20141218235231) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "hero_cards", force: true do |t|
-    t.string   "name",           null: false
-    t.integer  "time_period_id", null: false
-    t.text     "description",    null: false
-    t.integer  "strength",       null: false
-    t.integer  "intelligence",   null: false
-    t.integer  "charisma",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "hero_cards", ["time_period_id"], name: "index_hero_cards_on_time_period_id", using: :btree
 
   create_table "time_periods", force: true do |t|
     t.string   "name",       null: false

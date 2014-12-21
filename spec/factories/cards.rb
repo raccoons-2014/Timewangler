@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :card do
-    type { "Hero" }
+    card_type { "Hero" }
     name { Faker::Name.name }
     description { Faker::Lorem.sentence }
     strength { rand(1..10)}
