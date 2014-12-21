@@ -20,7 +20,3 @@ $.each(hand, function( i, val) {
 };
 
 
-$(document).ready(function() {
-
-});
-

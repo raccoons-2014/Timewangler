@@ -41,7 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'rspec-rails'
   # gem 'byebug'
-  gem 'jasmine'
+  gem 'jasmine-rails'
   gem 'faker'
   gem 'pry'
   gem 'factory_girl_rails'
