@@ -57,6 +57,10 @@ Rails.application.routes.draw do
   root :to => "games#new"
   resources :games
 
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
   get "decks/player_one", to: "decks#deck1"
   get "decks/player_two", to: "decks#deck2"
   resources :decks
