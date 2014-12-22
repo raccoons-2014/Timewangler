@@ -8,7 +8,6 @@ RSpec.describe Card, :type => :model do
     end
 
     describe "associations" do
-      it {should belong_to :time_period}
       it {should have_many :deck_card_relationships}
       it {should have_many :decks}
     end

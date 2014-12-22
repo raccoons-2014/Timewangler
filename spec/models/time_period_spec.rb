@@ -7,8 +7,4 @@ RSpec.describe TimePeriod, :type => :model do
   it "has a name" do
     expect(time_period.name).to be_a String
   end
-
-  context "associations" do
-    it {  should have_many :cards }
-  end
 end
