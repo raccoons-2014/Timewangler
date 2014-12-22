@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => "games#new"
+  root :to => "pages#home"
   resources :games
 
   get '/login', to: 'sessions#new'
