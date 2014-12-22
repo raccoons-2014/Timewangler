@@ -1,27 +1,29 @@
 class UsersController < ApplicationController
+  include SessionHelper
+
+  def new
+    @user = User.new
+  end
 
   def create
-    @user1 = User.new user_params1
-    @user2 = User.new user_params2
-    if @user1.save
-      session[:user1_id] = @user1.id
+    @user = User.new(user_params)
+
+    if @user.save
+      login(@user)
+      redirect_to user_path(@user)
+    else
+      flash[:error] = @user.errors.full_messages.join(", ")
+      redirect_to new_user_path
     end
+  end
 
-    if @user2.save
-      session[:user2_id] = @user2.id
-    end
-
-    new_game = Game.create(player_one: @user1, player_two: @user2)
-    redirect_to game_path(new_game)
-
+  def show
+    @user = User.find params[:id]
   end
 
   private
-  def user_params1
-    params.require(:user1).permit(:id, :username)
-  end
+    def user_params
+      params.require(:user).permit(:username, :password, :password_confirmation, :email)
+    end
 
-  def user_params2
-    params.require(:user2).permit(:id, :username)
-  end
 end

@@ -54,8 +54,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => "games#new"
+  root :to => "pages#home"
   resources :games
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
   get "decks/player_one", to: "decks#deck1"
   get "decks/player_two", to: "decks#deck2"
