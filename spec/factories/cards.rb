@@ -6,6 +6,6 @@ FactoryGirl.define do
     strength { rand(1..10)}
     intelligence { rand(1..10) }
     charisma { rand(1..10) }
-    association :time_period
+    time_period { Faker::Lorem.word }
   end
 end

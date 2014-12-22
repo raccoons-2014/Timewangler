@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   get "decks/player_two", to: "decks#deck2"
   resources :decks
 
-  resources :hero_cards
+  resources :cards
   resources :users
 
 
