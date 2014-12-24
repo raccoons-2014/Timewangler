@@ -1,3 +1,7 @@
 <p>
   This form will eventually show the stats for this user - username: <%= @user.username %>
+  This is the button for finding a game =
+  <%= form_tag({controller: "games", action: "join"}, method: "post") do %>
+    <%= submit_tag 'Find Game' %>
+  <% end %>
 </p>
