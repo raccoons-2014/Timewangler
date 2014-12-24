@@ -15,7 +15,15 @@ function checkMatch() {
         success: function(response) {
           console.log(response);
           if (response) {
-            window.location.replace(response.url);
+
+            $.ajax({
+              url: response.url,
+              method: "GET",
+              success: function(response) {
+                window['onbeforeunload'] = undefined;
+                $('body').html(response);
+              }
+            })
           } else {
             checkMatch();
           }
