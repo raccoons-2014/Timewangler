@@ -26,7 +26,14 @@ function checkMatch() {
         }
       });
 
-  }, 1000)
+  }, 500)
+}
+
+function cancelMatch() {
+  $.ajax({
+    url: "/games/" + getGameId(),
+    method: "DELETE"
+  })
 }
 
 $(document).ready(function() {
