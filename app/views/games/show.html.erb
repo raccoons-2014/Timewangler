@@ -1,7 +1,6 @@
-Hello
-<div id="game-frame">
-  <button id="player-1-button">Player 1</button>
-  <%=render partial: "games/player_1_hand" %>
-  <button id="player-2-button">Player 2</button>
-  <%=render partial: "games/player_2_hand" %>
+<div id="game">
+  <h1>Temporary Game Template:</h1>
+    <p>This is a game with the unique id of <%= @game.id %>.</p>
+    <p>Player One is <%= @game.player_one.username %></p>
+    <p>Player Two is <%= @game.player_two.username %></p>
 </div>
