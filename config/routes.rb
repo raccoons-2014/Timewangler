@@ -55,11 +55,16 @@ Rails.application.routes.draw do
   #   end
 
   root :to => "pages#home"
-  resources :games
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :games
+  post 'games/join', to: 'games#join', as: 'join_game'
+  get 'games/:game_id/matching', to: 'games#matching', as: 'match_game'
+  get 'games/:game_id/status', to: 'games#status', as: 'game_status'
+
 
   get "decks/player_one", to: "decks#deck1"
   get "decks/player_two", to: "decks#deck2"
