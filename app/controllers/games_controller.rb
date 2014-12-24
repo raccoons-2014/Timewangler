@@ -8,7 +8,6 @@ class GamesController < ApplicationController
   end
 
   def index
-    #..
   end
 
   def join
