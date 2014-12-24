@@ -5,9 +5,7 @@ RSpec.describe GamesController, :type => :controller do
     before(:each) { @game = create(:game) }
 
     it 'should decrease the count of existing games by one after calling the destroy action' do
-    expect{
-      Game.destroy(@game)
-    }.to change(Game, :count)
+    expect{ Game.destroy(@game) }.to change(Game, :count)
     end
 
     it 'should not include the game object in the database after it has been destroyed' do
