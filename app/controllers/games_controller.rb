@@ -1,7 +1,10 @@
 class GamesController < ApplicationController
   include GameHelper
   def new
+  end
 
+  def show
+    @game = Game.find(params[:id])
   end
 
   def index
