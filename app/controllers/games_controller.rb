@@ -1,13 +1,23 @@
 class GamesController < ApplicationController
   include GameHelper
+
   def new
   end
 
   def show
     @game = Game.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :layout => !request.xhr? }
+    end
   end
 
   def index
+  end
+
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
   end
 
   def join
@@ -37,5 +47,6 @@ class GamesController < ApplicationController
       end
     end
   end
+
 
 end
