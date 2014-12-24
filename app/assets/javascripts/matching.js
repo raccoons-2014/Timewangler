@@ -40,5 +40,6 @@ $(document).ready(function() {
   if ($('#match').length > 0) {
     console.log('matches loaded');
     checkMatch();
+    window.onbeforeunload = function() { cancelMatch(); }
   };
 })
