@@ -8,8 +8,35 @@ class GamesController < ApplicationController
   end
 
   def index
-    @user1 = User.find(session[:user1_id])
-    @user2 = User.find(session[:user2_id])
+    #..
+  end
+
+  def join
+    @user = User.find(session[:user_id])
+
+    if open_games?
+      @game = open_games.first
+      @game.update_attributes(player_two: @user)
+      redirect_to game_path(@game)
+    else
+      @game = Game.create(player_one: @user)
+      redirect_to "/games/#{@game.id}/matching"
+    end
+  end
+
+  def matching
+  end
+
+  def status
+    @game = Game.find(params[:game_id])
+
+    respond_to do |format|
+      if match_found?(@game)
+        format.js { render :json => { url: "/games/#{@game.id}" }.to_json }
+      else
+        format.js { render :json => nil.to_json }
+      end
+    end
   end
 
 end
