@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    protected_page!
     @user = current_user
   end
 
