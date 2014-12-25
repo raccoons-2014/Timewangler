@@ -11,4 +11,9 @@ module SessionHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def protected_page!
+    redirect_to root_path unless current_user
+  end
+
 end
