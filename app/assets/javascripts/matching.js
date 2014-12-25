@@ -44,9 +44,21 @@ function cancelMatch() {
   })
 }
 
+function matchTimeout(numSeconds) {
+  var counter = 0;
+
+  setInterval(function() {
+    counter ++;
+    if (counter > numSeconds) {
+      window.location.replace('/profile');
+    }
+  }, 1000)
+}
+
 $(document).ready(function() {
   if ($('#match').length > 0) {
     console.log('matches loaded');
+    matchTimeout(60);
     checkMatch();
     window.onbeforeunload = function() { cancelMatch(); }
   };
