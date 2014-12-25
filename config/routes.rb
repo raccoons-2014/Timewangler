@@ -71,6 +71,8 @@ Rails.application.routes.draw do
   resources :decks
 
   resources :cards
+
+  get '/profile', to: 'users#profile', as: 'profile'
   resources :users
 
 
