@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:user_password])
       login(user)
-      redirect_to user_path(user)
+      redirect_to profile_path
     else
       flash[:error] = "Invalid login"
       redirect_to login_path
