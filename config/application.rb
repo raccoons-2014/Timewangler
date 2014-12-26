@@ -15,6 +15,9 @@ Bundler.require(*Rails.groups)
 
 module Smackwangler
   class Application < Rails::Application
+    # Add autoload path for game logic inside the Rails directory
+    config.autoload_paths << "#{config.root}/app/game"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
