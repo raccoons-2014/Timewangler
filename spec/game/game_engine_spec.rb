@@ -48,6 +48,22 @@ describe 'Game Engine' do
     end
   end
 
+  describe "GameEngine::Cache" do
+    let(:game_data) { game_data = create(:game) }
+
+    let(:game) do
+      game_data.player_one.deck = create(:deck)
+      game_data.player_two.deck = create(:deck)
+
+      GameEngine::Game.new(game_data)
+    end
+
+    it 'should save game state to the cache and retrieve it from the cache' do
+      expect(GameEngine::Cache.save_game_state(game)).to_not be false
+      expect(GameEngine::Cache.fetch_game_state(game_data).class).to eq GameEngine::Game
+    end
+  end
+
   describe "GameEngine::Deck" do
     #..
   end
