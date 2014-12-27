@@ -10,8 +10,8 @@ module GameEngine
       @points = GAME_RULES[:starting_points]
     end
 
-    def select_card(index)
-
+    def play_cards(indexes)
+      indexes.each { |i| selection << hand.delete_at(i) }
     end
   end
 end
