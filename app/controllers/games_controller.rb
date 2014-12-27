@@ -6,8 +6,14 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+
     new_game_data = GameEngine::Game.new(@game)
     GameEngine::Cache.save_game_state(new_game_data)
+
+    @game_data = {id: @game.id, player_one_id: @game.player_one_id, player_two_id: @game.player_two_id}
+
+    @game_engine = GameEngine::Game.new(@game_data, 0)
+
 
     respond_to do |format|
       format.html { render 'show', :locals => { game_state: new_game_data }, :layout => !request.xhr? }
