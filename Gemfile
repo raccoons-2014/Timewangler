@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use dalli for caching game data server-side
+gem 'dalli'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
