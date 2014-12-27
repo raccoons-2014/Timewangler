@@ -66,7 +66,16 @@ describe 'Game Engine' do
     describe '#fetch_game_state' do
       it 'returns the correct object' do
         GameEngine::Cache.save_game_state(game)
-        expect(GameEngine::Cache.fetch_game_state(game_data).class).to eq GameEngine::Game
+        expect(GameEngine::Cache.fetch_game_state(game_data).id).to eq game.id
+      end
+    end
+
+    describe '#clear_game_state' do
+      it 'deletes the correct object from the cache' do
+        GameEngine::Cache.save_game_state(game)
+        expect(GameEngine::Cache.fetch_game_state(game_data)).to_not eq nil
+        GameEngine::Cache.clear_game_state(game_data)
+        expect(GameEngine::Cache.fetch_game_state(game_data)).to eq nil
       end
     end
   end
