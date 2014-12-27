@@ -1,7 +1,7 @@
 module GameEngine
   module Cache
     def self.save_game_state(game)
-      Rails.cache.write "#{game.id}#{game.player_one_id}#{game.player_two_id}", game
+      Rails.cache.write "#{game.id}#{game.player_one.id}#{game.player_two.id}", game
     end
 
     def self.fetch_game_state(game_data)
