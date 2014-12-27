@@ -43,7 +43,6 @@ gem 'dalli'
 
 group :development, :test do
   gem 'rspec-rails'
-  # gem 'byebug'
   gem 'jasmine-rails'
   gem 'faker'
   gem 'pry'
