@@ -58,9 +58,17 @@ describe 'Game Engine' do
       GameEngine::Game.new(game_data)
     end
 
-    it 'should save game state to the cache and retrieve it from the cache' do
-      expect(GameEngine::Cache.save_game_state(game)).to_not be false
-      expect(GameEngine::Cache.fetch_game_state(game_data).class).to eq GameEngine::Game
+    describe '#save_game_state' do
+      it 'does not return false after saving game data' do
+        expect(GameEngine::Cache.save_game_state(game)).to_not eq false
+      end
+    end
+
+    describe '#fetch_game_state' do
+      it 'returns the correct object' do
+        GameEngine::Cache.save_game_state(game)
+        expect(GameEngine::Cache.fetch_game_state(game_data).class).to eq GameEngine::Game
+      end
     end
   end
 
