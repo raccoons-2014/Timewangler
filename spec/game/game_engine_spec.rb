@@ -17,13 +17,13 @@ describe 'Game Engine' do
       end
 
       it 'should create a Game with decks that are instances of GameEngine::Deck' do
-        expect(@game.player_one_deck.class).to eq GameEngine::Deck
-        expect(@game.player_two_deck.class).to eq GameEngine::Deck
+        expect(@game.player_one.deck.class).to eq GameEngine::Deck
+        expect(@game.player_two.deck.class).to eq GameEngine::Deck
       end
 
       it 'should create a Game where players have maximum points at the start' do
-        expect(@game.player_one_points).to eq GameEngine::GAME_RULES[:starting_points]
-        expect(@game.player_two_points).to eq GameEngine::GAME_RULES[:starting_points]
+        expect(@game.player_one.points).to eq GameEngine::GAME_RULES[:starting_points]
+        expect(@game.player_two.points).to eq GameEngine::GAME_RULES[:starting_points]
       end
     end
 
@@ -31,20 +31,19 @@ describe 'Game Engine' do
       before(:each) {   @game.deal_cards }
 
       it 'should give both players a maximum hand size after the first draw' do
-        expect(@game.player_one_hand.size).to eq GameEngine::GAME_RULES[:hand_size]
-        expect(@game.player_two_hand.size).to eq GameEngine::GAME_RULES[:hand_size]
+        expect(@game.player_one.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
+        expect(@game.player_two.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
       end
 
       it "should reduce both player's decks by the hand size" do
-        expect(@game.player_one_deck.list.size).to eq @game_db_model.player_one.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
-        expect(@game.player_one_deck.list.size).to eq @game_db_model.player_two.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
+        expect(@game.player_one.deck.list.size).to eq @game_db_model.player_one.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
+        expect(@game.player_one.deck.list.size).to eq @game_db_model.player_two.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
       end
 
       it 'should have two hands of GameEngine::Card objects' do
-        expect(@game.player_one_hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
-        expect(@game.player_two_hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
+        expect(@game.player_one.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
+        expect(@game.player_two.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
       end
-
     end
   end
 
