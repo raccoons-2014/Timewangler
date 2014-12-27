@@ -15,7 +15,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # Added to enable Dalli caching
-  config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 1.day, :compress => true }
+  config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 20.minutes, :compress => true }
 
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application

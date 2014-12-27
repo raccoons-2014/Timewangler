@@ -21,7 +21,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # Added to enable Dalli caching
-  config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 1.day, :compress => true }
+  config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 20.minutes, :compress => true }
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false

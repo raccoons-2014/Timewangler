@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # Added to enable Dalli caching
-  config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 1.day, :compress => true }
+  config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 20.minutes, :compress => true }
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
