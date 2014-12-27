@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 describe 'Game Engine' do
-  before :each do
-    @game_db_model = create(:game)
-    @game_db_model.player_one.deck = create(:deck)
-    @game_db_model.player_two.deck = create(:deck)
-
-    @game = GameEngine::Game.new(@game_db_model)
-  end
-
-
   describe "GameEngine::Game" do
+
+    before :each do
+      @game_db_model = create(:game)
+      @game_db_model.player_one.deck = create(:deck)
+      @game_db_model.player_two.deck = create(:deck)
+
+      @game = GameEngine::Game.new(@game_db_model)
+    end
+
     describe '#new' do
       it 'should create a new Game instance without errors when passed an ActiveRecord model' do
         expect{ GameEngine::Game.new(@game_db_model) }.to_not raise_error
