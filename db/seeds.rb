@@ -11,6 +11,12 @@ end
 
 deck1 = Deck.create(user_id: 1)
 deck2 = Deck.create(user_id: 2)
+deck3 = Deck.create(user_id: 3)
+deck4 = Deck.create(user_id: 4)
+deck5 = Deck.create(user_id: 5)
+deck6 = Deck.create(user_id: 6)
+deck7 = Deck.create(user_id: 7)
+deck8 = Deck.create(user_id: 8)
 
 Card.where(:id => 1..15).each do |hero|
 	deck1.deck_card_relationships.create(card: hero)
