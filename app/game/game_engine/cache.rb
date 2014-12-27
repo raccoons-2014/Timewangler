@@ -7,5 +7,9 @@ module GameEngine
     def self.fetch_game_state(game_data)
       Rails.cache.read "#{game_data.id}#{game_data.player_one_id}#{game_data.player_two_id}"
     end
+
+    def self.clear_game_state(game_data)
+      Rails.cache.delete "#{game_data.id}#{game_data.player_one_id}#{game_data.player_two_id}"
+    end
   end
 end
