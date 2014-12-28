@@ -1,20 +1,23 @@
 module GameEngine
-  # GAME_RULES = { starting_points: 30, hand_size: 6 }
 
   class Parser
     attr_reader :id, :player_one_id, :player_one_points, :player_one_deck, :player_one_hand, :player_two_id, :player_two_points, :player_two_deck, :player_two_hand
 
-    def initialize(player_one_deck, player_one_hand, player_two_deck, player_two_hand, game_data)
+    def initialize(player_one_deck, player_one_hand, player_two_deck, player_two_hand, game_data, player_one, player_two, player_one_points, player_two_points)
 
       @id = game_data.id
 
+      @player_one = player_one
       @player_one_id = game_data.player_one_id
       @player_one_deck = player_one_deck
       @player_one_hand = player_one_hand
+      @player_one_points = player_one_points
 
+      @player_two = player_two
       @player_two_id = game_data.player_two_id
       @player_two_deck = player_two_deck
       @player_two_hand = player_two_hand
+      @player_two_points = player_two_points
     end
 
     def deck_cards_to_string(deck)
@@ -58,11 +61,11 @@ module GameEngine
     end
 
     def p1_selected_card
-      @player_one_hand.pop
+      @player_one.hand.pop
     end
 
     def p2_selected_card
-      @player_two_hand.pop
+      @player_two.hand.pop
     end
 
     def find_last_round
