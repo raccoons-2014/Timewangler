@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   post 'games/join', to: 'games#join', as: 'join_game'
   get 'games/:game_id/matching', to: 'games#matching', as: 'match_game'
   get 'games/:game_id/status', to: 'games#status', as: 'game_status'
+  get 'games/:game_id/poll', to: 'games#poll', as: 'game_poll'
   resources :games
 
 
