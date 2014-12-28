@@ -8,11 +8,7 @@
 
     <p>New Game State: <%= game_state.player_one %></p>
 
-    <p><%= @game_data %></p>
-
-    <br>
-
-    <p>Player one ID: <%= @game_engine.player_one_id %></p>
+    <p>Player one ID: <%= @game_engine.player_one.id %></p>
     <br>
 
     <h1>player one deck:</h1>
@@ -21,7 +17,7 @@
     <% end %>
     <br>
 
-    <p>Player Two ID:<%= @game_engine.player_two_id %></p>
+    <p>Player Two ID:<%= @game_engine.player_two.id %></p>
     <br>
 
     <h1>player Two deck:</h1>
@@ -43,11 +39,6 @@
       <li><%= card.name %>,<%= card.id %></li>
     <% end %>
     <br>
-
-
-
-
-
 
 
 
