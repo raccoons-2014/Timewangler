@@ -22,12 +22,6 @@ class GamesController < ApplicationController
     end
   end
 
-  def move
-    @game = Game.find(params[:game_id])
-    @user = session[:user_id]
-
-  end
-
   def index
   end
 
