@@ -1,6 +1,6 @@
 module GameEngine
   class Parser
-    attr_reader :id, :player_one_points, :player_two_points
+    attr_reader :id, :player_one_points, :player_two_points, :player_one, :player_two
 
     def initialize(game_data, player_one, player_two, player_one_points, player_two_points)
 
@@ -11,44 +11,20 @@ module GameEngine
       @player_two_points = player_two_points
     end
 
-    def deck_cards_to_string(deck)
+    def deck_cards_to_string(player)
       card_array = []
-      deck.list.each do |card|
+      player.deck.list.each do |card|
         card_array << card.id
       end
       card_string = card_array.join(",")
     end
 
-    def p1_deck_cards_to_string
-      p1_card_array = []
-      @player_one.deck.list.each do |card|
-        p1_card_array << card.id
+    def hand_cards_to_string(player)
+      card_array = []
+      player.hand.each do |card|
+        card_array << card.id
       end
-      p1_card_string = p1_card_array.join(",")
-    end
-
-    def p2_deck_cards_to_string
-      p2_card_array = []
-      @player_two.deck.list.each do |card|
-        p2_card_array << card.id
-      end
-      p2_card_string = p2_card_array.join(",")
-    end
-
-    def p1_hand_cards_to_string
-      p1_card_array = []
-      @player_one.hand.each do |card|
-        p1_card_array << card.id
-      end
-      p1_card_string = p1_card_array.join(",")
-    end
-
-    def p2_hand_cards_to_string
-      p2_card_array = []
-      @player_two.hand.each do |card|
-        p2_card_array << card.id
-      end
-      p2_card_string = p2_card_array.join(",")
+      card_string = card_array.join(",")
     end
 
     def p1_selected_card
@@ -75,11 +51,11 @@ module GameEngine
     def save_round
       ::Round.create(round_number: find_last_round,
        player_one_points: player_one_points,
-       player_one_hand: p1_hand_cards_to_string,
-        player_one_deck: p1_deck_cards_to_string,
+       player_one_hand: hand_cards_to_string(player_one),
+        player_one_deck: deck_cards_to_string(player_one),
         player_two_points: player_two_points,
-        player_two_hand: p2_hand_cards_to_string,
-        player_two_deck: p2_deck_cards_to_string,
+        player_two_hand: hand_cards_to_string(player_two),
+        player_two_deck: deck_cards_to_string(player_two),
         game_id: @id,
         player_one_choice: p1_selected_card.id,
         player_two_choice: p2_selected_card.id)
