@@ -17,11 +17,15 @@ class GamesController < ApplicationController
   def poll
     @game = Game.find(params[:game_id])
 
-    game_state = GameEngine::Cache.fetch_game_state(@game)
-
     respond_to do |format|
-      format.js { render :json => game_state.to_json }
+      format.js { render :json => GameEngine::Cache.output_player_data(@game, session[:user_id]).to_json }
     end
+  end
+
+  def move
+    @game = Game.find(params[:game_id])
+    @user = session[:user_id]
+
   end
 
   def index
