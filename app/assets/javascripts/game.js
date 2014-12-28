@@ -21,21 +21,12 @@ function drawGame(gameObject) {
   $("#game-container").html(JSON.stringify(gameObject));
 }
 
-Game.prototype.resolveRound = function() {
-  var playerOneMove = this.round.playerOneCard;
-  var playerTwoMove = this.round.playerTwoCard;
-
-  if ( playerOneMove && playerTwoMove ) {
-    var self = this;
-    
-    if (this.sumStats(playerOneMove) === this.sumStats(playerTwoMove) ) {
-    } else if ( this.sumStats(playerOneMove) > this.sumStats(playerTwoMove) ) {
-      this.playerTwo.health -= this.sumStats(playerOneMove)
-    } else {
-      this.playerOne.health -= this.sumStats(playerTwoMove)
-    }
-  }
-}
+$(document).ready(function() {
+  if ($('#game-container').length > 0) {
+    console.log('game loaded');
+    pollServer();
+  };
+})
 
 // console.log("game loaded");
 //

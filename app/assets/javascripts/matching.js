@@ -22,6 +22,8 @@ function checkMatch() {
               success: function(response) {
                 window['onbeforeunload'] = undefined;
                 $('body').html(response);
+                // Poll the server, located in game.js
+                pollServer();
               }
             })
           } else {
