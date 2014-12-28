@@ -1,6 +1,7 @@
 module GameEngine
   class Player
-    attr_reader :id, :deck, :hand, :selection, :points
+    attr_reader :id, :deck, :hand, :selection
+    attr_accessor :points
 
     def initialize(player_data)
       @id = player_data.id
