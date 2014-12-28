@@ -1,22 +1,13 @@
 module GameEngine
-
   class Parser
-    attr_reader :id, :player_one_id, :player_one_points, :player_one_deck, :player_one_hand, :player_two_id, :player_two_points, :player_two_deck, :player_two_hand
+    attr_reader :id, :player_one_points, :player_two_points
 
-    def initialize(player_one_deck, player_one_hand, player_two_deck, player_two_hand, game_data, player_one, player_two, player_one_points, player_two_points)
+    def initialize(game_data, player_one, player_two, player_one_points, player_two_points)
 
       @id = game_data.id
-
       @player_one = player_one
-      @player_one_id = game_data.player_one_id
-      @player_one_deck = player_one_deck
-      @player_one_hand = player_one_hand
       @player_one_points = player_one_points
-
       @player_two = player_two
-      @player_two_id = game_data.player_two_id
-      @player_two_deck = player_two_deck
-      @player_two_hand = player_two_hand
       @player_two_points = player_two_points
     end
 
@@ -30,7 +21,7 @@ module GameEngine
 
     def p1_deck_cards_to_string
       p1_card_array = []
-      @player_one_deck.list.each do |card|
+      @player_one.deck.list.each do |card|
         p1_card_array << card.id
       end
       p1_card_string = p1_card_array.join(",")
@@ -38,7 +29,7 @@ module GameEngine
 
     def p2_deck_cards_to_string
       p2_card_array = []
-      @player_two_deck.list.each do |card|
+      @player_two.deck.list.each do |card|
         p2_card_array << card.id
       end
       p2_card_string = p2_card_array.join(",")
@@ -46,7 +37,7 @@ module GameEngine
 
     def p1_hand_cards_to_string
       p1_card_array = []
-      @player_one_hand.each do |card|
+      @player_one.hand.each do |card|
         p1_card_array << card.id
       end
       p1_card_string = p1_card_array.join(",")
@@ -54,7 +45,7 @@ module GameEngine
 
     def p2_hand_cards_to_string
       p2_card_array = []
-      @player_two_hand.each do |card|
+      @player_two.hand.each do |card|
         p2_card_array << card.id
       end
       p2_card_string = p2_card_array.join(",")

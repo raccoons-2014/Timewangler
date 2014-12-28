@@ -12,7 +12,7 @@
     <br>
 
     <h1>player one deck:</h1>
-    <% @game_engine.player_one_deck.list.each do |card| %>
+    <% @game_engine.player_one.deck.list.each do |card| %>
       <li><%= card.name %>, <%= card.id %></li>
     <% end %>
     <br>
@@ -21,7 +21,7 @@
     <br>
 
     <h1>player Two deck:</h1>
-    <% @game_engine.player_two_deck.list.each do |card| %>
+    <% @game_engine.player_two.deck.list.each do |card| %>
       <li><%= card.name %>, <%= card.id %></li>
     <% end %>
     <br>
@@ -29,13 +29,13 @@
 
 
     <h1>Player one hand: </h1>
-    <% @game_engine.player_one_hand.each do |card| %>
+    <% @game_engine.player_one.hand.each do |card| %>
       <li><%= card.name %>,<%= card.id %></li>
     <% end %>
     <br>
 
     <h1>Player two hand: </h1>
-    <% @game_engine.player_two_hand.each do |card| %>
+    <% @game_engine.player_two.hand.each do |card| %>
       <li><%= card.name %>,<%= card.id %></li>
     <% end %>
     <br>

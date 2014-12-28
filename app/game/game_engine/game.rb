@@ -2,7 +2,7 @@ module GameEngine
   GAME_RULES = { starting_points: 30, hand_size: 6 }
 
   class Game
-    attr_reader :id, :player_one_points, :player_one_deck, :player_one_hand, :player_two_points, :player_two_deck, :player_two_hand, :player_one, :player_two
+    attr_reader :id, :player_one_points, :player_two_points, :player_one, :player_two
 
     def initialize(game_data)
       @game_data = game_data
@@ -33,7 +33,7 @@ module GameEngine
 
 
     def play_round
-      parser = Parser.new(@player_one_deck, @player_one_hand, @player_two_deck, @player_two_hand, @game_data, player_one, player_two, player_one_points, player_two_points)
+      parser = Parser.new(@game_data, player_one, player_two, player_one_points, player_two_points)
       parser.save_round
     end
 
