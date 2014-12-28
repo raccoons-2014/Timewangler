@@ -1,4 +1,19 @@
-console.log("game loaded");
+function pollServer() {
+  setTimeout(function() {
+    $.ajax({
+      url: "/games/" + getGameId() + "/poll",
+      dataType: "JSON",
+      success: function(response) {
+        console.log(response);
+        drawGame(response);
+        pollServer();
+      },
+      error: function(response) {
+        console.log("Error while polling server")
+        console.log(response);
+      }
+    });
+  }, 1000)
 
 }
 
