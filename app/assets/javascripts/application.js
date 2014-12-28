@@ -13,7 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require player
-//= require game
-//= require controller
 //= require_tree .
