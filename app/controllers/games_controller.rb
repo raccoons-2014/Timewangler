@@ -10,9 +10,10 @@ class GamesController < ApplicationController
     new_game_data = GameEngine::Game.new(@game)
     GameEngine::Cache.save_game_state(new_game_data)
 
-    @game_engine = new_game_data
-    @game_engine.deal_cards
-    @game_engine.play_round
+    # uncomment these if you want to see how the parse works:
+    # @game_engine = new_game_data
+    # @game_engine.deal_cards
+    # @game_engine.play_round
 
     respond_to do |format|
       format.html { render 'show', :locals => { game_state: new_game_data }, :layout => !request.xhr? }
