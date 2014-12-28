@@ -2,12 +2,16 @@ module GameEngine
   GAME_RULES = { starting_points: 30, hand_size: 6, setup_time: 10, move_time: 30, resolution_time: 5 }
 
   class Game
-    attr_reader :id, :player_one, :player_two
+    attr_reader :id, :player_one, :player_two, :round
+    attr_accessor :phase, :time
 
     def initialize(game_data)
       @id = game_data.id
       @player_one = GameEngine::Player.new(game_data.player_one)
       @player_two = GameEngine::Player.new(game_data.player_two)
+      @round = 0
+      @phase = :setup
+      @time = Time.now
     end
 
     def deal_cards
