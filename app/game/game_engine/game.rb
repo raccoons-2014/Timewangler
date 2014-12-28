@@ -24,6 +24,25 @@ module GameEngine
       end
     end
 
+    def next_round
+      @round += 1
+      time = Time.now
+      phase = :move
+    end
 
+    def resolve_round
+      played_cards = [player_one.selection.first, player_two.selection.first]
+      damage = (played_cards[0].max_stat - played_cards[1].max_stat).abs
+
+      return nil if damage == 0
+
+      if played_cards[0].max_stat > played_cards[1].max_stat
+        player_two.points -= damage
+        player_one.points += damage
+      else
+        player_one.points -= damage
+        player_two.points += damage
+      end
+    end
   end
 end
