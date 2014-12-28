@@ -6,9 +6,19 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    new_game_data = GameEngine::Game.new(@game)
+    GameEngine::Cache.save_game_state(new_game_data)
 
     respond_to do |format|
-      format.html { render :layout => !request.xhr? }
+      format.html { render 'show', :locals => { game_state: new_game_data }, :layout => !request.xhr? }
+    end
+  end
+
+  def poll
+    @game = Game.find(params[:game_id])
+
+    respond_to do |format|
+      format.js { render :json => GameEngine::Cache.output_player_data(@game, session[:user_id]).to_json }
     end
   end
 

@@ -1,50 +1,29 @@
-console.log("game loaded");
+function pollServer() {
+  setTimeout(function() {
+    $.ajax({
+      url: "/games/" + getGameId() + "/poll",
+      dataType: "JSON",
+      success: function(response) {
+        console.log(response);
+        drawGame(response);
+        pollServer();
+      },
+      error: function(response) {
+        console.log("Error while polling server")
+        console.log(response);
+      }
+    });
+  }, 1000)
 
-function Game(playerOne, playerTwo) {
-  this.playerOne = playerOne;
-  this.playerTwo = playerTwo;
-  this.round = { playerOneCard: null, playerTwoCard: null }
+}
 
-};
+function drawGame(gameObject) {
+  $("#game-container").html(JSON.stringify(gameObject));
+}
 
-Game.prototype.isWon = function() {
-  if (this.playerOne.health <= 0 || this.playerTwo.health <= 0) {
-    if (this.playerOne.health <= 0) {
-      this.winner = this.playerTwo;
-      return true;
-    } else if (this.playerTwo.health <= 0) {
-      this.winner = this.playerOne;
-      return true;
-    }
-  } else {
-    return false;
+$(document).ready(function() {
+  if ($('#game-container').length > 0) {
+    console.log('game loaded');
+    pollServer();
   };
-}
-
-Game.prototype.playerCardsEmpty = function() {
-  if (this.playerOne.deck.length === 0) {
-    this.winner = this.playerTwo;
-  } else if (this.playerTwo.deck.length === 0) {
-    this.winner = this.playerOne;
-  }
-}
-
-Game.prototype.resolveRound = function() {
-  var playerOneMove = this.round.playerOneCard;
-  var playerTwoMove = this.round.playerTwoCard;
-
-  if ( playerOneMove && playerTwoMove ) {
-    var self = this;
-    
-    if (this.sumStats(playerOneMove) === this.sumStats(playerTwoMove) ) {
-    } else if ( this.sumStats(playerOneMove) > this.sumStats(playerTwoMove) ) {
-      this.playerTwo.health -= this.sumStats(playerOneMove)
-    } else {
-      this.playerOne.health -= this.sumStats(playerTwoMove)
-    }
-  }
-}
-
-Game.prototype.sumStats = function(card) {
-  return card.charisma + card.intelligence + card.strength;
-}
+})

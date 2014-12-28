@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Card, :type => :model do
     it "has a valid factory" do
       card = create(:card)
-      p card.time_period
       expect(card).to be_valid
     end
 

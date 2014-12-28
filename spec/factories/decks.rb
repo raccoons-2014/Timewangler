@@ -1,7 +1,11 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
+
   factory :deck do
-    user nil
+
+    before(:create) do |deck|
+      60.times { deck.cards << build_stubbed(:card) }
+    end
+
+    user { build_stubbed :user }
   end
 end
