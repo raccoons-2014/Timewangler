@@ -12,21 +12,21 @@ class GamesController < ApplicationController
     new_game_data = GameEngine::Game.new(@game)
     GameEngine::Cache.save_game_state(new_game_data)
 
-    @game_data = {id: @game.id, player_one_id: @game.player_one_id, player_two_id: @game.player_two_id}
-
-    @game_data = @game
-
 
 
     #So I added code in GameEngine::Game and in the new model GameEngine::Parser. I chose here as the place to call that code for my testing purposed but you might want to have it somewhere else, this was just so I could see things easily. I also added a lot of code to show.html so that I could see the outputs of things easily.
 
-    @game_engine = GameEngine::Game.new(@game)
+    @game_engine = new_game_data
     @game_engine.deal_cards
     @game_engine.play_round
 
 
     respond_to do |format|
       format.html { render 'show', :locals => { game_state: new_game_data }, :layout => !request.xhr? }
+
+      # format.html { render :layout => !request.xhr? }
+
+
     end
   end
 
