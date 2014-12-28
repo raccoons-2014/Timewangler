@@ -5,8 +5,78 @@
     <p>Player Two is <%= @game.player_two.username %></p>
 
 
+
     <p>New Game State: <%= game_state.player_one %></p>
 
     <p><%= @game_data %></p>
+
+    <br>
+
+    <p>Player one ID: <%= @game_engine.player_one_id %></p>
+    <br>
+
+    <h1>player one cards:</h1>
+    <% @game_engine.player_one_deck.list.each do |card| %>
+      <li><%= card.name %>, <%= card.id %></li>
+    <% end %>
+    <br>
+
+    <p>Player Two ID:<%= @game_engine.player_two_id %></p>
+    <br>
+
+    <h1>player Two cards:</h1>
+    <% @game_engine.player_two_deck.list.each do |card| %>
+      <li><%= card.name %>, <%= card.id %></li>
+    <% end %>
+    <br>
+
+    <h1>Player one deck string</h1>
+    <p><%= @game_engine.p1_deck_cards_to_string %></p>
+    <br>
+
+    <h1>Player two deck string</h1>
+    <p><%= @game_engine.p2_deck_cards_to_string %></p>
+    <br>
+
+    <h1>Player one hand: </h1>
+    <% @game_engine.player_one_hand.each do |card| %>
+      <li><%= card.name %>,<%= card.id %></li>
+    <% end %>
+    <br>
+
+    <h1>Player two hand: </h1>
+    <% @game_engine.player_two_hand.each do |card| %>
+      <li><%= card.name %>,<%= card.id %></li>
+    <% end %>
+    <br>
+
+    <h1>Player one hand string</h1>
+    <p><%= @game_engine.p1_hand_cards_to_string %></p>
+    <br>
+
+    <h1>Player two hand string</h1>
+    <p><%= @game_engine.p2_hand_cards_to_string %></p>
+    <br>
+
+    <h1>Player one select card to play</h1>
+    <p><%= @game_engine.p1_select_card_to_play.name %></p>
+    <br>
+
+    <h1>Player two select card to play</h1>
+    <p><%= @game_engine.p2_select_card_to_play.name %></p>
+    <br>
+
+    <h1>Player one hand string</h1>
+    <p><%= @game_engine.p1_hand_cards_to_string %></p>
+    <br>
+
+    <h1>Player two hand string</h1>
+    <p><%= @game_engine.p2_hand_cards_to_string %></p>
+    <br>
+
+
+
+
+
 
 </div>
