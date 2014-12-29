@@ -44,5 +44,10 @@ module GameEngine
         player_two.points += damage
       end
     end
+
+    def phase=(new_phase)
+      @phase = new_phase
+      time = Time.now
+    end
   end
 end
