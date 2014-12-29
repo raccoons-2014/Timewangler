@@ -6,7 +6,7 @@ module GameEngine
 
       case game_state.phase
       when :setup
-        if current_time - game_state.time > GameEngine::GAME_RULES[:setup_time]
+        if current_time - game_state.time >= GameEngine::GAME_RULES[:setup_time]
           game_state.phase = :move
           GameEngine::Cache.save_game_state(game_state)
           GameEngine::IO.output_player_data(game_state, player_id)
@@ -16,7 +16,7 @@ module GameEngine
       when :move
         game_state.deal_cards
 
-        if current_time - game_state.time > GameEngine::GAME_RULES[:move_time]
+        if current_time - game_state.time >= GameEngine::GAME_RULES[:move_time]
           game_state.phase = :resolution
           GameEngine::Cache.save_game_state(game_state)
           GameEngine::IO.output_player_data(game_state, player_id)
@@ -26,9 +26,9 @@ module GameEngine
         end
       when :resolution
         # Kinda broken, one client stuck in resolution phase forever while second never hits
-        if current_time - game_state.time > GameEngine::GAME_RULES[:resolution_time]
-          game_state.round += 1
+        if current_time - game_state.time >= GameEngine::GAME_RULES[:resolution_time]
           game_state.phase = :move
+          game_state.round += 1
           GameEngine::Cache.save_game_state(game_state)
           GameEngine::IO.output_player_data(game_state, player_id)
         else
