@@ -39,4 +39,5 @@ module Smackwangler
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   end
+  config.serve_static_assets = true #added per https://devcenter.heroku.com/articles/rails-4-asset-pipeline. trying to get asset files to not encounter 404 on heroku.
 end
