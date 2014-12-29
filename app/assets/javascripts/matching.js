@@ -49,12 +49,12 @@ function cancelMatch() {
 function matchTimeout(numSeconds) {
   var counter = 0;
 
-  setInterval(function() {
-    counter ++;
-    if (counter > numSeconds) {
-      window.location.replace('/profile');
-    }
-  }, 1000)
+  matchTimer = setInterval(function() {
+                 counter ++;
+                 if (counter > numSeconds) {
+                   window.location.replace('/profile');
+                 }
+               }, 1000)
 }
 
 $(document).ready(function() {
