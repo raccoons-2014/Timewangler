@@ -4,5 +4,43 @@
     <p>Player One is <%= @game.player_one.username %></p>
     <p>Player Two is <%= @game.player_two.username %></p>
 
+
+
     <p>New Game State: <%= game_state.player_one %></p>
+
+    <p>Player one ID: <%= @game_engine.player_one.id %></p>
+    <br>
+
+    <h1>player one deck:</h1>
+    <% @game_engine.player_one.deck.list.each do |card| %>
+      <li><%= card.name %>, <%= card.id %></li>
+    <% end %>
+    <br>
+
+    <p>Player Two ID:<%= @game_engine.player_two.id %></p>
+    <br>
+
+    <h1>player Two deck:</h1>
+    <% @game_engine.player_two.deck.list.each do |card| %>
+      <li><%= card.name %>, <%= card.id %></li>
+    <% end %>
+    <br>
+
+
+
+    <h1>Player one hand: </h1>
+    <% @game_engine.player_one.hand.each do |card| %>
+      <li><%= card.name %>,<%= card.id %></li>
+    <% end %>
+    <br>
+
+    <h1>Player two hand: </h1>
+    <% @game_engine.player_two.hand.each do |card| %>
+      <li><%= card.name %>,<%= card.id %></li>
+    <% end %>
+    <br>
+
+
+
+
 </div>
