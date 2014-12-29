@@ -21,6 +21,7 @@ function checkMatch() {
               method: "GET",
               success: function(response) {
                 window['onbeforeunload'] = undefined;
+                clearInterval(matchTimer);
                 $('body').html(response);
                 // Poll the server, located in game.js
                 pollServer();
