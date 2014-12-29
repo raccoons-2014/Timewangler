@@ -25,7 +25,7 @@ module GameEngine
           GameEngine::IO.output_player_data(game_state, player_id)
         end
       when :resolution
-        # Kinda broken, one client stuck in resolution phase forever while second never hits
+        # Kinda broken, one client stuck in resolution phase forever while second never hits, or more likely they're flipping the phases back and forth between move and resolution.
         if current_time - game_state.time >= GameEngine::GAME_RULES[:resolution_time]
           game_state.phase = :move
           game_state.round += 1
