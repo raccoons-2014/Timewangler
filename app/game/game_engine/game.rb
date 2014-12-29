@@ -26,7 +26,6 @@ module GameEngine
 
     def next_round
       @round += 1
-      time = Time.now
       phase = :move
     end
 
