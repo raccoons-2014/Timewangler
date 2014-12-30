@@ -8,4 +8,16 @@ FactoryGirl.define do
     charisma { rand(1..10) }
     time_period { Faker::Lorem.word }
   end
+
+  factory :weak_card, parent: :card do
+    strength 1
+    intelligence 1
+    charisma 1
+  end
+
+  factory :strong_card, parent: :card do
+    strength 20
+    intelligence 15
+    charisma 16
+  end
 end
