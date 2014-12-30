@@ -1,14 +1,14 @@
 module GameEngine
   class Player
-    attr_reader :id, :deck, :hand, :selection
-    attr_accessor :points
+    attr_reader :id, :deck, :hand
+    attr_accessor :points, :selection
 
     def initialize(player_data)
       @id = player_data.id
       @deck = GameEngine::Deck.new(player_data.deck)
       @hand = []
       @selection = []
-      @points = GAME_RULES[:starting_points]
+      @points = GameEngine::GAME_RULES[:starting_points]
     end
 
     def play_cards(indexes)
