@@ -20,5 +20,13 @@ describe 'GameEngine::GameRunner' do
       expect(@game.player_two.points).to eq GameEngine::GAME_RULES[:starting_points] - damage
       expect(@game.player_one.points).to eq GameEngine::GAME_RULES[:starting_points] + damage
     end
+
+    it 'should not deduct any points when both players chose to play no cards' do
+      @game.player_one.selection << nil
+      @game.player_two.selection << nil
+      GameEngine::GameRunner.resolve_round(@game)
+      expect(@game.player_two.points).to eq GameEngine::GAME_RULES[:starting_points]
+      expect(@game.player_one.points).to eq GameEngine::GAME_RULES[:starting_points]
+    end
   end
 end
