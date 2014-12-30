@@ -1,10 +1,11 @@
-<h1>Profile Page</h1>
-<p>
-  This is a personal user page for <%= @user.username %>
-</p>
-<h1>Join Game</h1>
+<h1><%= @user.username %></h1>
+
+
+<h2>Join Game</h2>
 <p>
   <%= form_tag({controller: "games", action: "join"}, method: "post") do %>
     <%= submit_tag 'Find Game' %>
   <% end %>
 </p>
+<h2>Your Stats</h2>
+

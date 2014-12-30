@@ -8,8 +8,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div class = "container">
+    <!-- Note to self, take logic out of this view and put in session controller, also, package up everything inside the Center tags and use as a partial instead. -->
+    <center>
+    <a href="<%= home_path %>"><h1>SMACKWANGLER</h1></a>
+    <nav>
+      <% if current_user %>
+      <ol>
+        <button><li><a href="<%= profile_path %>">Profile</li></a></button>
+        <button><li><a href="<%= join_game_path %>">Play</li></a></button>
+        <button><li>Get Cards</li></button>
+        <button><li>Users</li></button>
+        <button><li><a href="<%= logout_path %>">Logout</a></li></button>
+      </ol>
+      <% else %>
+      <ol>
+        <button><li><a href="<%= new_user_path %>">Register</li></button>
+        <button><li><a href="<%= login_path %>">Login</a></li></button>
+      </ol>
+      <% end %>
+    </nav>
+  </center>
+<center>
 <%= yield %>
-
+</center>
+</div>
 </body>
 </html>
