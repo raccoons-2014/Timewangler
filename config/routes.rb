@@ -78,5 +78,6 @@ Rails.application.routes.draw do
   resources :users
 
   get 'pages/home', to: 'pages#home', as: 'home'
+  get 'pages/about', to: 'pages#about', as:'about'
 
 end

@@ -277,7 +277,8 @@ nav li{
 
 }
 
-nav button li{
+nav button li a{
+  color:black;
   min-height: 40px;
   font-size: 15px;
 }
@@ -286,4 +287,8 @@ nav {
   margin-top: 30px;
   margin-bottom: 30px;
 
+}
+
+.login {
+  display:inline;
 }
