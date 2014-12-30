@@ -44,16 +44,4 @@ describe "GameEngine::Game" do
       expect(@game.player_two.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
     end
   end
-
-  describe '#resolve_round' do
-    before(:each) do
-      @game.deal_cards
-      @game.player_one.play_cards([0])
-      @game.player_two.play_cards([0])
-    end
-
-    xit 'should deduct the correct number of points from the losing player' do
-      #..
-    end
-  end
 end
