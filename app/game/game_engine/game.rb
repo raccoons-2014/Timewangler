@@ -21,5 +21,11 @@ module GameEngine
         player_two.hand << player_two.deck.list.pop
       end
     end
+
+    def target_player(player_id)
+      return player_one if player_one.id.to_i == player_id.to_i
+      return player_two if player_two.id.to_i == player_id.to_i
+      raise ArgumentError.new("No player found with id = #{player_id}")
+    end
   end
 end
