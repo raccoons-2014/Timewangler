@@ -296,29 +296,45 @@ nav {
 }
 
 .card {
-  border: 2px solid gray;
+  border-radius: 10px;
   position: relative;
   height: 400px;
   width: 300px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   padding: 10px;
-  background: -webkit-linear-gradient(left,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Safari 5.1-6*/
-  background: -o-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Fx 3.6-15*/
-  background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(100,100,0,0.5)); /*Standard*/
+  /*background-image: url("brushed-metal.jpg");*/
 }
 
 .card_pic {
   height: 200px;
-  width: 250px;
+  width: 220px;
   /*border: 2px solid red;*/
   display: block;
   padding: 20px;
+  opacity: 1;
 }
+.card::after {
+  content: "";
+  border-radius: 10px;
+  background-image: url("chrome.jpg");
+  background-size: 200%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  padding: 10px;
+  height: 400px;
+  width: 300px;
+}
+
+
+
+
 
 .card img {
   position: relative;
-  border: 2px solid white;
   min-height: 200px;
   width: auto;
   left: 50%;
