@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => "pages#home"
+  root :to => "pages#splash"
 
 
   get '/login', to: 'sessions#new', as: 'login'
@@ -77,5 +77,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile', as: 'profile'
   resources :users
 
+  get 'pages/home', to: 'pages#home', as: 'home'
+  get 'pages/about', to: 'pages#about', as:'about'
 
 end
