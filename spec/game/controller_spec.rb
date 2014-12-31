@@ -14,16 +14,30 @@ describe 'GameEngine::Controller' do
 
     end
 
-    it 'should be in a setup phase if not enough time has passed to proceed to the first move phase' do
+    it 'should be in setup phase if it is not time for move phase' do
       @game_setup.time = Time.now
       GameEngine::Cache.save_game_state(@game_setup)
       expect(GameEngine::Controller.advance_game(@game_db_model, @game_setup.player_one.id)[:phase]).to eq :setup
     end
 
-    it 'should proceed to move phase if the current time is past the alloted setup time' do
+    it 'should proceed to move phase if time is over the alloted setup time' do
       @game_setup.time = Time.now - GameEngine::GAME_RULES[:setup_time]
       GameEngine::Cache.save_game_state(@game_setup)
       expect(GameEngine::Controller.advance_game(@game_db_model, @game_setup.player_one.id)[:phase]).to eq :move
+    end
+
+    it 'should be in move phase if it is not time for resolution phase' do
+      @game_move.time = Time.now
+      GameEngine::Cache.save_game_state(@game_move)
+      expect(GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)[:phase]).to eq :move
+    end
+
+    it "should set player one's choice to nil if no choice is made and their request is recieved past alloted move time" do
+      @game_move.time = Time.now - GameEngine::GAME_RULES[:move_time]
+      GameEngine::Cache.save_game_state(@game_move)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_one.selection).to eq [nil]
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_two.selection).to eq []
     end
   end
 end
