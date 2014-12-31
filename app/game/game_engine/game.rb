@@ -1,7 +1,7 @@
 module GameEngine
   class Game
-    attr_reader :id, :player_one, :player_two, :phase
-    attr_accessor :round, :time
+    attr_reader :id, :player_one, :player_two
+    attr_accessor :round, :time, :phase
 
     def initialize(game_data)
       @id = game_data.id
