@@ -331,7 +331,10 @@ nav {
 
 
 
-
+h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
 
 .card img {
   position: relative;
