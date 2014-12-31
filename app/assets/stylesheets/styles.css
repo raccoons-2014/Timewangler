@@ -213,7 +213,12 @@ body {
   right: 0%;
   min-height: 100%;
   display: block;
-  padding-top: 10px;
+  /*border: 2px solid red;*/
+}
+
+
+body {
+
   background-image: url("space2.gif");
   background-repeat: no-repeat;
   background-size: 120%;
@@ -230,10 +235,7 @@ body {
   display: block;
   /*border: 2px solid green;*/
   padding-top: 10%;
-  background: -webkit-linear-gradient(left,rgba(3,0,0,0),rgba(255,0,0,0.5)); /*Safari 5.1-6*/
-  background: -o-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Fx 3.6-15*/
-  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(50,50,50,1)); /*Standard*/
+
 }
 
 #home button {
@@ -293,27 +295,41 @@ nav {
   display:inline;
 }
 
-#card {
+.card {
   border: 2px solid gray;
   position: relative;
   height: 400px;
   width: 300px;
   overflow: hidden;
+  padding: 10px;
+  background: -webkit-linear-gradient(left,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Fx 3.6-15*/
+  background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(100,100,0,0.5)); /*Standard*/
 }
 
-#card img {
-  position: absolute;
+.card_pic {
+  height: 200px;
+  width: 250px;
+  /*border: 2px solid red;*/
+  display: block;
+  padding: 20px;
+}
+
+.card img {
+  position: relative;
   border: 2px solid white;
+  min-height: 200px;
+  width: auto;
   left: 50%;
   top: 50%;
-  height: 100%;
   width: auto;
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
 }
 
-#card img.portrait {
+.card img.portrait {
    width: 100%;
   height: auto;
 }
