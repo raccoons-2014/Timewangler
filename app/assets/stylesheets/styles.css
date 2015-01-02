@@ -308,7 +308,7 @@ nav {
 .card_pic {
   height: 200px;
   width: 220px;
-  /*border: 2px solid red;*/
+  border: 2px solid red;
   display: block;
   padding: 20px;
   opacity: 1;
@@ -338,17 +338,20 @@ h2 {
 
 .card img {
   position: relative;
-  min-height: 200px;
+  max-height: 200px;
+  max-width: 200px
+  float: center;
   width: auto;
-  left: 50%;
-  top: 50%;
+/*  right: 50%;
+  left: 50%;*/
+  top: 10%;
   width: auto;
-  -webkit-transform: translate(-50%,-50%);
+/*  -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);*/
 }
 
 .card img.portrait {
-   width: 100%;
+  width: auto;
   height: auto;
 }
