@@ -39,5 +39,22 @@ describe 'GameEngine::Controller' do
       expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_one.selection).to eq [nil]
       expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_two.selection).to eq []
     end
+
+    it 'should set both choices to nil if it is time to proceed to resolution phase' do
+      @game_move.time = Time.now - GameEngine::GAME_RULES[:move_time]
+      GameEngine::Cache.save_game_state(@game_move)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_two.id)
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_one.selection).to eq [nil]
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_two.selection).to eq [nil]
+    end
+
+    it "should proceed to the resolution phase if both choices have been made" do
+      @game_move.time = Time.now - GameEngine::GAME_RULES[:move_time]
+      GameEngine::Cache.save_game_state(@game_move)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_two.id)
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model).phase).to eq :resolution
+    end
   end
 end
