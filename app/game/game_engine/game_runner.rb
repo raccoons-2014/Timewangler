@@ -1,6 +1,12 @@
 module GameEngine
   module GameRunner
     def self.resolve_round(game)
+      # This, once again, is some fairly hacky code. There is a massive amount of
+      # repetition and nested conditional statements here. The module might not even
+      # be necessary.
+      # ===========================================
+      # NEEDS TO BE REFACTORED BEFORE FINAL VERSION.
+      # ===========================================
       played_cards = [game.player_one.selection.first, game.player_two.selection.first]
 
       if played_cards[0].nil? || played_cards[1].nil?
@@ -28,7 +34,6 @@ module GameEngine
         game.player_two.selection = []
       else
         damage = (played_cards[0].max_stat - played_cards[1].max_stat).abs
-        # return nil if damage == 0
 
         game.player_one.points -= damage
         game.player_two.points += damage

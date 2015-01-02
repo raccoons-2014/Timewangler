@@ -1,6 +1,13 @@
 module GameEngine
   module Controller
     def self.advance_game(game_data, player_id)
+      # This method is responsible for switching phases inside of the GameEngine::Game
+      # class when passed the ActiveRecord model of the game and the player_id for the
+      # client that's making the request. This code is not very pretty and has a lot of
+      # nested conditionals.
+      # ===========================================
+      # NEEDS TO BE REFACTORED BEFORE FINAL VERSION.
+      # ===========================================
       game_state = GameEngine::Cache.fetch_game_state(game_data)
       current_time = Time.now
 
