@@ -21,6 +21,7 @@ function checkMatch() {
               method: "GET",
               success: function(response) {
                 window['onbeforeunload'] = undefined;
+                clearInterval(matchTimer);
                 $('body').html(response);
                 // Poll the server, located in game.js
                 pollServer();
@@ -49,12 +50,12 @@ function cancelMatch() {
 function matchTimeout(numSeconds) {
   var counter = 0;
 
-  setInterval(function() {
-    counter ++;
-    if (counter > numSeconds) {
-      window.location.replace('/profile');
-    }
-  }, 1000)
+  matchTimer = setInterval(function() {
+                 counter ++;
+                 if (counter > numSeconds) {
+                   window.location.replace('/profile');
+                 }
+               }, 1000)
 }
 
 $(document).ready(function() {

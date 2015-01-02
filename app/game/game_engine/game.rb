@@ -1,13 +1,15 @@
 module GameEngine
-  GAME_RULES = { starting_points: 30, hand_size: 6 }
-
   class Game
     attr_reader :id, :player_one, :player_two
+    attr_accessor :round, :time, :phase
 
     def initialize(game_data)
       @id = game_data.id
       @player_one = GameEngine::Player.new(game_data.player_one)
       @player_two = GameEngine::Player.new(game_data.player_two)
+      @round = 0
+      @phase = :setup
+      @time = Time.now
     end
 
     def deal_cards
@@ -20,6 +22,10 @@ module GameEngine
       end
     end
 
-
+    def target_player(player_id)
+      return player_one if player_one.id.to_i == player_id.to_i
+      return player_two if player_two.id.to_i == player_id.to_i
+      raise ArgumentError.new("No player found with id = #{player_id}")
+    end
   end
 end
