@@ -31,6 +31,15 @@ class DecksController < ApplicationController
     @deck = Deck.find(params[:id])
   end
 
+  def destroy
+    user = User.find(session[:user_id])
+    deck = user.deck
+    deck.destroy
+    redirect_to profile_path
+  end
+
+
+# Do we still need this?
   def deck1
     @deck1 = Card.all.shuffle[1..15]
     render :json => @deck1.to_json
