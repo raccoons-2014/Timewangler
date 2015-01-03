@@ -1,0 +1,21 @@
+<div class = "container">
+  <center>
+    <a href="<%= home_path %>"><h1>SMACKWANGLER</h1></a>
+    <nav>
+      <% if current_user %>
+      <ol>
+        <button><li><a href="<%= profile_path %>">Profile</a></li></button>
+        <button><li><%= link_to 'Play', join_game_path, method: 'POST' %></li></button>
+        <button><li><a href="<%= cards_path %>">Get Cards</a></li></button>
+        <button><li><a href="<%= users_path %>">Users</a></li></button>
+        <button><li><a href="<%= logout_path %>">Logout</a></li></button>
+      </ol>
+      <% else %>
+      <ol>
+        <button><li><a href="<%= new_user_path %>">Register</a></li></button>
+        <button><li><a href="<%= login_path %>">Login</a></li></button>
+      </ol>
+      <% end %>
+    </nav>
+  </center>
+</div>
