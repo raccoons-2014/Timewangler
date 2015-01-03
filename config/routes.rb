@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   get "decks/player_one", to: "decks#deck1"
   get "decks/player_two", to: "decks#deck2"
   resources :decks
+  delete 'decks/:id', to: 'decks#destroy', as: 'destroy_deck'
 
   resources :cards
 
