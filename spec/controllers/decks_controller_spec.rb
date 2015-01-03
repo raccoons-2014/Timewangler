@@ -4,6 +4,7 @@ RSpec.describe DecksController, :type => :controller do
   let(:deck_one) {create(:deck)}
   let(:deck_two) {create(:deck)}
   let(:deck_three) {create(:deck)}
+  let(:user_one) {create(:user)}
 
   describe "GET#new" do
     it "assigns a new Deck to @deck" do
@@ -22,6 +23,21 @@ RSpec.describe DecksController, :type => :controller do
       user = create(:user)
       session[:user_id] = user.id
       expect { post :create, deck: attributes_for(:deck)}.to change(Deck, :count).by(1)
+    end
+  end
+
+  describe "GET#index" do
+    it "assigns a user's deck to @deck" do
+      session[:user_id] = user_one.id
+      new_deck = user_one.create_deck(name: "Test")
+      get :index
+      expect(assigns(:deck)).to eq(new_deck)
+    end
+
+    it "renders the :index template" do
+      session[:user_id] = user_one.id
+      get :index
+      expect(response).to render_template :index
     end
   end
 
