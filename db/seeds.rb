@@ -41,7 +41,7 @@ Card.create(card_type: "Hero", name: "Genghis Khan", description: "founder and G
 
 Card.create(card_type: "Hero", name: "Joan of Arc", description: "a heroine of France and a Roman Catholic saint. Was burned at the stake at about nineteen years of age.", strength: 10, intelligence: 8, charisma: 5, picture_url: "http://www.history.com/news/wp-content/uploads/2012/01/joan-of-arc.jpg")
 
-Card.create(card_type: "Hero", name: "William the Conquerer", description: "the first Norman King of England, reigning from 1066 until his death in 1087. He launched the Norman conquest of England in 1066. The rest of his life was marked by struggles to consolidate his hold over England and his continental lands and by difficulties with his eldest son.", strength: 10, intelligence: , charisma: , picture_url: "http://en.wikipedia.org/wiki/William_the_Conqueror#mediaviewer/File:Bayeuxtapestrywilliamliftshishelm.jpg")
+Card.create(card_type: "Hero", name: "William the Conquerer", description: "The first Norman King of England, reigning from 1066 until his death in 1087. He launched the Norman conquest of England in 1066. The rest of his life was marked by struggles to consolidate his hold over England and his continental lands and by difficulties with his eldest son.", strength: 10, intelligence: 5, charisma: 8, picture_url: "http://www.history.com/news/history-lists/files/2013/03/hl-william-the-conqueror.jpg")
 
 Card.create(card_type: "Hero", name: "Kublai Khan", description: "The fifth Khagan of the Ikh Mongol Uls, reigning from 1260 to 1294, and the founder of the Yuan dynasty in Mongolia and China, a division of the Mongol Empire.", strength: 10, intelligence: 9, charisma: 8, picture_url: "http://en.wikipedia.org/wiki/Kublai_Khan#mediaviewer/File:YuanEmperorAlbumKhubilaiPortrait.jpg")
 
@@ -88,7 +88,7 @@ Card.create(card_type: "Hero", name: "Martin Luther", description: "A German fri
 ## AGE OF ENLIGHTENMENT
 TimePeriod.create(name: "Age of Enlightenment")
 
-Card.create(card_type: "Hero", name: "Sir Isaac Newton", description: "an English physicist and mathematician who is widely recognised as one of the most influential scientists of all time and as a key figure in the scientific revolution.", strength: 4, intelligence: 10, charisma: 6, picture_url: "http://www.google.com/imgres?imgurl=http://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg&imgrefurl=http://en.wikipedia.org/wiki/Isaac_Newton&h=263&w=191&tbnid=69oREMHZC28xfM:&zoom=1&tbnh=186&tbnw=135&usg=__X11uzDB56ULAGFr4l0bcPcdhOiQ=&docid=Lx1zRTA9D9RisM&itg=1&ved=0CJgBEMo3&ei=Am2oVKKhOMKaNtO2hIAL")
+Card.create(card_type: "Hero", name: "Sir Isaac Newton", description: "an English physicist and mathematician who is widely recognised as one of the most influential scientists of all time and as a key figure in the scientific revolution.", strength: 4, intelligence: 10, charisma: 6, picture_url: "http://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg")
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
 
@@ -111,9 +111,9 @@ Card.create(card_type: "Hero", name: "Sir Isaac Newton", description: "an Englis
 ## POST ENLIGHTENMENT EUROPE
 TimePeriod.create(name: "Post Enlightenment Europe")
 
-# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+Card.create(card_type: "Hero", name: "Napoleon Bonaparte", description: "Napoleon dominated European affairs for almost two decades while leading France against a series of coalitions in the Napoleonic Wars. He won the large majority of his battles and seized control of most of continental Europe before his ultimate defeat in 1815. One of the greatest commanders in history, his campaigns are studied at military schools worldwide and he remains simultaneously one of the most celebrated and controversial political figures in European history.", strength: 10, intelligence: 9, charisma: 10, picture_url: "http://news.bbcimg.co.uk/media/images/70159000/jpg/_70159327_napoleoncleaned.jpg")
 
-# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+Card.create(card_type: "Hero", name: "Marie Curie", description: "a Polish and naturalized-French physicist and chemist who conducted pioneering research on radioactivity.", strength: 3, intelligence: 10, charisma: 4, picture_url: "http://a3.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2MTkzNzE5ODE5.jpg")
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
 
