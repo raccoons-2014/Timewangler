@@ -1,5 +1,6 @@
 <%= flash.now[:error] %>
 
+<div class ='form_one'>
 <%= form_for :session do |f| %>
  <%= f.label "User name or email" %>
  <br>
@@ -12,3 +13,4 @@
 
  <%= f.submit "Log In" %>
 <% end %>
+</div>
