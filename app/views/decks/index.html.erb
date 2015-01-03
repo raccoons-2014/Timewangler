@@ -1,11 +1,3 @@
-player1 deck:<br>
-<% @deck1.cards.each do |card| %>
-  <%= card.id %><br>
-<% end %>
-
-player2 deck:<br>
-<% @deck2.cards.each do |card| %>
-  <%= card.id %><br>
-<% end %>
-
-<%=render partial: "games/single_card" %>
+<div>
+<%= link_to "Your Deck", deck_path(@deck) %>
+</div>
