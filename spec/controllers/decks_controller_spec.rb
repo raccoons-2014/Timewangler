@@ -62,6 +62,18 @@ RSpec.describe DecksController, :type => :controller do
   end
 
   describe "DELETE#destroy" do
+    it "deletes the Deck" do
+      session[:user_id] = user_one.id
+      new_deck = user_one.create_deck(name: "Test")
+      expect {delete :destroy, id: new_deck}.to change(Deck, :count).by(-1)
+    end
+
+    it "redirects to the Profile page" do
+      session[:user_id] = user_one.id
+      new_deck = user_one.create_deck(name: "Test")
+      delete :destroy, id: new_deck
+      expect(response).to redirect_to profile_path
+    end
 
   end
 
