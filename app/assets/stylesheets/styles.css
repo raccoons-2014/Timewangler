@@ -278,9 +278,13 @@ nav button li a{
   font-size: 15px;
 }
 
-nav {
+/*ol {
   margin-left: auto;
   margin-right: auto;
+}*/
+
+nav {
+  text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
 }
