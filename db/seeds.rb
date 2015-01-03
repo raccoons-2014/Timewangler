@@ -3,7 +3,7 @@
 
 
 ## ---------------------------------
-## CLASSICAL
+## CLASSICAL (10 heroes)
 ## ---------------------------------
 
 TimePeriod.create(name: "Classical Period")
@@ -22,12 +22,17 @@ Card.create(card_type: "Hero", name: "Plato", description: "Plato was a philosop
 
 Card.create(card_type: "Hero", name: "Homer", description: "Best known as the author of the Iliad and the Odyssey. He was believed by the ancient Greeks to have been the first and greatest of the epic poets.", strength: 4, intelligence: 9, charisma: 7, picture_url: "http://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg")
 
-Card.create(card_type: "Hero", name: "Nero", description: "Roman Emperor from 54 to 68, and the last in the Julio-Claudian dynasty. Focused much of his attention on diplomacy, trade and enhancing the cultural life of the Empire. He ordered theatres built and promoted athletic games.", strength: 6, intelligence: 6, charisma: 8, picture_url: "http://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg")
+Card.create(card_type: "Hero", name: "Nero", description: "Roman Emperor from 54 to 68, and the last in the Julio-Claudian dynasty. Focused much of his attention on diplomacy, trade and enhancing the cultural life of the Empire. He ordered theatres built and promoted athletic games.", strength: 6, intelligence: 6, charisma: 8, picture_url: "http://www.crystalinks.com/nerobust.jpg")
+
+Card.create(card_type: "Hero", name: "Saint Augustine", description: "an early Christian theologian and philosopher whose writings influenced the development of Western Christianity and Western philosophy.", strength: 6, intelligence: 6, charisma: 8, picture_url: "http://upload.wikimedia.org/wikipedia/commons/d/d0/Antonio_Rodr%C3%ADguez_-_Saint_Augustine_-_Google_Art_Project.jpg")
+
+Card.create(card_type: "Hero", name: "Marcus Aurelius", description: "Was Roman Emperor from 161 to 180. He was the last of the Five Good Emperors, and is also considered one of the most important Stoic philosophers.", strength: 5, intelligence: 9, charisma: 8, picture_url: "http://www.rebellesociety.com/wp-content/uploads/2013/03/Marcus-Aurelius.jpg")
+
 
 
 
 ## ---------------------------------
-## MEDEIVAL
+## MEDEIVAL (6 Heroes)
 ## ---------------------------------
 
 TimePeriod.create(name: "Medieval Period")
@@ -36,19 +41,35 @@ Card.create(card_type: "Hero", name: "Genghis Khan", description: "founder and G
 
 Card.create(card_type: "Hero", name: "Joan of Arc", description: "a heroine of France and a Roman Catholic saint. Was burned at the stake at about nineteen years of age.", strength: 10, intelligence: 8, charisma: 5, picture_url: "http://www.history.com/news/wp-content/uploads/2012/01/joan-of-arc.jpg")
 
+Card.create(card_type: "Hero", name: "William the Conquerer", description: "the first Norman King of England, reigning from 1066 until his death in 1087. He launched the Norman conquest of England in 1066. The rest of his life was marked by struggles to consolidate his hold over England and his continental lands and by difficulties with his eldest son.", strength: 10, intelligence: , charisma: , picture_url: "http://en.wikipedia.org/wiki/William_the_Conqueror#mediaviewer/File:Bayeuxtapestrywilliamliftshishelm.jpg")
+
+Card.create(card_type: "Hero", name: "Kublai Khan", description: "The fifth Khagan of the Ikh Mongol Uls, reigning from 1260 to 1294, and the founder of the Yuan dynasty in Mongolia and China, a division of the Mongol Empire.", strength: 10, intelligence: 9, charisma: 8, picture_url: "http://en.wikipedia.org/wiki/Kublai_Khan#mediaviewer/File:YuanEmperorAlbumKhubilaiPortrait.jpg")
+
+Card.create(card_type: "Hero", name: "Ragnar Lodbrok", description: "A legendary Norse ruler and hero from the Viking Age described in Old Norse poetry and several sagas. Ragnar was the scourge of France and England and the father of many renowned sons, including Ivar the Boneless, Björn Ironside, Halfdan Ragnarsson, Sigurd Snake-in-the-Eye, and Ubba. While these men are historical figures, it is uncertain whether Ragnar himself existed or really fathered them.", strength: 10, intelligence: 8, charisma: 9, picture_url: "http://en.wikipedia.org/wiki/Ragnar_Lodbrok#mediaviewer/File:Ragnar%26Kraka(Malmstr%C3%B6m).jpg")
+
+Card.create(card_type: "Hero", name: "Marco Polo", description: "a Venetian merchant traveller whose travels are recorded in Livres des merveilles du monde, a book that introduced Europeans to Central Asia and China.", strength: 5, intelligence: 9, charisma: 8, picture_url: "http://pmcdeadline2.files.wordpress.com/2013/08/marcopolotwo__120113144627.jpg")
+
+# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+
+# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+
+# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+
+# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+
 
 
 ## ---------------------------------
-## RENAISSANCE
+## RENAISSANCE (3 Heroes)
 ## ---------------------------------
 
 TimePeriod.create(name: "Renaissance")
 
 Card.create(card_type: "Hero", name: "William Shakespeare", description: "an English poet, playwright, and actor, widely regarded as the greatest writer in the English language and the world's pre-eminent dramatist.", strength: 4, intelligence: 10, charisma: 6, picture_url: "http://en.wikipedia.org/wiki/Cobbe_portrait#mediaviewer/File:Cobbe_portrait_of_Shakespeare.jpg")
 
-# Card.create(card_type: "Hero", name: "Queen Elizabeth I", description: , strength: , intelligence: , charisma: , picture_url: )
+Card.create(card_type: "Hero", name: "Queen Elizabeth I", description: "Queen of England and Ireland from 1558 to 1603. In government, Elizabeth was more moderate than her father and half-siblings had been. In religion she was relatively tolerant, avoiding systematic persecution. . When Spain finally decided to attempt to conquer England in 1588, the failure of the Spanish Armada associated her with one of the greatest military victories in English history. some historians depict Elizabeth as a short-tempered, sometimes indecisive ruler, who enjoyed more than her share of luck.", strength: 1, intelligence: 4, charisma: 9, picture_url: "http://en.wikipedia.org/wiki/Elizabeth_I_of_England#mediaviewer/File:Darnley_stage_3.jpg")
 
-# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+Card.create(card_type: "Hero", name: "Martin Luther", description: "A German friar, Catholic priest, professor of theology and seminal figure of the 16th-century movement in Christianity known later as the Protestant Reformation.", strength: 3, intelligence: 8, charisma: 10, picture_url: "http://en.wikipedia.org/wiki/Martin_Luther#mediaviewer/File:Lucas_Cranach_d.%C3%84._-_Martin_Luther,_1528_(Veste_Coburg).jpg")
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
 
@@ -67,7 +88,7 @@ Card.create(card_type: "Hero", name: "William Shakespeare", description: "an Eng
 ## AGE OF ENLIGHTENMENT
 TimePeriod.create(name: "Age of Enlightenment")
 
-# Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+Card.create(card_type: "Hero", name: "Sir Isaac Newton", description: "an English physicist and mathematician who is widely recognised as one of the most influential scientists of all time and as a key figure in the scientific revolution.", strength: 4, intelligence: 10, charisma: 6, picture_url: "http://www.google.com/imgres?imgurl=http://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg&imgrefurl=http://en.wikipedia.org/wiki/Isaac_Newton&h=263&w=191&tbnid=69oREMHZC28xfM:&zoom=1&tbnh=186&tbnw=135&usg=__X11uzDB56ULAGFr4l0bcPcdhOiQ=&docid=Lx1zRTA9D9RisM&itg=1&ved=0CJgBEMo3&ei=Am2oVKKhOMKaNtO2hIAL")
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
 
