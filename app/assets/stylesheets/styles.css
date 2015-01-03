@@ -115,7 +115,7 @@ ul#inline-block-test li {
 }
 
 li {
-  margin-left: 5px;
+/*  margin-left: 5px;*/
 }
 
 #number_of_parts_player_one{
@@ -273,12 +273,14 @@ nav li{
 }
 
 nav button li a{
-  color:black;
+  color: black;
   min-height: 40px;
   font-size: 15px;
 }
 
 nav {
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 30px;
   margin-bottom: 30px;
 }

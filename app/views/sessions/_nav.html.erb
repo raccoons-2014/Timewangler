@@ -3,16 +3,16 @@
     <nav>
       <% if current_user %>
       <ol>
-        <button><li><a href="<%= profile_path %>">Profile</a></li></button>
-        <button><li><%= link_to 'Play', join_game_path, method: 'POST' %></li></button>
-        <button><li><a href="<%= cards_path %>">Get Cards</a></li></button>
-        <button><li><a href="<%= users_path %>">Users</a></li></button>
-        <button><li><a href="<%= logout_path %>">Logout</a></li></button>
+        <li><%= link_to 'Profile', profile_path %></li>
+        <li><%= link_to 'Play', join_game_path, method: 'POST' %></li></button>
+        <li><%= link_to 'Get Cards', cards_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
+        <li><%= link_to 'Logout', logout_path %></li>
       </ol>
       <% else %>
       <ol>
-        <button><li><a href="<%= new_user_path %>">Register</a></li></button>
-        <button><li><a href="<%= login_path %>">Login</a></li></button>
+        <li><%= link_to 'Register', new_user_path %></li>
+        <li><%= link_to 'Login', login_path %></li>
       </ol>
       <% end %>
     </nav>
