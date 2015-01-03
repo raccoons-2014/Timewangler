@@ -10,18 +10,25 @@ class DecksController < ApplicationController
 
   def create
     user = User.find(session[:user_id])
-    # So, at the moment, a User can only have One deck. Does it really need to be that way?
-    p user
 
-    # Fun fact: When something has a has_one association, you need to use a different syntax for build!
-    @deck = user.build_deck(deck_params)
-
-    if @deck.save
+    if user.deck != nil
+      flash[:error] = "You already have a deck!"
       redirect_to profile_path
     else
-      flash[:error] = @deck.errors.full_messages.join(", ")
-      redirect_to new_deck_path
+      # Fun fact: When something has a has_one association, you need to use a different syntax for build!
+      @deck = user.build_deck(deck_params)
+
+      if @deck.save
+        redirect_to profile_path
+      else
+        flash[:error] = @deck.errors.full_messages.join(", ")
+        redirect_to new_deck_path
+      end
     end
+  end
+
+  def show
+    @deck = Deck.find(params[:id])
   end
 
   def deck1

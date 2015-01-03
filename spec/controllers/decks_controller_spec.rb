@@ -41,6 +41,18 @@ RSpec.describe DecksController, :type => :controller do
     end
   end
 
+  describe "GET#show" do
+    it "assigns the User's Deck to @deck" do
+      get :show, id: deck_one
+      expect(assigns(:deck)).to eq deck_one
+    end
+
+    it "renders the :show template" do
+      get :show, id: deck_one
+      expect(response).to render_template :show
+    end
+  end
+
   describe "GET#edit" do
 
   end
