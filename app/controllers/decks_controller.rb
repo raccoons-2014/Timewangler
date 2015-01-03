@@ -1,4 +1,5 @@
 class DecksController < ApplicationController
+
   def index
     user = User.find(session[:user_id])
     @deck = user.deck
@@ -57,6 +58,7 @@ class DecksController < ApplicationController
 
   def remove_card(card_collection, card)
   end
+
 
 # Do we still need this?
   def deck1

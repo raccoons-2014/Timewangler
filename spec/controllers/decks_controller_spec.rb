@@ -64,7 +64,6 @@ RSpec.describe DecksController, :type => :controller do
       get :edit, id: deck_one
       expect(response).to render_template :edit
     end
-
   end
 
   describe "PUT#update" do
