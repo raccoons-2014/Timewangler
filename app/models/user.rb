@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_one :deck
+  has_many :decks
   has_many :games, foreign_key: :player_one_id
   has_many :games, foreign_key: :player_two_id
 
