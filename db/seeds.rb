@@ -246,3 +246,4 @@ end
 # Template for Cards
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: )
+

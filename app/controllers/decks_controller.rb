@@ -57,6 +57,7 @@ class DecksController < ApplicationController
 
   def remove_card(card_collection, card)
   end
+
 # Do we still need this?
   def deck1
     @deck1 = Card.all.shuffle[1..15]
