@@ -1,37 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link href='http://fonts.googleapis.com/css?family=Electrolize|Play:400,700|Audiowide' rel='stylesheet' type='text/css'>
-  <title>Smackwangler</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class = "container">
-    <!-- Note to self, take logic out of this view and put in session controller, also, package up everything inside the Center tags and use as a partial instead. -->
-    <center>
-    <a href="<%= home_path %>"><h1>SMACKWANGLER</h1></a>
-    <nav>
-      <% if current_user %>
-      <ol>
-        <button><li><a href="<%= profile_path %>">Profile</a></li></button>
-        <button><li><%= link_to 'Play', join_game_path, method: 'POST' %></li></button>
-        <button><li><a href="<%= cards_path %>">Get Cards</a></li></button>
-        <button><li><a href="<%= users_path %>">Users</a></li></button>
-        <button><li><a href="<%= logout_path %>">Logout</a></li></button>
-      </ol>
-      <% else %>
-      <ol>
-        <button><li><a href="<%= new_user_path %>">Register</a></li></button>
-        <button><li><a href="<%= login_path %>">Login</a></li></button>
-      </ol>
-      <% end %>
-    </nav>
-  </center>
-<center>
-<%= yield %>
-</center>
-</div>
-</body>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Electrolize|Play:400,700|Audiowide' rel='stylesheet' type='text/css'>
+    <title>Smackwangler</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class = "container">
+    <%= render partial: "sessions/nav" %>
+    <%= yield %>
+  </div>
+  </body>
 </html>

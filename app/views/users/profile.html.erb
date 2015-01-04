@@ -1,11 +1,9 @@
-<h1><%= @user.username %></h1>
+<h1>Welcome back, <%= @user.username %>!</h1>
 
 
-<h2>Join Game</h2>
-<p>
+<h3>Join Game
   <%= form_tag({controller: "games", action: "join"}, method: "post") do %>
     <%= submit_tag 'Find Game' %>
   <% end %>
-</p>
-<h2>Your Stats</h2>
+Your Stats</h3>
 

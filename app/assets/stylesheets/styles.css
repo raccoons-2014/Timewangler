@@ -88,7 +88,6 @@ table {
   text-align: center;
 }
 
-
 ul#inline-block-test,
   ul#inline-block-test li {
     margin-left: 5px;
@@ -97,10 +96,9 @@ ul#inline-block-test,
     display: inline-block;
   }
 
-  ul#inline-block-test li {
-    min-height: 100px;
-
-  }
+ul#inline-block-test li {
+  min-height: 100px;
+}
 
 #player_one_name {
   text-align: center;
@@ -115,8 +113,13 @@ ul#inline-block-test,
   height: 90px;
   background-color: purple;
 }
+
 li {
-  margin-left: 5px;
+/*  margin-left: 5px;*/
+}
+
+h3 {
+  text-align: center;
 }
 
 #number_of_parts_player_one{
@@ -155,14 +158,12 @@ ul#inline_block_of_cards,
     background-color: pink;
     width: 100px;
     min-height: 80px;
-
   }
 
   .card_in_hand_player_one {
     background-color: pink;
     width: 100px;
     min-height: 80px;
-
   }
 
 body {
@@ -178,7 +179,10 @@ body {
   right: 0%;
   min-height: 100%;
   display: block;
+}
 
+.login {
+  text-align: center;
 }
 
 #splash_pic {
@@ -216,7 +220,6 @@ body {
   /*border: 2px solid red;*/
 }
 
-
 body {
 
   background-image: url("space2.gif");
@@ -235,7 +238,6 @@ body {
   display: block;
   /*border: 2px solid green;*/
   padding-top: 10%;
-
 }
 
 #home button {
@@ -273,29 +275,37 @@ a {
 }
 
 nav li{
-
   display: inline;
   padding: 10px;
-
 }
 
-nav button li a{
-  color:black;
+input {
+  color: black;
   min-height: 40px;
   font-size: 15px;
 }
 
+/*ol {
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
 nav {
+  text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
-
 }
 
-.login {
-  display:inline;
+.error {
+  text-align: center;
+  font-size: 3em;
+  color: red;
 }
 
 .card {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 10px;
   position: relative;
   height: 400px;
@@ -306,6 +316,9 @@ nav {
 }
 
 .card_pic {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
   height: 200px;
   width: 220px;
   /*border: 2px solid red;*/
@@ -313,6 +326,7 @@ nav {
   padding: 20px;
   opacity: 1;
 }
+
 .card::after {
   content: "";
   border-radius: 10px;
@@ -328,8 +342,6 @@ nav {
   height: 400px;
   width: 300px;
 }
-
-
 
 h2 {
   font-size: 16px;
@@ -349,6 +361,6 @@ h2 {
 }
 
 .card img.portrait {
-   width: 100%;
+  width: 100%;
   height: auto;
 }

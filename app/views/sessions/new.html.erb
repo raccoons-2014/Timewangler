@@ -1,14 +1,17 @@
-<%= flash.now[:error] %>
+<div class ='error'>
+  <%= flash.now[:error] %>
+</div>
+<div class ='login'>
+    <%= form_for :session do |f| %>
+      <%= f.label "User name or email" %>
+      <br>
+      <%= f.text_field :user_name %>
+      <br>
+      <%= f.label :user_password %>
+      <br>
+      <%= f.password_field :user_password %>
+      <br>
 
-<%= form_for :session do |f| %>
- <%= f.label "User name or email" %>
- <br>
- <%= f.text_field :user_name %>
-  <br>
- <%= f.label :user_password %>
- <br>
- <%= f.password_field :user_password %>
- <br>
-
- <%= f.submit "Log In" %>
-<% end %>
+      <%= f.submit "Log In" %>
+    <% end %>
+</div>
