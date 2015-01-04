@@ -1,6 +1,20 @@
+<div>
 <ol>
 <%= @deck.cards.each do |card| %>
-<li><%= link_to card.name, card_path(card) %></li>
+<li>
+  <%= link_to card.name, card_path(card) %>
+  <%= link_to "Remove Card From Deck", remove_card_path(card), method: "DELETE" %>
+</li>
+
 <% end %>
 </ol>
 <%= link_to "Delete This Deck?", deck_path(@deck), method: "DELETE" %>
+</div>
+
+<div>
+<h2>Your Cards</h2>
+<%= @cards.each do |card| %>
+<%= link_to card.name, card_path(card) %>
+<%= link_to "Add Card to Deck", add_card_path(card), method:"POST" %>
+<% end %>
+</div>

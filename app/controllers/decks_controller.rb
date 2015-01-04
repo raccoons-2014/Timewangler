@@ -29,6 +29,7 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
+    @cards = Card.all
   end
 
   def edit
@@ -52,10 +53,25 @@ class DecksController < ApplicationController
     redirect_to profile_path
   end
 
-  def add_card(card_collection, card)
+  def add_card
+    user = User.find(session[:user_id])
+    cards_in_deck = user.deck.cards
+    @card = Card.find(params[:id])
+    if cards_in_deck.include?(@card)
+      flash[:error] = "You already have this card in your deck!"
+      redirect_to deck_path(user.deck)
+    else
+      cards_in_deck << @card
+      redirect_to deck_path(user.deck)
+    end
   end
 
-  def remove_card(card_collection, card)
+  def remove_card
+    user = User.find(session[:user_id])
+    cards_in_deck = user.deck.cards
+    @card = Card.find(params[:id])
+    cards_in_deck.delete(@card)
+    redirect_to deck_path(user.deck)
   end
 
 # Do we still need this?
