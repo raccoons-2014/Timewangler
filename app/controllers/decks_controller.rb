@@ -79,17 +79,6 @@ class DecksController < ApplicationController
     redirect_to deck_path(user.deck)
   end
 
-# Do we still need this?
-  def deck1
-    @deck1 = Card.all.shuffle[1..15]
-    render :json => @deck1.to_json
-  end
-
-  def deck2
-    @deck2 = Card.all.shuffle[1..15]
-    render :json => @deck2.to_json
-  end
-
   private
     def deck_params
       params.require(:deck).permit(:name)
