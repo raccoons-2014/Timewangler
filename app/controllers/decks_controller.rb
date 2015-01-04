@@ -1,4 +1,22 @@
 class DecksController < ApplicationController
+  def index
+    user = User.find(session[:user_id])
+    @deck = user.deck
+  end
+
+  def new
+    @deck = Deck.new
+  end
+
+  def create
+    user = User.find(session[:user_id])
+
+    if user.deck != nil
+      flash[:error] = "You already have a deck!"
+      redirect_to profile_path
+    else
+      # Fun fact: When something has a has_one association, you need to use a different syntax for build!
+      @deck = user.build_deck(deck_params)
 
   def index
     user = User.find(session[:user_id])
