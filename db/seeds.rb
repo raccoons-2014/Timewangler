@@ -224,11 +224,11 @@ Card.create(card_type: "Hero", name: "Betsy Carroll", description: "Jackie of al
 
 Card.create(card_type: "Hero", name: "Jay-Z" , description: "Allow me to reintroduce myself..." , strength: 6 , intelligence: 8 , charisma: 10, picture_url: "http://upload.wikimedia.org/wikipedia/commons/6/6c/Jay-Z-02-mika.jpg")
 
-Card.create(card_type: "Hero", name: "Mason Nortsworthy", description: "Leader of the freemasons and prominent Illuminati member." , strength: 7, intelligence: 10, charisma: 10, picture_url: "https://yt3.ggpht.com/-3obxyu0ohIU/AAAAAAAAAAI/AAAAAAAAAAA/Ve0KzUtTIv4/s88-c-k-no/photo.jpg")
+Card.create(card_type: "Hero", name: "Mason Norsworthy", description: "Leader of the freemasons and prominent Illuminati member." , strength: 7, intelligence: 10, charisma: 10, picture_url: "https://yt3.ggpht.com/-3obxyu0ohIU/AAAAAAAAAAI/AAAAAAAAAAA/Ve0KzUtTIv4/s88-c-k-no/photo.jpg")
 
 Card.create(card_type: "Hero", name: "Bill Storey", description: "Lawyer turned coder. Famous for writing code that automatically sues people when they damage your property.", strength: 10, intelligence: 10, charisma: 9, picture_url: "http://images2.fanpop.com/images/photos/8000000/Old-and-better-Cartoon-Network-cartoon-network-8086568-733-936.jpg")
 
-Card.create(card_type: "Hero", name: "dmitriy istomin", description: "The father of artificial intelligence (as we, in the future, know it).", strength: 7, intelligence: 10, charisma: 10, picture_url: "https://media.licdn.com/mpr/mpr/shrink_120_120/p/2/005/081/0aa/2838490.jpg")
+Card.create(card_type: "Hero", name: "Dmitriy Istomin", description: "The father of artificial intelligence (as we, in the future, know it).", strength: 7, intelligence: 10, charisma: 10, picture_url: "https://media.licdn.com/mpr/mpr/shrink_120_120/p/2/005/081/0aa/2838490.jpg")
 
 
 
