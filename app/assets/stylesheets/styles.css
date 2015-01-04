@@ -310,9 +310,7 @@ nav {
   position: relative;
   height: 400px;
   width: 300px;
-  /*overflow: hidden;*/
   padding: 10px;
-  /*background-image: url("brushed-metal.jpg");*/
 }
 
 .card_pic {
@@ -363,4 +361,13 @@ h2 {
 .card img.portrait {
   width: 100%;
   height: auto;
+}
+
+.card_creator {
+  border-radius: 10px;
+  position: relative;
+  height: 400px;
+  width: 300px;
+  padding: 10px;
+  background-image: url("chrome.jpg");
 }

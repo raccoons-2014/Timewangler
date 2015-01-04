@@ -1,0 +1,40 @@
+<%= flash[:error] %>
+
+<%= form_for @card do |f|%>
+<div class="card_creator">
+  <%= f.label :card_type %>
+  <br>
+  <%= f.text_field :card_type %>
+  <br>
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :description %>
+  <br>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.label :strength %>
+  <br>
+  <%= f.text_field :strength %>
+  <br>
+  <%= f.label :intelligence %>
+  <br>
+  <%= f.text_field :intelligence  %>
+  <br>
+  <%= f.label :charisma %>
+  <br>
+  <%= f.text_field :charisma %>
+  <br>
+  <%= f.label :time_period %>
+  <br>
+  <%= f.text_field :time_period %>
+  <br>
+  <%= f.label :picture_url %>
+  <br>
+  <%= f.text_field :picture_url %>
+  <br>
+  <%= f.submit %>
+</div>
+
+<% end %>
