@@ -118,6 +118,10 @@ li {
 /*  margin-left: 5px;*/
 }
 
+h3 {
+  text-align: center;
+}
+
 #number_of_parts_player_one{
   text-align: center;
   background-color: #FAEBD7;
