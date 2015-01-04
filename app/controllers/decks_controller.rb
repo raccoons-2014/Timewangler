@@ -31,6 +31,20 @@ class DecksController < ApplicationController
     @deck = Deck.find(params[:id])
   end
 
+  def edit
+    @deck = Deck.find(params[:id])
+  end
+
+  def update
+    @deck = Deck.find(params[:id])
+    if @deck.update_attributes(deck_params)
+      redirect_to deck_path(@deck)
+    else
+      render :edit
+    end
+  end
+
+
   def destroy
     user = User.find(session[:user_id])
     deck = user.deck
@@ -38,6 +52,11 @@ class DecksController < ApplicationController
     redirect_to profile_path
   end
 
+  def add_card(card_collection, card)
+  end
+
+  def remove_card(card_collection, card)
+  end
 
 # Do we still need this?
   def deck1

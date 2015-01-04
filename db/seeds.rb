@@ -244,4 +244,5 @@ Card.where(:id => 16..30).each do |hero|
 end
 
 # Template for Cards
+
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: )
