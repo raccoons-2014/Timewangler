@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe 'GameEngine::GameRunner' do
   describe '#resolve_round' do
     before(:each) do
