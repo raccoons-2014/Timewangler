@@ -56,7 +56,7 @@ class DecksController < ApplicationController
   def add_card
     user = User.find(session[:user_id])
     cards_in_deck = user.deck.cards
-    @card = Card.find(params[:id])
+    @card = Card.find(params[:card_id])
     if cards_in_deck.include?(@card)
       flash[:error] = "You already have this card in your deck!"
       redirect_to deck_path(user.deck)
@@ -69,7 +69,7 @@ class DecksController < ApplicationController
   def remove_card
     user = User.find(session[:user_id])
     cards_in_deck = user.deck.cards
-    @card = Card.find(params[:id])
+    @card = Card.find(params[:card_id])
     cards_in_deck.delete(@card)
     redirect_to deck_path(user.deck)
   end
