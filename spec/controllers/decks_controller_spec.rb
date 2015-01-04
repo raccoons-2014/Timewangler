@@ -5,6 +5,7 @@ RSpec.describe DecksController, :type => :controller do
   let(:deck_two) {create(:deck)}
   let(:deck_three) {create(:deck)}
   let(:user_one) {create(:user)}
+  let(:card_one) {create(:card)}
 
   describe "GET#new" do
     it "assigns a new Deck to @deck" do
@@ -19,7 +20,7 @@ RSpec.describe DecksController, :type => :controller do
   end
 
   describe "POST#create" do
-    it "creates a new deck and saves it in the databse" do
+    it "creates a new deck and saves it in the database" do
       user = create(:user)
       session[:user_id] = user.id
       expect { post :create, deck: attributes_for(:deck)}.to change(Deck, :count).by(1)
@@ -54,11 +55,30 @@ RSpec.describe DecksController, :type => :controller do
   end
 
   describe "GET#edit" do
+    it "assigns the Deck to @deck" do
+      get :edit, id: deck_one
+      expect(assigns(:deck)).to eq deck_one
+    end
+
+    it "renders the :edit template" do
+      get :edit, id: deck_one
+      expect(response).to render_template :edit
+    end
 
   end
 
   describe "PUT#update" do
+    xit "changes @deck's attributes" do
+      p deck_one.name
+      put :edit, id: deck_one,
+        deck: {name: "Juice"}
+      expect(deck_one.name).to eq("Juice")
+    end
 
+    xit "redirects to the updated Deck" do
+      put :edit, id: deck_one, deck: attributes_for(:deck)
+      expect(response).to redirect_to deck_path(deck_one)
+    end
   end
 
   describe "DELETE#destroy" do
@@ -77,11 +97,22 @@ RSpec.describe DecksController, :type => :controller do
 
   end
 
-  describe "add_card" do
-
+  describe "DecksController#add_card" do
+    xit "adds a card to the User's deck when clicked" do
+      session[:user_id] = user_one.id
+      new_deck = user_one.create_deck(name: "Test")
+      expect(add_card(new_deck.cards ,card_one)).to_include(card_one)
+    end
   end
 
-  describe "remove_card" do
+  describe "DecksController#remove_card" do
+    xit "removes a card from the User's deck when clicked" do
+      session[:user_id] = user_one.id
+      new_deck = user_one.create_deck(name: "Test")
+      new_deck.cards << card_one
+      remove_card(new_deck.cards, card_one)
+      expect(new_deck.cards.length).to eq(nil)
+    end
 
   end
 end
