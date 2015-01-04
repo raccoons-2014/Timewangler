@@ -74,9 +74,6 @@ Rails.application.routes.draw do
   post "decks/:id/add_card/:card_id", to: 'decks#add_card', as: "add_card"
   delete "decks/:id/remove_card/:card_id",to:"decks#remove_card", as: "remove_card"
 
-  post "decks/:id/add_card/:card_id", to: 'decks#add_card', as: "add_card"
-  delete "decks/:id/remove_card/:card_id",to:"decks#remove_card", as: "remove_card"
-
   resources :cards
 
   get '/profile', to: 'users#profile', as: 'profile'

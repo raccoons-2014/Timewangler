@@ -37,6 +37,7 @@ RSpec.describe DecksController, :type => :controller do
 
     it "renders the :index template" do
       session[:user_id] = user_one.id
+      new_deck = user_one.create_deck(name: "Test")
       get :index
       expect(response).to render_template :index
     end
@@ -93,6 +94,5 @@ RSpec.describe DecksController, :type => :controller do
       delete :destroy, id: new_deck
       expect(response).to redirect_to profile_path
     end
-
   end
 end
