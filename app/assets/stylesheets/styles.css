@@ -279,7 +279,7 @@ nav li{
   padding: 10px;
 }
 
-nav button li a{
+input {
   color: black;
   min-height: 40px;
   font-size: 15px;
@@ -303,6 +303,7 @@ nav {
 }
 
 .card {
+  text-align: center;
   margin-right: auto;
   margin-left: auto;
   border-radius: 10px;
@@ -315,6 +316,9 @@ nav {
 }
 
 .card_pic {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
   height: 200px;
   width: 220px;
   /*border: 2px solid red;*/
