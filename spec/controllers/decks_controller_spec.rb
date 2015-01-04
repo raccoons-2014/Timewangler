@@ -95,23 +95,4 @@ RSpec.describe DecksController, :type => :controller do
     end
 
   end
-
-  describe "DecksController#add_card" do
-    xit "adds a card to the User's deck when clicked" do
-      session[:user_id] = user_one.id
-      new_deck = user_one.create_deck(name: "Test")
-      expect(add_card(new_deck.cards ,card_one)).to_include(card_one)
-    end
-  end
-
-  describe "DecksController#remove_card" do
-    xit "removes a card from the User's deck when clicked" do
-      session[:user_id] = user_one.id
-      new_deck = user_one.create_deck(name: "Test")
-      new_deck.cards << card_one
-      remove_card(new_deck.cards, card_one)
-      expect(new_deck.cards.length).to eq(nil)
-    end
-
-  end
 end
