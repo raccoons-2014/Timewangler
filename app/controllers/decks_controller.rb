@@ -2,7 +2,13 @@ class DecksController < ApplicationController
 
   def index
     user = User.find(session[:user_id])
-    @deck = user.deck
+
+    if user.deck != nil
+     @deck = user.deck
+    else
+      flash[:error] = "You don't have a deck, but you can make one starting here!"
+      redirect_to new_deck_path
+    end
   end
 
   def new
