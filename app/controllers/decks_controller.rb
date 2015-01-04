@@ -19,7 +19,7 @@ class DecksController < ApplicationController
       @deck = user.build_deck(deck_params)
 
       if @deck.save
-        redirect_to profile_path
+        redirect_to deck_path(@deck)
       else
         flash[:error] = @deck.errors.full_messages.join(", ")
         redirect_to new_deck_path
