@@ -1,11 +1,7 @@
-player1 deck:<br>
-<% @deck1.cards.each do |card| %>
-  <%= card.id %><br>
-<% end %>
+<%= flash.now[:error] %>
 
-player2 deck:<br>
-<% @deck2.cards.each do |card| %>
-  <%= card.id %><br>
-<% end %>
+<div>
 
-<%=render partial: "games/single_card" %>
+<%= link_to @deck.name, deck_path(@deck) %>
+
+</div>
