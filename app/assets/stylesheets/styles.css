@@ -175,7 +175,10 @@ body {
   right: 0%;
   min-height: 100%;
   display: block;
+}
 
+.login {
+  text-align: center;
 }
 
 #splash_pic {
@@ -289,8 +292,10 @@ nav {
   margin-bottom: 30px;
 }
 
-.login {
-  display:inline;
+.error {
+  text-align: center;
+  font-size: 3em;
+  color: red;
 }
 
 .card {
