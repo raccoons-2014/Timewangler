@@ -18,8 +18,17 @@ function pollServer() {
 }
 
 function drawGame(gameObject) {
-  $("#game-container").html(JSON.stringify(gameObject));
+  cardObj = JSON.stringify(gameObject.player_hand[0])
+
+  $("#game-container").html(gameObject.phase);
+  // $("#player_1_hand, .card_one").html(JSON.stringify(gameObject.player_hand[0]))
+
+  if (gameObject.phase == "move") {
+    display.displayCard(1, gameObject.player_hand[0]);
+  }
 }
+
+
 
 $(document).ready(function() {
   if ($('#game-container').length > 0) {
