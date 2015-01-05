@@ -6,8 +6,18 @@ $(document).ready(function() {
 })
 
 function cardInput() {
-  console.log("CARD INPUT LOADED")
+  console.log("CARD INPUT LOADED");
   $(".card").click(function() {
-    alert('clicked!')
+    var id = parseInt(this.id) - 1;
+    alert('clicked:' + id );
+    submitInput(id);
+  })
+}
+
+function submitInput(cardId) {
+  $.ajax({
+    url: '/games/' + getGameId() + '/move',
+    method: "POST",
+    data: { card: cardId }
   })
 }
