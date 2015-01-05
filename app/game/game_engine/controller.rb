@@ -46,5 +46,13 @@ module GameEngine
 
       GameEngine::IO.output_player_data(game_state, player_id)
     end
+
+    def self.get_player_move(game_data, player_id, card_id)
+      game_state = GameEngine::Cache.fetch_game_state(game_data)
+      if game_state.target_player(player_id).selection.empty? && game_state.phase == :move
+        GameEngine::IO.input_player_move(game_state, player_id, card_id)
+        GameEngine::Cache.save_game_state(game_state)
+      end
+    end
   end
 end
