@@ -35,8 +35,8 @@ module GameEngine
           GameEngine::IO.output_player_data(game_state, player_id)
         end
       else
-        GameEngine::GameRunner.resolve_round(game_state) unless game_state.player_one.selection.empty?
         if current_time - game_state.time >= GAME_RULES[:resolution_time]
+          GameEngine::GameRunner.resolve_round(game_state)
           game_state.round += 1
           game_state.phase = :move
           game_state.deal_cards
