@@ -1,5 +1,4 @@
 var Display = function() {
-
 }
 
 var display = new Display;
@@ -32,33 +31,28 @@ Display.prototype.winScreen = function(winState) {
   } else {
     $("#game-container").html("you lost!");
   }
-
 }
-
 
 $(document).ready(function() {
   $('.hand').center();
-
   $('.card').hoverIntent(function() {
     $("#"+($(this).attr('id'))+".card").addClass('card_display');
     $( this ).transition({ scale: 2.2, y: -40 });
   },
    function() {
     var id = $('.card').attr('id');
-
     $("#"+($(this).attr('id'))+".card").removeClass('card_display');
     $( this ).transition({ scale: 1, y: 0 });
     }
   );
 });
 
-
 $.fn.center = function () {
     this.css("position","absolute");
     this.css("bottom", Math.min(0, (($(window).height() - $(this).outerHeight()) / 2) +
-                                                $(window).scrollTop()) + "px");
+      $(window).scrollTop()) + "px");
     this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
-                                                $(window).scrollLeft()) + "px");
+      $(window).scrollLeft()) + "px");
     return this;
 }
 

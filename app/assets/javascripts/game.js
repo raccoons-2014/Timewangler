@@ -14,13 +14,9 @@ function pollServer() {
       }
     });
   }, 1000)
-
 }
 
 function drawGame(gameObject) {
-
-  // $("#game-container").html(gameObject.phase);
-
   if (gameObject.phase == "move") {
     display.displayHand(gameObject.player_hand);
     display.displayScoreBoard(gameObject);
@@ -28,8 +24,6 @@ function drawGame(gameObject) {
     display.winScreen(gameObject['player_points'] > 0)
   }
 }
-
-
 
 $(document).ready(function() {
   if ($('#game-container').length > 0) {
