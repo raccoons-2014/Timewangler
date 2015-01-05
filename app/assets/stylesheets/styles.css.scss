@@ -302,24 +302,28 @@ nav {
   color: red;
 }
 
-.card {
-  display: inline-block;
-  text-align: center;
-  margin-top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 10px;
-  /*position: relative;*/
-/*  height: 300px;
-  width: 200px;*/
-  /*padding: 10px;*/
-  height: 90%;
-  width: 14%;
-  margin: 10px;
-  position: relative;
- /* background-image: url("chrome.jpg");*/
-  border: 2px solid red;
+@media screen and (min-width: 800px) {
+  .card {
+    display: inline-block;
+    text-align: center;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    /*position: relative;*/
+  /*  height: 300px;
+    width: 200px;*/
+    /*padding: 10px;*/
+    height: 90%;
+    width: 14%;
+    margin: 10px;
+    position: relative;
+   /* background-image: url("chrome.jpg");*/
+    border: 2px solid red;
+  }
+
 }
+
 
 .card_pic {
   margin-right: auto;
