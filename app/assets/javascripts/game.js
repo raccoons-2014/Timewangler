@@ -18,13 +18,11 @@ function pollServer() {
 }
 
 function drawGame(gameObject) {
-  cardObj = JSON.stringify(gameObject.player_hand[0])
 
   $("#game-container").html(gameObject.phase);
-  // $("#player_1_hand, .card_one").html(JSON.stringify(gameObject.player_hand[0]))
 
   if (gameObject.phase == "move") {
-    display.displayCard(1, gameObject.player_hand[0]);
+    display.displayHand(gameObject.player_hand)
   }
 }
 
