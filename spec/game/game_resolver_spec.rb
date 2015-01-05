@@ -2,6 +2,7 @@ require 'rails_helper'
 
 
 describe 'GameEngine::GameRunner' do
+
   describe '#resolve_round' do
     before(:each) do
       game_db_model = create(:game)
@@ -58,6 +59,32 @@ describe 'GameEngine::GameRunner' do
       GameEngine::GameResolver.resolve_round(@game_state)
       expect(@game_state.player_two.points).to eq @starting_points - @winning_card.max_stat
       expect(@game_state.player_one.points).to eq @starting_points + @winning_card.max_stat
+    end
+  end
+
+  describe '#deal_cards' do
+    before(:each) do
+      @game_db_model = create(:game)
+      @game_db_model.player_one.deck = create(:deck)
+      @game_db_model.player_two.deck = create(:deck)
+
+      @game_state = GameEngine::GameState.new(@game_db_model)
+      @game_state.deal_cards 
+    end
+
+    it 'should give both players a maximum hand size after the first draw' do
+      expect(@game_state.player_one.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
+      expect(@game_state.player_two.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
+    end
+
+    it "should reduce both player's decks by the hand size" do
+      expect(@game_state.player_one.deck.list.size).to eq @game_db_model.player_one.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
+      expect(@game_state.player_one.deck.list.size).to eq @game_db_model.player_two.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
+    end
+
+    it 'should have two hands of GameEngine::Card objects' do
+      expect(@game_state.player_one.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
+      expect(@game_state.player_two.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
     end
   end
 end
