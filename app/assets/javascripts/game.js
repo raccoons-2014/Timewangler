@@ -31,6 +31,7 @@ function drawGame(gameObject) {
 
 $(document).ready(function() {
   if ($('#game-container').length > 0) {
+    window['onbeforeunload'] = undefined;
     console.log('game loaded');
     pollServer();
   };
