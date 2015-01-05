@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe 'GameEngine::GameRunner' do
+describe 'GameEngine::GameResolver' do
 
   describe '#resolve_round' do
     before(:each) do
@@ -69,7 +69,9 @@ describe 'GameEngine::GameRunner' do
       @game_db_model.player_two.deck = create(:deck)
 
       @game_state = GameEngine::GameState.new(@game_db_model)
-      @game_state.deal_cards 
+      # @game_state.deal_cards 
+
+      GameEngine::GameResolver.deal_cards(@game_state)
     end
 
     it 'should give both players a maximum hand size after the first draw' do
