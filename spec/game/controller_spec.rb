@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 describe 'GameEngine::Controller' do
   describe '#advance_game' do

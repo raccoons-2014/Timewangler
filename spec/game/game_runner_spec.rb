@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 describe 'GameEngine::GameRunner' do
   describe '#resolve_round' do
