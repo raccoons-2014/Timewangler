@@ -391,7 +391,19 @@ h2 {
   /*border: 2px solid yellow;*/
 }
 
-.card_display h2, p {
+.card_display h2 {
+  color: black;
+}
+
+.card_display span {
+  color: black;
+}
+
+.card_display p {
+  color: black;
+}
+
+.card_display .description {
   color: black;
 }
 
