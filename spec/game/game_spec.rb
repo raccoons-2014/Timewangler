@@ -27,24 +27,24 @@ describe "GameEngine::GameState" do
     end
   end
 
-  describe '#deal_cards' do
-    before(:each) { @game_state.deal_cards }
+  # describe '#deal_cards' do
+  #   before(:each) { @game_state.deal_cards }
 
-    it 'should give both players a maximum hand size after the first draw' do
-      expect(@game_state.player_one.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
-      expect(@game_state.player_two.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
-    end
+  #   it 'should give both players a maximum hand size after the first draw' do
+  #     expect(@game_state.player_one.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
+  #     expect(@game_state.player_two.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
+  #   end
 
-    it "should reduce both player's decks by the hand size" do
-      expect(@game_state.player_one.deck.list.size).to eq @game_db_model.player_one.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
-      expect(@game_state.player_one.deck.list.size).to eq @game_db_model.player_two.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
-    end
+  #   it "should reduce both player's decks by the hand size" do
+  #     expect(@game_state.player_one.deck.list.size).to eq @game_db_model.player_one.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
+  #     expect(@game_state.player_one.deck.list.size).to eq @game_db_model.player_two.deck.cards.size - GameEngine::GAME_RULES[:hand_size]
+  #   end
 
-    it 'should have two hands of GameEngine::Card objects' do
-      expect(@game_state.player_one.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
-      expect(@game_state.player_two.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
-    end
-  end
+  #   it 'should have two hands of GameEngine::Card objects' do
+  #     expect(@game_state.player_one.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
+  #     expect(@game_state.player_two.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
+  #   end
+  # end
 
   describe '#won? and #winner' do
     it 'should have neither player as the winner if both have health above 0' do
