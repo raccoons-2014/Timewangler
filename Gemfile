@@ -38,9 +38,6 @@ gem 'transit_rails'
 # Use hoverIntent for calming cards down
 gem 'jquery-hoverIntent-rails'
 
-# Use jasmine jquery for spoofing div interactions
-gem 'jasmine-jquery-rails'
-
 # Use unicorn as the app server
 # gem 'unicorn'
 

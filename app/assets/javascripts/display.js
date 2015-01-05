@@ -37,6 +37,7 @@ Display.prototype.winScreen = function(winState) {
   }
 }
 
+// Creates a .center jquery function which aligns the selected div on the bottom-center of the page based on the current window resolution.
 $.fn.center = function () {
     this.css("position","absolute");
     this.css("bottom", Math.min(0, (($(window).height() - $(this).outerHeight()) / 2) +
@@ -45,5 +46,3 @@ $.fn.center = function () {
       $(window).scrollLeft()) + "px");
     return this;
 }
-
-
