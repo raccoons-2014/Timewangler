@@ -8,7 +8,7 @@ describe "GameEngine::Cache" do
     game_data.player_one.deck = create(:deck)
     game_data.player_two.deck = create(:deck)
 
-    GameEngine::Game.new(game_data)
+    GameEngine::GameState.new(game_data)
   end
 
   describe '#save_game_state' do
