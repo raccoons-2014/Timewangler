@@ -6,6 +6,8 @@ var display = new Display;
 
 Display.prototype.displayCard = function(id, card) {
   $("#"+id+" span.name").html(card.name);
+  $("#"+id+" span.picture .card_pic img").attr('src', card.picture_url);
+  $("#"+id+" span.description").html(card.description);
   $("#"+id+" span.strength").html(card.strength);
   $("#"+id+" span.intelligence").html(card.intelligence);
   $("#"+id+" span.charisma").html(card.charisma);
@@ -13,9 +15,9 @@ Display.prototype.displayCard = function(id, card) {
 
 Display.prototype.displayHand = function(hand) {
   var self = this
-$.each(hand, function( i, val) {
-  self.displayCard((i+1), val);
-});
+  $.each(hand, function( i, val) {
+    self.displayCard((i+1), val);
+  });
 };
 
 
