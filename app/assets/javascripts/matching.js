@@ -1,9 +1,11 @@
+// Gets the GameId number from the URL and returns it.
 function getGameId() {
   var fullUrl = document.URL;
   var urlArray = fullUrl.split('/');
   return urlArray[4];
 }
 
+// Checks to see if anyone has joined the match, logs in the console while waiting for a response
 function checkMatch() {
   setTimeout(function() {
     console.log("Waiting for another player to join...");
@@ -49,6 +51,7 @@ function cancelMatch() {
   })
 }
 
+// If a user has been searching too long (60 seconds), redirects to the profile path.
 function matchTimeout(numSeconds) {
   var counter = 0;
 
@@ -59,12 +62,3 @@ function matchTimeout(numSeconds) {
                  }
                }, 1000)
 }
-
-$(document).ready(function() {
-  if ($('#match').length > 0) {
-    console.log('matches loaded');
-    matchTimeout(60);
-    checkMatch();
-    window.onbeforeunload = function() { cancelMatch(); }
-  };
-})

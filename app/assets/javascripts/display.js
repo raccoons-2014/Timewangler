@@ -3,6 +3,7 @@ var Display = function() {
 
 var display = new Display;
 
+// Displays the cards on the game board in the player's hand
 Display.prototype.displayCard = function(id, card) {
   $("#"+id+" span.name").html(card.name);
   $("#"+id+" span.picture .card_pic img").attr('src', card.picture_url);
@@ -12,6 +13,7 @@ Display.prototype.displayCard = function(id, card) {
   $("#"+id+" span.charisma").html(card.charisma);
 }
 
+// Increments through the cards and displays all the cards in the hand as long as there are divs.
 Display.prototype.displayHand = function(hand) {
   var self = this
   $.each(hand, function( i, val) {
@@ -19,12 +21,14 @@ Display.prototype.displayHand = function(hand) {
   });
 };
 
+// Displays the Scoreboard on the game board.
 Display.prototype.displayScoreBoard = function(gameObect) {
   $(".score_board .score").html(gameObect.player_points);
   $(".score_board .round").html(gameObect.round);
   $(".score_board .time").html(gameObect.time_remaining);
 };
 
+// Displays the Win Screen upon the winState being set to true.
 Display.prototype.winScreen = function(winState) {
   if (winState === true) {
     $("#game-container").html("you won!");
@@ -32,20 +36,6 @@ Display.prototype.winScreen = function(winState) {
     $("#game-container").html("you lost!");
   }
 }
-
-$(document).ready(function() {
-  $('.hand').center();
-  $('.card').hoverIntent(function() {
-    $("#"+($(this).attr('id'))+".card").addClass('card_display');
-    $( this ).transition({ scale: 2.2, y: -40 });
-  },
-   function() {
-    var id = $('.card').attr('id');
-    $("#"+($(this).attr('id'))+".card").removeClass('card_display');
-    $( this ).transition({ scale: 1, y: 0 });
-    }
-  );
-});
 
 $.fn.center = function () {
     this.css("position","absolute");
