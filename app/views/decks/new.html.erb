@@ -1,6 +1,9 @@
-<%= flash[:error] %>
+<div class="new_deck">
 
-<div>
+<%= flash.now[:error] %>
+
+<h2>Create a New Deck!</h2>
+<br>
 <%= form_for @deck do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
