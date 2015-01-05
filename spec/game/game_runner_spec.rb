@@ -21,7 +21,7 @@ describe 'GameEngine::GameRunner' do
     it 'should reset the players selections to [] when played cards for each is nil' do
       @game_state.player_one.selection[0] = nil
       @game_state.player_two.selection[0] = nil
-      GameEngine::GameRunner.resolve_round(@game_state)
+      GameEngine::GameResolver.resolve_round(@game_state)
       expect(@game_state.player_one.selection).to eq []
       expect(@game_state.player_two.selection).to eq []
     end
@@ -31,7 +31,7 @@ describe 'GameEngine::GameRunner' do
       @game_state.player_one.selection << @winning_card
       @game_state.player_two.selection << @losing_card
       damage = (@winning_card.max_stat - @losing_card.max_stat)
-      GameEngine::GameRunner.resolve_round(@game_state)
+      GameEngine::GameResolver.resolve_round(@game_state)
       expect(@game_state.player_two.points).to eq @starting_points - damage
       expect(@game_state.player_one.points).to eq @starting_points + damage
     end
@@ -39,7 +39,7 @@ describe 'GameEngine::GameRunner' do
     it 'should not deduct any points when both players chose to play no cards' do
       @game_state.player_one.selection << nil
       @game_state.player_two.selection << nil
-      GameEngine::GameRunner.resolve_round(@game_state)
+      GameEngine::GameResolver.resolve_round(@game_state)
       expect(@game_state.player_two.points).to eq @starting_points
       expect(@game_state.player_one.points).to eq @starting_points
     end
@@ -47,7 +47,7 @@ describe 'GameEngine::GameRunner' do
     it 'should correctly assign points when player one does not play a card but the other player does' do
       @game_state.player_one.selection << nil
       @game_state.player_two.selection << @winning_card
-      GameEngine::GameRunner.resolve_round(@game_state)
+      GameEngine::GameResolver.resolve_round(@game_state)
       expect(@game_state.player_one.points).to eq @starting_points - @winning_card.max_stat
       expect(@game_state.player_two.points).to eq @starting_points + @winning_card.max_stat
     end
@@ -55,7 +55,7 @@ describe 'GameEngine::GameRunner' do
     it 'should correctly assign points when player two does not play a card but the other player does' do
       @game_state.player_one.selection << @winning_card
       @game_state.player_two.selection << nil
-      GameEngine::GameRunner.resolve_round(@game_state)
+      GameEngine::GameResolver.resolve_round(@game_state)
       expect(@game_state.player_two.points).to eq @starting_points - @winning_card.max_stat
       expect(@game_state.player_one.points).to eq @starting_points + @winning_card.max_stat
     end
