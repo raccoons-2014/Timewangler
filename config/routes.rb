@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
   post 'games/join', to: 'games#join', as: 'join_game'
+  post '/games/:game_id/move', to: "games#move"
   get 'games/:game_id/matching', to: 'games#matching', as: 'match_game'
   get 'games/:game_id/status', to: 'games#status', as: 'game_status'
   get 'games/:game_id/poll', to: 'games#poll', as: 'game_poll'
