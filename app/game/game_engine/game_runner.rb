@@ -6,6 +6,7 @@ module GameEngine
 
       calc_points
       reset_selections
+      game.phase = :won if game.won?
     end
 
     def self.determine_maxstat(player)
