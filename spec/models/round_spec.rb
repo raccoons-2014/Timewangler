@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'spec_helper'
+
 
 RSpec.describe Round, :type => :model do
   it "has a valid factory" do

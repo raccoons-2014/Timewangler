@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'spec_helper'
+
 
 RSpec.describe TimePeriod, :type => :model do
   let(:time_period) { create(:time_period)}

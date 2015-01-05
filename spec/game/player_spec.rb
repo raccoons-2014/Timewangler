@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'spec_helper'
+
 
 describe 'GameEngine::Player' do
   before(:each) { @player = GameEngine::Player.new(create(:deck).user) }
