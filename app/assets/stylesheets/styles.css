@@ -1,0 +1,488 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Futura';
+  color: white;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#dashboard {
+  width: 100%;
+  height: 11%;
+  min-height: 80px;
+  background-color: teal;
+}
+
+#dashboard .player_one {
+  background: yellow;
+  height: 110px;
+  width: 100%;
+}
+
+#dashboard .score {
+}
+
+#arena {
+  background-color: blue;
+  height: 75%;
+}
+
+#hand_player_one{
+  background-color: green;
+  width: 900px;
+  height: 90px;
+  margin: 0px 80px 0px 80px;
+  padding: 0;
+  text-align: center;
+}
+
+#hand_player_two{
+  background-color: #00FFFF;
+  width: 900px;
+  height: 90px;
+  margin: 0px 80px 0px 80px;
+  padding: 0;
+  text-align: center;
+}
+
+ul#inline-block-test,
+  ul#inline-block-test li {
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 0px;
+    display: inline-block;
+  }
+
+ul#inline-block-test li {
+  min-height: 100px;
+}
+
+#player_one_name {
+  text-align: center;
+  width: 400px;
+  height: 90px;
+  background-color: gray;
+}
+
+#player_two_name {
+  text-align: center;
+  width: 400px;
+  height: 90px;
+  background-color: purple;
+}
+
+li {
+/*  margin-left: 5px;*/
+}
+
+h3 {
+  text-align: center;
+}
+
+#number_of_parts_player_one{
+  text-align: center;
+  background-color: #FAEBD7;
+  height: 90px;
+}
+
+#number_of_parts_player_two{
+  text-align: center;
+  background-color: #7FFF00;
+  height: 90px;
+}
+
+#deck_right {
+  text-align: center;
+  width: 200px;
+  height: 90px;
+  background-color: red;
+}
+
+ul#inline_block_of_cards,
+  ul#inline_block_of_cards li {
+    margin: 0;
+
+  }
+
+  ul#inline_block_of_cards li {
+    display: inline-block;
+    width: 14%;
+    min-height: 80px;
+
+  }
+
+  .card_in_hand_player_two {
+    background-color: pink;
+    width: 100px;
+    min-height: 80px;
+  }
+
+  .card_in_hand_player_one {
+    background-color: pink;
+    width: 100px;
+    min-height: 80px;
+  }
+
+body {
+  background-color: black;
+  /*border: 2px solid blue;*/
+ }
+
+.container {
+  /*border: 2px solid yellow;*/
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  height: 100%;
+  display: block;
+}
+
+.login {
+  text-align: center;
+}
+
+#splash_pic {
+  background-image: url("brokenclock.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+  right: 10%;
+  min-height: 60%;
+  display: block;
+  /*border: 2px solid green;*/
+}
+
+#splash {
+  /*border: 2px solid red;*/
+  /*position: block;*/
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+  right: 10%;
+  min-height: 100%;
+  display: block;
+  padding-top: 10px;
+}
+
+#home {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  min-height: 100%;
+  display: block;
+  /*border: 2px solid red;*/
+}
+
+body {
+
+  background-image: url("space2.gif");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  /*border: 2px solid red;*/
+}
+
+.menu {
+  position: absolute;
+  top: 10%;
+  bottom: 20%;
+  left: 10%;
+  right: 10%;
+  min-height: 60%;
+  display: block;
+  /*border: 2px solid green;*/
+  padding-top: 10%;
+}
+
+#home button {
+  width: 40%;
+  height: 50px;
+  display: block;
+  /*background: rgba(0,0,0,0.5);*/
+  border-radius: 10px;
+  vertical-align: middle;
+  background: -webkit-linear-gradient(left,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,0.5)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(255,0,0,0), rgba(0,100,0,0.5)); /*Standard*/
+
+}
+
+#home button a {
+  color: green;
+  font-family: Play;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  padding-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  min-height: 100%;
+}
+
+nav li{
+  display: inline;
+  padding: 10px;
+}
+
+input {
+  color: black;
+  min-height: 40px;
+  font-size: 15px;
+}
+
+/*ol {
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
+nav {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.error {
+  text-align: center;
+  font-size: 3em;
+  color: red;
+}
+
+.card {
+  display: inline-block;
+  text-align: center;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  position: relative;
+  height: 300px;
+  width: 200px;
+  padding: 10px;
+ /* background-image: url("chrome.jpg");*/
+  /*border: 2px solid red;*/
+}
+
+.card_pic {
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 45%;
+  max-height: 45%;
+  overflow: hidden;
+  opacity: 1;
+  /*border: 2px solid red;*/
+}
+
+.card::after {
+  content: "";
+  border-radius: 10px;
+  background-image: url("chrome.jpg");
+  background-size: 200%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 10px;
+  height: 300px;
+  width: 200px;
+}
+
+h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.card img {
+  position: relative;
+  height: 90%;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.card img.portrait {
+/*  width: 100%;
+  height: auto;*/
+}
+
+.card_display {
+  color: black;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  position: relative;
+  height: 300px;
+  width: 200px;
+  padding: 10px;
+  background-image: url("chrome.jpg");
+}
+
+.description {
+  height: 30%;
+  overflow: hidden;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 12px;
+  color: white;
+  /*border: 2px solid yellow;*/
+}
+
+.card_display h2 {
+  color: black;
+}
+
+.card_display span {
+  color: black;
+}
+
+.card_display p {
+  color: black;
+}
+
+.card_display .description {
+  color: black;
+}
+
+.hand {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+/*  border: 2px solid green;*/
+}
+
+.score_board {
+  color: red;
+  font-size: 50px;
+  padding-left: 20px;
+}
+
+.play {
+}
+
+.overlay {
+  content: "YPO";
+  background-color: yellow;
+  width: 1000px;
+  height: 1000px;
+}
+
+/*Deck Stuff From This Point On*/
+.new_deck {
+  text-align: center;
+}
+
+.db_introduction {
+  text-align: center;
+}
+
+.deck_builder {
+  text-align: center;
+  font-size: 15px;
+  -webkit-column-count: 2;
+}
+
+.deck_builder div {
+ display: inline-block;
+}
+
+.mini_card {
+  height: ;
+  width: ;
+  padding: 10px;
+}
+
+.mini_card img {
+  position: relative;
+  width: auto;
+  left: 50%;
+  top: 50%;
+  padding-bottom: 2px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.mini_card img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.current_deck {
+  width: 100%;
+  -webkit-column-count: 6;
+}
+
+.current_deck h2 {
+  text-align: center;
+}
+
+.card_selector {
+  width: 100%;
+
+  border-left: 2px solid white;
+  -webkit-column-count: 6;
+}
+
+.card_selector h2 {
+  text-align: center;
+}
