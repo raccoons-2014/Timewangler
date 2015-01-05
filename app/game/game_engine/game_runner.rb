@@ -1,6 +1,5 @@
 module GameEngine
   module GameRunner
-    # -------------------------------------------------
 
     def self.maxstat_nilcheck(player)
       maxstat_nilcheck = (player.selection.first.nil? ? 0 : player.selection.first.max_stat)
@@ -20,7 +19,6 @@ module GameEngine
         @player_two.points -= damage
     end
 
-    # -------------------------------------------------
     def self.resolve_round(game)
       @player_one = game.player_one
       @player_two = game.player_two
