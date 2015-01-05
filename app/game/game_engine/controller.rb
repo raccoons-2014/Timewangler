@@ -1,12 +1,16 @@
 module GameEngine
   module Controller
 
-    def self.save_game_state
+    def self.save_game_state(game_state)
       GameEngine::Cache.save_game_state(game_state)
     end
 
-    def output_player_data
+    def self.output_player_data(game_state, player_id)
       GameEngine::IO.output_player_data(game_state, player_id)
+    end
+
+    def self.selection_made?(player)
+      !player.selection.empty?
     end
 
 
@@ -26,6 +30,7 @@ module GameEngine
           GameEngine::Cache.save_game_state(game_state)
 
           game_state.deal_cards
+
           save_game_state
 
 
@@ -33,24 +38,28 @@ module GameEngine
 
           output_player_data
 
+
+          save_game_state(game_state)
+          output_player_data(game_state, player_id)
+
         end
       elsif game_state.phase == :move
         if current_time - game_state.time >= GAME_RULES[:move_time]
           if game_state.target_player(player_id.to_i).selection.empty?
             game_state.target_player(player_id.to_i).selection << nil
-            save_game_state
-            output_player_data
+            save_game_state(game_state)
+            output_player_data(game_state, player_id)
           end
         end
 
-        if !game_state.player_one.selection.empty? && !game_state.player_two.selection.empty?
+        if selection_made?(game_state.player_one) && selection_made?(gitgame_state.player_two)
           game_state.phase = :resolution
           game_state.time = Time.now
-          save_game_state
-          output_player_data
+          save_game_state(game_state)
+          output_player_data(game_state, player_id)
         end
       elsif game_state.phase == :won
-        output_player_data
+        output_player_data(game_state, player_id)
       else
         if current_time - game_state.time >= GAME_RULES[:resolution_time]
           GameEngine::GameResolver.resolve_round(game_state)
@@ -59,18 +68,19 @@ module GameEngine
             game_state.phase = :move
             GameEngine::GameResolver.deal_cards(game_state)
           end
-          save_game_state
-          d
+          save_game_state(game_state)
+        end
       end
 
-      output_player_data
+      output_player_data(game_state, player_id)
     end
 
     def self.get_player_move(game_data, player_id, card_id)
       game_state = GameEngine::Cache.fetch_game_state(game_data)
       if game_state.target_player(player_id).selection.empty? && game_state.phase == :move
         GameEngine::IO.input_player_move(game_state, player_id, card_id)
-        save_game_state
-            end
+        save_game_state(game_state)
+      end
+    end
   end
 end
