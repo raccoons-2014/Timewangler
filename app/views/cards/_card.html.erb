@@ -1,10 +1,12 @@
 <div class="card">
-  <span class='name'><h2><%= @card.name %></h2></span>
-  <div class = "card_pic">
-    <img src="<%= @card.picture_url %>", class="portrait">
-  </div>
+    <span class='name'><h2><%= @card.name %></h2></span>
+    <div class="card_pic">
+        <img src="<%= @card.picture_url %>" , class="portrait">
+    </div>
     <div class='description'>
-      <p><%= @card.description %></p>
+        <p>
+            <%=@card.description %>
+        </p>
     </div>
     <h2>Strength:
       <span class='strength'> <%= @card.strength %></span>

@@ -17,7 +17,6 @@ Rails.application.configure do
   # Added to enable Dalli caching
   config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 20.minutes, :compress => true }
 
-
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
