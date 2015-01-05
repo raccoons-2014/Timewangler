@@ -9,6 +9,7 @@ function getGameId() {
 function checkMatch() {
   setTimeout(function() {
     console.log("Waiting for another player to join...");
+    var gameId = getGameId()
 
     $.ajax({
         url: "/games/" + getGameId() + "/status",
