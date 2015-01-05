@@ -4,7 +4,7 @@
       <% if current_user %>
       <ol>
         <li><%= link_to 'Profile', profile_path %></li>
-        <li><%= link_to 'Play', join_game_path, method: 'POST' %></li>
+        <li class="play"><span><%= link_to 'Play', join_game_path, method: 'POST' %></span></li>
         <li><%= link_to 'Get Cards', cards_path %></li>
         <li><%= link_to 'Your Deck', decks_path %></li>
         <li><%= link_to 'Users', users_path %></li>

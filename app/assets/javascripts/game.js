@@ -22,7 +22,8 @@ function drawGame(gameObject) {
   // $("#game-container").html(gameObject.phase);
 
   if (gameObject.phase == "move") {
-    display.displayHand(gameObject.player_hand)
+    display.displayHand(gameObject.player_hand);
+    display.displayScoreBoard(gameObject);
   }
 }
 

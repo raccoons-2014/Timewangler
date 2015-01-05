@@ -361,11 +361,25 @@ h2 {
   height: auto;*/
 }
 
+.card_display {
+  color: black;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  position: relative;
+  height: 300px;
+  width: 200px;
+  padding: 10px;
+  background-image: url("chrome.jpg");
+}
 
 .deck_builder div {
  display: inline-block;
 }
-
 
 .description {
   height: 30%;
@@ -373,8 +387,12 @@ h2 {
   margin-bottom: 5px;
   margin-top: 5px;
   font-size: 12px;
-  background-color: black;
+  color: white;
   /*border: 2px solid yellow;*/
+}
+
+.card_display h2, p {
+  color: black;
 }
 
 .hand {
@@ -382,4 +400,20 @@ h2 {
   bottom: 0;
   text-align: center;
 /*  border: 2px solid green;*/
+}
+
+.score_board {
+  color: red;
+  font-size: 50px;
+  padding-left: 20px;
+}
+
+.play {
+}
+
+.overlay {
+  content: "YPO";
+  background-color: yellow;
+  width: 1000px;
+  height: 1000px;
 }

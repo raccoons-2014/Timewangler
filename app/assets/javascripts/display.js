@@ -20,9 +20,27 @@ Display.prototype.displayHand = function(hand) {
   });
 };
 
+Display.prototype.displayScoreBoard = function(gameObect) {
+  $(".score_board .score").html(gameObect.player_points);
+  $(".score_board .round").html(gameObect.round);
+  $(".score_board .time").html(gameObect.time_remaining);
+};
+
 
 $(document).ready(function() {
   $('.hand').center();
+
+  $('.card').hoverIntent(function() {
+    $("#"+($(this).attr('id'))+".card").addClass('card_display');
+    $( this ).transition({ scale: 2.2, y: -40 });
+  },
+   function() {
+    var id = $('.card').attr('id');
+
+    $("#"+($(this).attr('id'))+".card").removeClass('card_display');
+    $( this ).transition({ scale: 1, y: 0 });
+    }
+  );
 });
 
 

@@ -32,6 +32,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Use dalli for caching game data server-side
 gem 'dalli'
 
+# Use transit.js for card display properties
+gem 'transit_rails'
+
+# Use hoverIntent for calming cards down
+gem 'jquery-hoverIntent-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
