@@ -15,7 +15,7 @@ module GameEngine
         if current_time - game_state.time >= GAME_RULES[:setup_time]
           game_state.phase = :move
           game_state.time = Time.now
-          game_state.deal_cards
+          GameEngine::GameResolver.deal_cards(game_state)
           GameEngine::Cache.save_game_state(game_state)
           GameEngine::IO.output_player_data(game_state, player_id)
         end
@@ -38,7 +38,7 @@ module GameEngine
         GameEngine::IO.output_player_data(game_state, player_id)
       else
         if current_time - game_state.time >= GAME_RULES[:resolution_time]
-          GameEngine::GameRunner.resolve_round(game_state)
+          GameEngine::GameResolver.resolve_round(game_state)
           unless game_state.won?
             game_state.round += 1
             game_state.phase = :move
