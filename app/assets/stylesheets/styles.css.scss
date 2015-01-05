@@ -186,7 +186,7 @@ body {
 }
 
 #splash_pic {
-  background-image: url("brokenclock.png");
+  background-image: image-url("brokenclock.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
@@ -222,7 +222,7 @@ body {
 
 body {
 
-  background-image: url("space2.gif");
+  background-image: image-url("space2.gif");
   background-repeat: no-repeat;
   background-size: 120%;
   /*border: 2px solid red;*/
@@ -313,7 +313,7 @@ nav {
   height: 300px;
   width: 200px;
   padding: 10px;
- /* background-image: url("chrome.jpg");*/
+ /* background-image: image-url("chrome.jpg");*/
   /*border: 2px solid red;*/
 }
 
@@ -330,7 +330,7 @@ nav {
 .card::after {
   content: "";
   border-radius: 10px;
-  background-image: url("chrome.jpg");
+  background-image: image-url("chrome.jpg");
   background-size: 200%;
   opacity: 0.5;
   top: 0;
@@ -374,7 +374,7 @@ h2 {
   height: 300px;
   width: 200px;
   padding: 10px;
-  background-image: url("chrome.jpg");
+  background-image: image-url("chrome.jpg");
 }
 
 .deck_builder div {
