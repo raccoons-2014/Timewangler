@@ -28,7 +28,7 @@ describe "GameEngine::Game" do
   end
 
   describe '#deal_cards' do
-    before(:each) {   @game.deal_cards }
+    before(:each) { @game.deal_cards }
 
     it 'should give both players a maximum hand size after the first draw' do
       expect(@game.player_one.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
