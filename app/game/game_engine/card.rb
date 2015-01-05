@@ -14,6 +14,8 @@ module GameEngine
       @picture_url = card_data.picture_url
     end
 
+
+    # that's good OO
     def max_stat
       [strength,intelligence,charisma].max
     end

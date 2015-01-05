@@ -15,12 +15,14 @@ RSpec.describe DecksController, :type => :controller do
 
     it "renders the :new template" do
       get :new
+      # Yes Matthew.  Tell Dmitry how to do this.
       expect(response).to render_template :new
     end
   end
 
   describe "POST#create" do
     it "creates a new deck and saves it in the database" do
+      # Why aren't you using `user_one` ?
       user = create(:user)
       session[:user_id] = user.id
       expect { post :create, deck: attributes_for(:deck)}.to change(Deck, :count).by(1)
@@ -68,14 +70,16 @@ RSpec.describe DecksController, :type => :controller do
   end
 
   describe "PUT#update" do
-    xit "changes @deck's attributes" do
+    # Make live again.
+    it "changes @deck's attributes" do
+      # don't commit this `p` noise.
       p deck_one.name
       put :edit, id: deck_one,
         deck: {name: "Juice"}
       expect(deck_one.name).to eq("Juice")
     end
 
-    xit "redirects to the updated Deck" do
+    it "redirects to the updated Deck" do
       put :edit, id: deck_one, deck: attributes_for(:deck)
       expect(response).to redirect_to deck_path(deck_one)
     end

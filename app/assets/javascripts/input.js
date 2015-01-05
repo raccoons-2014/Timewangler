@@ -1,3 +1,4 @@
+// A 3rd document ready!  A hat-trick
 $(document).ready(function() {
   if ($('.card').length > 0) {
     console.log('input loaded');

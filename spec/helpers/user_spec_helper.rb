@@ -1,3 +1,6 @@
+# indent! 2 spaces in Ruby
+
+# And...delete me.
 def register_users!
     visit('/')
     fill_in('P1 Username', :with => 'John')

@@ -52,21 +52,21 @@ class DecksController < ApplicationController
   end
 
   def destroy
-    user = User.find(session[:user_id])
-    deck = user.deck
-    deck.destroy
+    # The refactor is known as: "REPLACE TEMPORARY VARIABLE WITH CHAINED METHOD
+    # CALL"
+    User.find(session[:user_id]).deck.destroy
     redirect_to profile_path
   end
 
   def add_card
-    user = User.find(session[:user_id])
-    cards_in_deck = user.deck.cards
-    @card = Card.find(params[:card_id])
-    if cards_in_deck.include?(@card)
+    card = Card.find(params[:card_id])
+    deck = User.find(session[:user_id]).deck
+
+    if deck.contains?(@card)
       flash[:error] = "You already have this card in your deck!"
       redirect_to deck_path(user.deck)
     else
-      cards_in_deck << @card
+      deck << @card
       redirect_to deck_path(user.deck)
     end
   end

@@ -1,6 +1,13 @@
 <div class="card">
   <span class='name'><h2><%= @card.name %></h2></span>
   <div class = "card_pic">
+    <!-- img_tag is your friend!  You shouldn't have to interpolate HTML noise like this... -->
+    <!-- use single quotes or double quotes consistently.  -->
+
+    <!-- 
+      <%= img_tag 'portrait',  @card.picture_url %>
+    -->
+
     <img src="<%= @card.picture_url %>", class="portrait">
   </div>
     <div class='description'>

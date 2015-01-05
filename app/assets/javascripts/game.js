@@ -31,8 +31,10 @@ function drawGame(gameObject) {
 
 
 
+// NO.  all ready() behavior in one callback
 $(document).ready(function() {
   if ($('#game-container').length > 0) {
+    // seems weird
     window['onbeforeunload'] = undefined;
     console.log('game loaded');
     pollServer();

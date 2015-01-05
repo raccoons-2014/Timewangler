@@ -1,7 +1,8 @@
 var Display = function() {
-
 }
 
+// This is a global variable and is important for your entire application.
+// Globals are dangerous.
 var display = new Display;
 
 Display.prototype.displayCard = function(id, card) {
@@ -36,6 +37,9 @@ Display.prototype.winScreen = function(winState) {
 }
 
 
+NO.
+
+// We should only have 1 document.ready() hander
 $(document).ready(function() {
   $('.hand').center();
 

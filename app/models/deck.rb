@@ -6,4 +6,8 @@ class Deck < ActiveRecord::Base
   def create_shuffled_deck
     Card.all.shuffle[1..15]
   end
+
+  def contains?(card)
+    cards.include?(card)
+  end
 end

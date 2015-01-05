@@ -2,6 +2,28 @@
 ## CLASSICAL (10 heroes)
 ## ---------------------------------
 
+# It would be super dope if this were stored as a CSV or YAML file.  You
+# iterate through that.  Imagine.....
+#
+#
+# Classical Period:
+#   - card_type: "Hero"
+#   - description: "blah"
+#
+# You could imagine that you might want to use JSON as the formatting language
+# within the data file.  You could also use YAML or XML or something really
+# ugly, but y'know, you use a lot of JSON.
+#
+# {
+#   "classical": [
+#     { "name": "Cleo", "picture_url": "..." },
+#     { "name": "Rleo", "picture_url": "..." },
+#     { "name": "Jleo", "picture_url": "..." },
+#     { "name": "Kleo", "picture_url": "..." },
+#     { "name": "Eleo", "picture_url": "..." },
+#   ]
+# }
+
 TimePeriod.create(name: "Classical Period")
 
 Card.create(card_type: "Hero", name: "Cleopatra", description: "Last active pharaoh of Ancient Egypt.", strength: 4, intelligence: 8, charisma: 8, picture_url: "http://thedeepestred.files.wordpress.com/2012/12/cleopatra.jpg")

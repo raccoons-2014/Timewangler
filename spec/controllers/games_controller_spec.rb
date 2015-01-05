@@ -5,6 +5,7 @@ RSpec.describe GamesController, :type => :controller do
     before(:each) { @game = create(:game) }
 
     it 'should decrease the count of existing games by one after calling the destroy action' do
+      # indent properly
     expect{ Game.destroy(@game) }.to change(Game, :count)
     end
 
