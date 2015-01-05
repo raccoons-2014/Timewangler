@@ -13,7 +13,9 @@
         <% @deck.cards.each do |card| %>
           <li>
             <div class="mini_card">
-              <img class="portrait" src="<%= card.picture_url %>">
+              <div class=""
+              <%= image_tag card.picture_url, class: "portrait" %>
+
               <%= link_to card.name, card_path(card) %>
               <%= link_to "-", remove_card_path(card_id: card), method:"DELETE" %>
             </div>
