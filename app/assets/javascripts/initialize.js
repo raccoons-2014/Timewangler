@@ -5,10 +5,10 @@ $(document).ready(function() {
     $("#"+($(this).attr('id'))+".card").addClass('card_display');
     $( this ).transition({ scale: 2.2, y: -40 });
   },
-   function() {
-    var id = $('.card').attr('id');
-    $("#"+($(this).attr('id'))+".card").removeClass('card_display');
-    $( this ).transition({ scale: 1, y: 0 });
+    function() {
+      var id = $('.card').attr('id');
+      $("#"+($(this).attr('id'))+".card").removeClass('card_display');
+      $( this ).transition({ scale: 1, y: 0 });
     }
   );
 
