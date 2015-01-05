@@ -27,5 +27,14 @@ module GameEngine
       return player_two if player_two.id.to_i == player_id.to_i
       raise ArgumentError.new("No player found with id = #{player_id}")
     end
+
+    def winner
+      return player_one if player_one.points > 0 && player_two.points <= 0
+      return player_two if player_two.points > 0 && player_one.points <= 0
+    end
+
+    def won?
+      winner != nil
+    end
   end
 end
