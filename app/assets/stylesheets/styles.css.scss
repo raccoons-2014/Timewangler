@@ -468,6 +468,13 @@ h2 {
   height: auto;
 }
 
+.row: before,
+.row:after {
+  content:"";
+  display: table;
+  clear: both;
+}
+
 .current_deck {
   width: 100%;
   -webkit-column-count: 6;
@@ -479,7 +486,6 @@ h2 {
 
 .card_selector {
   width: 100%;
-
   border-left: 2px solid white;
   -webkit-column-count: 6;
 }
