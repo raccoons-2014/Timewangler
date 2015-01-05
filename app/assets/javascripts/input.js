@@ -19,5 +19,7 @@ function submitInput(cardId) {
     url: '/games/' + getGameId() + '/move',
     method: "POST",
     data: { card: cardId }
-  })
+  }).done(function(response) {
+    console.log(response);
+  });
 }

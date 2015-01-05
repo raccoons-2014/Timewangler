@@ -51,6 +51,10 @@ class GamesController < ApplicationController
     game_data = Game.find(params[:game_id])
 
     GameEngine::Controller.get_player_move(game_data, session[:user_id].to_i, card_id)
+
+    respond_to do |format|
+      format.js { render :json => "request for card #{card_id} processed".to_json }
+    end
   end
 
   def matching
