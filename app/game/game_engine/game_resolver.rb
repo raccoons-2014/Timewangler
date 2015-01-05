@@ -30,15 +30,15 @@ module GameEngine
     end
 
     def self.deal_cards(game_state)
-      @player_one = game_state.player_one
-      @player_two = game_state.player_two
+      player_one = game_state.player_one
+      player_two = game_state.player_two
 
       until player_one.hand.size == GAME_RULES[:hand_size]
-        @player_one.hand << @player_one.deck.list.pop
+        player_one.hand << player_one.deck.list.pop
       end
 
       until player_two.hand.size == GAME_RULES[:hand_size]
-        @player_two.hand << @player_two.deck.list.pop
+        player_two.hand << player_two.deck.list.pop
       end
     end
 
