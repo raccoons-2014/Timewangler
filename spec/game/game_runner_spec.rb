@@ -15,6 +15,7 @@ describe 'GameEngine::GameRunner' do
 
     end
 
+    # ----------
     #additional tests could be written to test the reset to [] for other initial conditions
     it 'should reset the players selections to [] when played cards for each is nil' do
       @game.player_one.selection[0] = nil
@@ -23,6 +24,7 @@ describe 'GameEngine::GameRunner' do
       expect(@game.player_one.selection).to eq []
       expect(@game.player_two.selection).to eq []
     end
+    #-------------
 
     it 'should deduct the correct number of points from the losing player and add them to the winning player' do
       @game.player_one.selection << @winning_card

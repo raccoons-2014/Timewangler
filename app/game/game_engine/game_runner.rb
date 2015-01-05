@@ -6,7 +6,8 @@ module GameEngine
     end
 
     def self.damage
-      (maxstat_nilcheck(@player_one) - maxstat_nilcheck(@player_two)).abs
+      @max_stat_compare = maxstat_nilcheck(@player_one) - maxstat_nilcheck(@player_two)
+      @max_stat_compare.abs
     end
 
     def self.reset_selections
@@ -28,6 +29,9 @@ module GameEngine
       @player_one = game.player_one
       @player_two = game.player_two
       @played_cards = [@player_one.selection.first, @player_two.selection.first]
+
+
+
 
       if @played_cards.include?(nil)
         if @played_cards.all? {|x| x.nil?}
