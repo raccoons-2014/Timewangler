@@ -11,6 +11,7 @@ module GameEngine
       @intelligence = card_data.intelligence
       @charisma = card_data.charisma
       @time_period = card_data.time_period
+      @picture_url = card_data.picture_url
     end
 
     def max_stat
