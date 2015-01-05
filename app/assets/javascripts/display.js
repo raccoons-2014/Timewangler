@@ -26,6 +26,15 @@ Display.prototype.displayScoreBoard = function(gameObect) {
   $(".score_board .time").html(gameObect.time_remaining);
 };
 
+Display.prototype.winScreen = function(winState) {
+  if (winState === true) {
+    $("#game-container").html("you won!");
+  } else {
+    $("#game-container").html("you lost!");
+  }
+
+}
+
 
 $(document).ready(function() {
   $('.hand').center();
