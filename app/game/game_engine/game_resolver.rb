@@ -1,5 +1,5 @@
 module GameEngine
-  module GameRunner
+  module GameResolver
     def self.resolve_round(game_state)
       @player_one = game_state.player_one
       @player_two = game_state.player_two
