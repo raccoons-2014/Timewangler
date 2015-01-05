@@ -19,7 +19,7 @@ function pollServer() {
 
 function drawGame(gameObject) {
 
-  $("#game-container").html(gameObject.phase);
+  // $("#game-container").html(gameObject.phase);
 
   if (gameObject.phase == "move") {
     display.displayHand(gameObject.player_hand)
