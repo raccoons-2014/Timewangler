@@ -12,16 +12,6 @@ module GameEngine
       @time = Time.now
     end
 
-    def deal_cards
-      until player_one.hand.size == GAME_RULES[:hand_size]
-        player_one.hand << player_one.deck.list.pop
-      end
-
-      until player_two.hand.size == GAME_RULES[:hand_size]
-        player_two.hand << player_two.deck.list.pop
-      end
-    end
-
     def target_player(player_id)
       return player_one if player_one.id.to_i == player_id.to_i
       return player_two if player_two.id.to_i == player_id.to_i
