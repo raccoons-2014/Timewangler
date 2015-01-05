@@ -144,14 +144,14 @@ h3 {
 ul#inline_block_of_cards,
   ul#inline_block_of_cards li {
     margin: 0;
-    padding: 0;
+
   }
 
   ul#inline_block_of_cards li {
     display: inline-block;
-    width: 100px;
+    width: 14%;
     min-height: 80px;
-    background: #ccc;
+
   }
 
   .card_in_hand_player_two {
@@ -308,8 +308,8 @@ nav {
   margin-left: auto;
   border-radius: 10px;
   position: relative;
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 200px;
   /*overflow: hidden;*/
   padding: 10px;
   /*background-image: url("brushed-metal.jpg");*/
@@ -319,11 +319,11 @@ nav {
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-  height: 200px;
-  width: 220px;
-  /*border: 2px solid red;*/
-  display: block;
-  padding: 20px;
+  max-height: 40%;
+  max-width: 70%;
+  border: 2px solid red;
+  display: inline-block;
+  overflow: hidden;
   opacity: 1;
 }
 
@@ -339,8 +339,8 @@ nav {
   right: 0;
   position: absolute;
   padding: 10px;
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 200px;
 }
 
 h2 {
@@ -350,21 +350,22 @@ h2 {
 
 .card img {
   position: relative;
-  min-height: 200px;
-  width: auto;
-  left: 50%;
-  top: 50%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+  height: 50%;
+  width: 50%;
+  /*max-width: 100%;*/
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  /*width: auto;*/
 }
 
 .card img.portrait {
-  width: 100%;
-  height: auto;
+/*  width: 100%;
+  height: auto;*/
 }
+
 
 .deck_builder div {
  display: inline-block;
 }
+
