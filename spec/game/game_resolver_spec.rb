@@ -69,7 +69,6 @@ describe 'GameEngine::GameResolver' do
       @game_db_model.player_two.deck = create(:deck)
 
       @game_state = GameEngine::GameState.new(@game_db_model)
-      # @game_state.deal_cards 
 
       GameEngine::GameResolver.deal_cards(@game_state)
     end
