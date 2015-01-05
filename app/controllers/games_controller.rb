@@ -44,6 +44,13 @@ class GamesController < ApplicationController
     end
   end
 
+  def move
+    card_id = params[:card].to_i
+    game_data = Game.find(params[:game_id])
+
+    GameEngine::Controller.get_player_move(game_data, session[:user_id].to_i, card_id)
+  end
+
   def matching
   end
 

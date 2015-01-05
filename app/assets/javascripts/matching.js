@@ -25,6 +25,8 @@ function checkMatch() {
                 $('body').html(response);
                 // Poll the server, located in game.js
                 pollServer();
+                // set up listener for card clicks
+                cardInput();
               }
             })
           } else {

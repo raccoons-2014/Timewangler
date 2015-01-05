@@ -6,6 +6,7 @@ module GameEngine
 
       calc_points
       reset_selections
+      game.phase = :won if game.won?
     end
 
     def self.determine_maxstat(player)
@@ -19,8 +20,8 @@ module GameEngine
 
     #Calc_points should work when the damage value returned from damage above is negative (when player two has a higher maxstat) or positive (when player one has a higher maxstat).  (For example, consider that the subtraction of a negative value adds a positive value and the addition of negative value subtracts that value.)
     def self.calc_points
-        @player_one.points += damage
-        @player_two.points -= damage
+      @player_one.points += damage
+      @player_two.points -= damage
     end
 
     def self.reset_selections

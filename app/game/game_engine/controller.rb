@@ -34,17 +34,29 @@ module GameEngine
           GameEngine::Cache.save_game_state(game_state)
           GameEngine::IO.output_player_data(game_state, player_id)
         end
+      elsif game_state.phase == :won
+        GameEngine::IO.output_player_data(game_state, player_id)
       else
-        GameEngine::GameRunner.resolve_round(game_state) unless game_state.player_one.selection.empty?
         if current_time - game_state.time >= GAME_RULES[:resolution_time]
-          game_state.round += 1
-          game_state.phase = :move
-          game_state.deal_cards
+          GameEngine::GameRunner.resolve_round(game_state)
+          unless game_state.won?
+            game_state.round += 1
+            game_state.phase = :move
+            game_state.deal_cards
+          end
           GameEngine::Cache.save_game_state(game_state)
         end
       end
 
       GameEngine::IO.output_player_data(game_state, player_id)
+    end
+
+    def self.get_player_move(game_data, player_id, card_id)
+      game_state = GameEngine::Cache.fetch_game_state(game_data)
+      if game_state.target_player(player_id).selection.empty? && game_state.phase == :move
+        GameEngine::IO.input_player_move(game_state, player_id, card_id)
+        GameEngine::Cache.save_game_state(game_state)
+      end
     end
   end
 end

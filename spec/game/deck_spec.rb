@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 describe "GameEngine::Deck" do
   let(:game_deck) { GameEngine::Deck.new(create(:deck)) }

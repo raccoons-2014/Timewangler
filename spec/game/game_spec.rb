@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 describe "GameEngine::Game" do
 
@@ -27,7 +28,7 @@ describe "GameEngine::Game" do
   end
 
   describe '#deal_cards' do
-    before(:each) {   @game.deal_cards }
+    before(:each) { @game.deal_cards }
 
     it 'should give both players a maximum hand size after the first draw' do
       expect(@game.player_one.hand.size).to eq GameEngine::GAME_RULES[:hand_size]
@@ -42,6 +43,29 @@ describe "GameEngine::Game" do
     it 'should have two hands of GameEngine::Card objects' do
       expect(@game.player_one.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
       expect(@game.player_two.hand.all? { |card| card.instance_of? GameEngine::Card }).to eq true
+    end
+  end
+
+  describe '#won? and #winner' do
+    it 'should have neither player as the winner if both have health above 0' do
+      @game.player_one.points -= 5
+      @game.player_one.points += 5
+      expect(@game.won?).to eq false
+      expect(@game.winner).to eq nil
+    end
+
+    it "should declare player one the winner if their points are over 0 and player two's points are below zero" do
+      @game.player_two.points -= 40
+      @game.player_one.points += 40
+      expect(@game.won?).to eq true
+      expect(@game.winner).to eq @game.player_one
+    end
+
+    it "should declare player two the winner if their points are over 0 and player one's points are below zero" do
+      @game.player_one.points -= 31
+      @game.player_two.points += 31
+      expect(@game.won?).to eq true
+      expect(@game.winner).to eq @game.player_two
     end
   end
 end
