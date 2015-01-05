@@ -15,6 +15,14 @@ describe 'GameEngine::GameRunner' do
 
     end
 
+    it 'should set the players selections to nil when played cards for each is nil' do
+      @game.player_one.selection[0] = nil
+      @game.player_two.selection[0] = nil
+      GameEngine::GameRunner.resolve_round(@game)
+      expect(@game.player_one.selection).to eq []
+      expect(@game.player_two.selection).to eq []
+    end
+
     it 'should deduct the correct number of points from the losing player and add them to the winning player' do
       @game.player_one.selection << @winning_card
       @game.player_two.selection << @losing_card
