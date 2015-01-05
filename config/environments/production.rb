@@ -18,7 +18,7 @@ Rails.application.configure do
   # OLD:
   # config.cache_store = :dalli_store, nil, { :namespace => Smackwangler, :expires_in => 20.minutes, :compress => true }
   # NEW:
-  config.cache_store = :dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {:username => ENV["MEMCACHIER_USERNAME"], :password => ENV["MEMCACHIER_PASSWORD"], :failover => true, :socket_timeout => 1.5, :socket_failure_delay => 0.2}
+  config.cache_store = :dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {:username => ENV["MEMCACHIER_USERNAME"], :password => ENV["MEMCACHIER_PASSWORD"], :failover => true, :socket_timeout => 1.5, :socket_failure_delay => 0.2, :expires_in => 20.minutes, :compress => true}
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.

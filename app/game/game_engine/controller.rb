@@ -28,14 +28,18 @@ module GameEngine
           game_state.deal_cards
           save_game_state
 
+
           GameEngine::IO.output_player_data(game_state, player_id)
+
+          output_player_data
+
         end
       elsif game_state.phase == :move
         if current_time - game_state.time >= GAME_RULES[:move_time]
           if game_state.target_player(player_id.to_i).selection.empty?
             game_state.target_player(player_id.to_i).selection << nil
             save_game_state
-            GameEngine::IO.output_player_data(game_state, player_id)
+            output_player_data
           end
         end
 
@@ -43,10 +47,10 @@ module GameEngine
           game_state.phase = :resolution
           game_state.time = Time.now
           save_game_state
-          GameEngine::IO.output_player_data(game_state, player_id)
+          output_player_data
         end
       elsif game_state.phase == :won
-        GameEngine::IO.output_player_data(game_state, player_id)
+        output_player_data
       else
         if current_time - game_state.time >= GAME_RULES[:resolution_time]
           GameEngine::GameResolver.resolve_round(game_state)
@@ -59,7 +63,7 @@ module GameEngine
           d
       end
 
-      GameEngine::IO.output_player_data(game_state, player_id)
+      output_player_data
     end
 
     def self.get_player_move(game_data, player_id, card_id)
