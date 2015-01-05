@@ -1,5 +1,5 @@
 module GameEngine
-  class Game
+  class GameState
     attr_reader :id, :player_one, :player_two
     attr_accessor :round, :time, :phase
 
