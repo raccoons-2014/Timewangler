@@ -28,6 +28,10 @@ class UsersController < ApplicationController
   def profile
     protected_page!
     @user = current_user
+    @wins = @user.count_wins
+    @losses = @user.count_losses
+    @ratio = @user.win_loss_ratio
+    @last_3_games = @user.last_3_games
   end
 
 
