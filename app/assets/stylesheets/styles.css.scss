@@ -345,6 +345,7 @@ nav {
 h2 {
   font-size: 16px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .card img {
@@ -375,10 +376,6 @@ h2 {
   width: 200px;
   padding: 10px;
   background-image: image-url("chrome.jpg");
-}
-
-.deck_builder div {
- display: inline-block;
 }
 
 .description {
@@ -428,4 +425,86 @@ h2 {
   background-color: yellow;
   width: 1000px;
   height: 1000px;
+}
+
+.new_deck {
+  text-align: center;
+}
+
+.db_introduction {
+  text-align: center;
+}
+
+.new_deck {
+  text-align: center;
+}
+
+.db_introduction {
+  text-align: center;
+}
+
+.deck_builder {
+  text-align: center;
+  font-size: 15px;
+  -webkit-column-count: 2;
+}
+
+.deck_builder div {
+ display: inline-block;
+}
+
+.mini_card {
+  height:50px;
+  width:50px;
+  padding: 10px;
+}
+
+.mini_card img {
+  position: relative;
+  width: auto;
+  left: 50%;
+  top: 50%;
+  padding-bottom: 2px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.mini_card img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.current_deck {
+  width: 100%;
+  -webkit-column-count: 6;
+}
+
+.current_deck h2 {
+  text-align: center;
+}
+
+.card_selector {
+  width: 100%;
+
+  border-left: 2px solid white;
+  -webkit-column-count: 6;
+}
+
+.card_selector h2 {
+  text-align: center;
+}
+
+.ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+  }
+
+.ui-tooltip {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  font: bold 14px "Helvetica Neue", Sans-Serif;
+  text-transform: uppercase;
+  box-shadow: 0 0 7px black;
 }

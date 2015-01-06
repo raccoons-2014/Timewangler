@@ -46,3 +46,5 @@ $.fn.center = function () {
       $(window).scrollLeft()) + "px");
     return this;
 }
+
+$( document ).tooltip();
