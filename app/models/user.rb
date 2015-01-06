@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def last_3_games
-    games = self.games
+    games = self.games.order(created_at: :asc).limit(3)
   end
 
 end
