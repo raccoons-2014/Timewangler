@@ -30,11 +30,36 @@ Match.prototype.listenForConfirmation = function() {
             url: response.url,
             method: "GET"}).done(function(response) {
               clearInterval(matchTimer);
-              window.location.href = '/games/' + match.id.toString();
+              match.directToGame();
           });
         } else {
-          match.listenForConnection();
+          match.listenForConfirmation();
         }
     });
   }
+}
+
+Match.prototype.cancel = function() {
+  var match = this;
+
+  $.ajax({
+    url: "/games/" + match.id,
+    method: "DELETE"
+  })
+}
+
+Match.prototype.directToGame = function() {
+  window['onbeforeunload'] = undefined;
+  window.location.href = '/games/' + this.id.toString();
+}
+
+Match.prototype.timeout = function(numSeconds) {
+  var counter = 0;
+
+  matchTimer = setInterval(function() {
+                 counter ++;
+                 if (counter > numSeconds) {
+                   window.location.replace('/profile');
+                 }
+               }, 1000)
 }
