@@ -26,12 +26,15 @@ class UsersController < ApplicationController
   end
 
   def profile
-    protected_page!
-    @user = current_user
-    @wins = @user.count_wins
-    @losses = @user.count_losses
-    @ratio = @user.win_loss_ratio
-    @last_20_games = @user.last_20_games
+    if current_user
+      @user = current_user
+      @wins = @user.count_wins
+      @losses = @user.count_losses
+      @ratio = @user.win_loss_ratio
+      @last_20_games = @user.last_20_games
+    else
+      redirect_to root_path
+    end
   end
 
 
