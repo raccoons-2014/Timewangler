@@ -8,7 +8,7 @@ describe 'GameEngine::Controller' do
       @game_db_model.player_one.deck = create(:deck)
       @game_db_model.player_two.deck = create(:deck)
 
-      game = GameEngine::Game.new(@game_db_model)
+      game = GameEngine::GameState.new(@game_db_model)
       @game_setup = game.dup; @game_setup.phase = :setup
       @game_move = game.dup; @game_move.phase = :move
       @game_resolution = game.dup; @game_resolution.phase = :resolution
