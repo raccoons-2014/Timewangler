@@ -6,6 +6,8 @@
   <p>Click the Hero's name to check out their card!</p>
 </div>
   <br>
+
+
 <div class="deck_builder">
   <div class="current_deck">
     <h2>Your Deck</h2>
@@ -13,7 +15,7 @@
         <% @deck.cards.each do |card| %>
           <li>
             <div>
-             <!--  <img class="portrait" src="<%= card.picture_url %>"> -->
+              <img class="portrait" src="<%= card.picture_url %>">
               <%= link_to card.name, card_path(card) %>
               <%= link_to "-", remove_card_path(card_id: card), method:"DELETE" %>
             </div>
@@ -29,7 +31,7 @@
         <% @cards.each do |card| %>
           <li>
             <div>
-             <!--  <img class="portrait" src="<%= card.picture_url %>"> -->
+              <img class="portrait" src="<%= card.picture_url %>">
               <%= link_to card.name, card_path(card) %>
               <%= link_to "+", add_card_path(card_id: card), method:"POST" %>
             </div>
