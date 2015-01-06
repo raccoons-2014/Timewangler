@@ -1,11 +1,3 @@
-// After your hand has appeared, runs cardInput
-$(document).ready(function() {
-  if ($('.card').length > 0) {
-    console.log('input loaded');
-    cardInput();
-  }
-})
-
 // This function tells the game when a card has been selected by a player
 function cardInput() {
   console.log("CARD INPUT LOADED");
