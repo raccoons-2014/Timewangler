@@ -73,7 +73,7 @@ module GameEngine
           end
           save_game_state(game_state)
         end
-      endgit
+      end
 
       output_player_data(game_state, player_id)
     end
