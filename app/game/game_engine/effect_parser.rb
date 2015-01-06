@@ -2,7 +2,8 @@ module GameEngine
   module EffectParser
     def self.resolve_effects(game_state)
 
-      self.resolve_target_player(game_state, game_state.player_one)
+      target_player = self.resolve_target_player(game_state, game_state.player_one)
+
       self.resolve_target_player(game_state, game_state.player_two)
     end
 
@@ -22,7 +23,21 @@ module GameEngine
 
       def self.resolve_target_collection(player)
         target_collection = dsl_string.match(/(?<=\()(.*)(?=\>)/)
+
+        case target_collection
+        when 'hand'
+          collection = player.hand
+        when 'deck'
+          collection = player.deck
+        when 'selection'
+          collection = player.selection
+        end
+
         target_subset = dsl_string.match(/(?<=\>)(.*)(?=\))/)
+
+        case target_subset
+          #..
+        end
       end
 
       def self.resolve_target_property(player)
