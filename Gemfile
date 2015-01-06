@@ -38,8 +38,7 @@ gem 'transit_rails'
 # Use hoverIntent for calming cards down
 gem 'jquery-hoverIntent-rails'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -65,6 +64,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+# Use unicorn as the app server
+  gem 'unicorn'
 end
 
 # ruby "2.0.0"

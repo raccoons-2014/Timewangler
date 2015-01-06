@@ -1,12 +1,12 @@
 module GameEngine
-  module GameRunner
-    def self.resolve_round(game)
-      @player_one = game.player_one
-      @player_two = game.player_two
+  module GameResolver
+    def self.resolve_round(game_state)
+      @player_one = game_state.player_one
+      @player_two = game_state.player_two
 
       calc_points
       reset_selections
-      game.phase = :won if game.won?
+      game_state.phase = :won if game_state.won?
     end
 
     def self.determine_maxstat(player)
@@ -28,5 +28,19 @@ module GameEngine
       @player_one.selection = []
       @player_two.selection = []
     end
+
+    def self.deal_cards(game_state)
+      player_one = game_state.player_one
+      player_two = game_state.player_two
+
+      until player_one.hand.size == GAME_RULES[:hand_size]
+        player_one.hand << player_one.deck.list.pop
+      end
+
+      until player_two.hand.size == GAME_RULES[:hand_size]
+        player_two.hand << player_two.deck.list.pop
+      end
+    end
+
   end
 end

@@ -1,5 +1,5 @@
 require "rails_helper"
-require "spec_helper"
+
 
 feature "A user tries to join a game" do
   before :each do
