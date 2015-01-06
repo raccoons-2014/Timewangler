@@ -14,13 +14,13 @@ feature "A user tries to join a game" do
 
   scenario "a user looks for a button to join game" do
     visit profile_path
-    expect(page).to have_button "Find Game"
+    expect(page).to have_link "Join Game"
   end
 
   scenario "a user clicks the button to search for game" do
 
     visit profile_path
-    click_button "Find Game"
+    click_link "Join Game"
     expect(page).to have_text "matchmaking"
   end
 
