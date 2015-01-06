@@ -7,6 +7,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
 
+
     new_game_data = GameEngine::GameState.new(@game)
     new_game_data.player_one.deck.shuffle
     new_game_data.player_two.deck.shuffle
