@@ -16,12 +16,12 @@ feature "Deck building" do
 
     visit deck_path(deck)
     expect(current_path).to eq deck_path(deck)
-    expect(page).to have_content 'Add Card to Deck'
+    expect(page).to have_content '+'
     expect {
-      click_link 'Add Card to Deck'
+      click_link '+'
     }.to change(deck.cards, :count).by(1)
     expect {
-      click_link 'Remove Card From Deck'
+      click_link '-'
     }.to change(deck.cards, :count).by(-1)
   end
 end
