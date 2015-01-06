@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   end
 
   def show
+
     @game = Game.find(params[:id])
 
 
@@ -73,6 +74,13 @@ class GamesController < ApplicationController
   end
 
   def matching
+  end
+
+  def win
+    @game = Game.find(params[:game_id])
+    puts "winner #{@game.winner_id}"
+    @game.winner_id == @game.player_one_id ? @winner = @game.player_one.username : @winner = @game.player_two.username
+    render :winscreen
   end
 
   def status

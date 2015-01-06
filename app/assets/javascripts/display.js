@@ -30,7 +30,7 @@ Display.prototype.displayScoreBoard = function(gameObect) {
 
 // Displays the Win Screen upon the winState being set to true.
 Display.prototype.winScreen = function(id) {
-  window.location.replace("/games/"+id);
+  window.location.replace("/games/" + id.toString() + "/win");
 }
 
 // Creates a .center jquery function which aligns the selected div on the bottom-center of the page based on the current window resolution.
