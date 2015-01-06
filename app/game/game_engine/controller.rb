@@ -21,7 +21,7 @@ module GameEngine
       !player.selection.empty?
     end
 
-    def self.gamestate_time_save_output(game_state, player_id)
+    def self.updatetime_savegamestate_and_outputplayerdata(game_state, player_id)
       update_game_state_time(game_state)
       save_game_state(game_state)
       output_player_data(game_state, player_id)
@@ -29,6 +29,10 @@ module GameEngine
 
     def self.phase_time_check(game_state, time_input)
       Time.now - game_state.time >= GAME_RULES[time_input]
+    end
+
+    def self.bothplayersmoved?(player_one, player_two)
+      selection_made?(player_one) && selection_made?(player_two)
     end
 
     def self.advance_game(game_data, player_id)
@@ -47,7 +51,7 @@ module GameEngine
         if phase_time_check(game_state, :setup_time)
           game_state.phase = :move
           GameEngine::GameResolver.deal_cards(game_state)
-          gamestate_time_save_output(game_state, player_id)
+          updatetime_savegamestate_and_outputplayerdata(game_state, player_id)
 
         end
       when :move
@@ -57,9 +61,9 @@ module GameEngine
             output_player_data(game_state, player_id)
         end
 
-        if selection_made?(player_one) && selection_made?(player_two)
+        if bothplayersmoved?(player_one, player_two)
           game_state.phase = :resolution
-          gamestate_time_save_output(game_state, player_id)
+          updatetime_savegamestate_and_outputplayerdata(game_state, player_id)
         end
       when :won
         output_player_data(game_state, player_id)
