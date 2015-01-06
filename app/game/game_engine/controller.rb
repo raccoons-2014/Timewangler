@@ -31,8 +31,8 @@ module GameEngine
       Time.now - game_state.time >= GAME_RULES[time_input]
     end
 
-    def self.bothplayersmoved?(player_one, player_two)
-      selection_made?(player_one) && selection_made?(player_two)
+    def self.both_players_moved?(game_state)
+      selection_made?(game_state.player_one) && selection_made?(game_state.player_two)
     end
 
     def self.advance_game(game_data, player_id)
@@ -61,7 +61,7 @@ module GameEngine
             output_player_data(game_state, player_id)
         end
 
-        if bothplayersmoved?(player_one, player_two)
+        if both_players_moved?(game_state)
           game_state.phase = :resolution
           updatetime_savegamestate_and_outputplayerdata(game_state, player_id)
         end
