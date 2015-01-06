@@ -435,25 +435,3 @@ h2 {
   text-align: center;
 }
 
-.deck_builder {
-  text-align: center;
-  -webkit-column-count: 2;
-}
-
-.deck_builder div {
- display: inline-block;
-}
-
-
-.current_deck {
-  width: 100%;
-  -webkit-column-count: 6;
-}
-
-.card_selector {
-  width: 100%;
-
-  border-left: 2px solid white;
-  -webkit-column-count: 6;
-}
-
