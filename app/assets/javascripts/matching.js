@@ -9,6 +9,7 @@ function getGameId() {
 function checkMatch() {
   setTimeout(function() {
     console.log("Waiting for another player to join...");
+    var gameId = getGameId()
 
     $.ajax({
         url: "/games/" + getGameId() + "/status",
@@ -24,11 +25,7 @@ function checkMatch() {
               success: function(response) {
                 window['onbeforeunload'] = undefined;
                 clearInterval(matchTimer);
-                $('body').html(response);
-                // Poll the server, located in game.js
-                pollServer();
-                // set up listener for card clicks
-                cardInput();
+                window.location.href = '/games/' + gameId.toString();
               }
             })
           } else {
