@@ -24,4 +24,9 @@ $(document).ready(function() {
     console.log('game loaded');
     pollServer();
   };
+
+  if ($('.card').length > 0) {
+    console.log('input loaded');
+    cardInput();
+  }
 })
