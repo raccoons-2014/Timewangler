@@ -17,6 +17,7 @@
     <h3>Your Last 3 Games:</h3>
     <% @user.last_3_games.each do |game| %>
     <li><%= User.find(game.player_one_id).username %> VS. <%= User.find(game.player_two_id).username %></li>
+    <p>Winner: <%= User.find(game.winner_id) %></p>
     <% end %>
   </ol>
   </div>
