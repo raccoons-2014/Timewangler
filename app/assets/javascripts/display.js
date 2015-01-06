@@ -15,6 +15,8 @@ Display.prototype.displayCard = function(id, card) {
 }
 
 Display.prototype.createCard = function() {
+    var br = document.createElement("br")
+    var br2 = document.createElement("br")
     var card = document.createElement("div");
     card.className = "card";
     card.id = "1";
@@ -41,9 +43,9 @@ Display.prototype.createCard = function() {
     charisma.className ="charisma";
     var charismatext = document.createTextNode("Charisma: ");
 
-    strength.appendChild(strengthtext);
-    intelligence.appendChild(intelligencetext);
-    charisma.appendChild(charismatext);
+    // strength.appendChild(strengthtext);
+    // intelligence.appendChild(intelligencetext);
+    // charisma.appendChild(charismatext);
     description.appendChild(descriptiontext);
     namespan.appendChild(title);
     picdiv.appendChild(picture);
@@ -51,8 +53,14 @@ Display.prototype.createCard = function() {
     card.appendChild(namespan);
     card.appendChild(picspan);
     card.appendChild(description);
+    // card.appendchild(strengthblock)
+    card.appendChild(strengthtext);
     card.appendChild(strength);
+    card.appendChild(br);
+    card.appendChild(intelligencetext);
     card.appendChild(intelligence);
+    card.appendChild(br2);
+    card.appendChild(charismatext);
     card.appendChild(charisma);
     var hand = document.getElementById("hand");
 
