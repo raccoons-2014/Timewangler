@@ -26,6 +26,15 @@ class User < ActiveRecord::Base
 
   def last_20_games
     games = self.games.where.not(winner_id: nil).order(created_at: :asc).limit(20)
+    losses = self.games.count - count_wins
+  end
+
+  def win_loss_ratio
+    count_wins / count_losses
+  end
+
+  def last_3_games
+    games = self.games
   end
 
 end
