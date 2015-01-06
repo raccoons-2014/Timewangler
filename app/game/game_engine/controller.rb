@@ -51,7 +51,10 @@ module GameEngine
         if phase_time_check(game_state, :setup_time)
           game_state.phase = :move
           GameEngine::GameResolver.deal_cards(game_state)
+
           updatetime_savegamestate_and_outputplayerdata(game_state, player_id, caching_interface)
+
+          updatetime_savegamestate_and_outputplayerdata(game_state, player_id)
 
         end
       when :move
@@ -67,6 +70,7 @@ module GameEngine
         end
       when :won
         output_player_data(game_state, player_id)
+        Game.find_by(game_state.id).winner_id
       else
         if phase_time_check(game_state, :resolution_time)
           GameEngine::GameResolver.resolve_round(game_state)
