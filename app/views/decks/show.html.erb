@@ -1,24 +1,40 @@
+<div class="db_introduction">
+  <h2>
+  Welcome to the Deck Builder!
+  </h2>
+  <p>Click the + to add that Hero to your deck! Click the - to remove the card from your deck!</p>
+  <p>Click the Hero's name to check out their card!</p>
+</div>
+  <br>
+
+
 <div class="deck_builder">
-  <div>
-    <ol>
-      <% @deck.cards.each do |card| %>
-        <li>
-          <%= link_to card.name, card_path(card) %>
-          <%= link_to "Remove Card From Deck", remove_card_path(card_id: card), method:"DELETE" %>
-        </li>
+  <div class="current_deck">
+    <h2>Your Deck</h2>
+      <ol>
+        <% @deck.cards.each do |card| %>
+          <li>
+            <div class="mini_card">
+              <%= image_tag card.picture_url, class: "portrait" %>
+              <%= link_to card.name, card_path(card) %>
+              <%= link_to "-", remove_card_path(card_id: card), method:"DELETE" %>
+            </div>
+          </li>
 
-      <% end %>
-    </ol>
-  <%= link_to "Delete This Deck?", deck_path(@deck), method: "DELETE" %>
-  </div>
+        <% end %>
+      </ol>
+   </div>
 
-  <div>
+  <div class="card_selector">
     <h2>Your Cards</h2>
       <ol>
         <% @cards.each do |card| %>
           <li>
-            <%= link_to card.name, card_path(card) %>
-            <%= link_to "Add Card to Deck", add_card_path(card_id: card), method:"POST" %>
+            <div class="mini_card">
+              <%= image_tag card.picture_url, class: "portrait" %>
+              <%= link_to card.name, card_path(card) %>
+              <%= link_to "+", add_card_path(card_id: card), method:"POST" %>
+            </div>
           </li>
         <% end %>
       </ol>
