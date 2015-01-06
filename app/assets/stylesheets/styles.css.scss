@@ -345,6 +345,7 @@ nav {
 h2 {
   font-size: 16px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .card img {
@@ -484,4 +485,18 @@ h2 {
 
 .card_selector h2 {
   text-align: center;
+}
+
+.ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+  }
+
+.ui-tooltip {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  font: bold 14px "Helvetica Neue", Sans-Serif;
+  text-transform: uppercase;
+  box-shadow: 0 0 7px black;
 }
