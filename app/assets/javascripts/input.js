@@ -5,6 +5,7 @@ function cardInput() {
     var id = parseInt(this.id) - 1;
     console.log('clicked:' + id );
     submitInput(id);
+    $( this ).hide();
   })
 }
 
