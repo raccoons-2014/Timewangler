@@ -13,11 +13,15 @@ class User < ActiveRecord::Base
   end
 
   def count_losses
-    losses = self.games.count - count_wins
+    losses = self.games.where.not(winner_id: nil).count - count_wins
   end
 
   def win_loss_ratio
-    count_wins / count_losses
+    if count_losses == 0 && count_wins > 0
+      return count_wins
+    elsif count_losses == 0 && count_wins == 0
+      return "No completed games."
+    end
   end
 
   def last_3_games
