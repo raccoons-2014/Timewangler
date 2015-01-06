@@ -31,6 +31,7 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
+    render :json => "match destroyed".to_json
   end
 
   def join
