@@ -21,6 +21,15 @@ module GameEngine
       !player.selection.empty?
     end
 
+    def self.gamestate_time_save_output(game_state, player_id)
+      update_game_state_time(game_state)
+      save_game_state(game_state)
+      output_player_data(game_state, player_id)
+    end
+
+    def self.phase_time_check(game_state, time_input)
+      Time.now - game_state.time >= GAME_RULES[time_input]
+    end
 
     def self.advance_game(game_data, player_id)
       # This method is responsible for switching phases inside of the GameEngine::Game
@@ -35,36 +44,28 @@ module GameEngine
 
       case game_state.phase
       when :setup
-        if current_time - game_state.time >= GAME_RULES[:setup_time]
+        if phase_time_check(game_state, :setup_time)
           game_state.phase = :move
-
           GameEngine::GameResolver.deal_cards(game_state)
 
-          update_game_state_time(game_state)
-
-          save_game_state(game_state)
-          output_player_data(game_state, player_id)
+          gamestate_time_save_output(game_state, player_id)
 
         end
       when :move
-        if current_time - game_state.time >= GAME_RULES[:move_time]
-          if !selection_made?(current_player)
+        if phase_time_check(game_state, :move_time) && !selection_made?(current_player)
             current_player.selection << nil
             save_game_state(game_state)
             output_player_data(game_state, player_id)
-          end
         end
 
         if selection_made?(player_one) && selection_made?(player_two)
           game_state.phase = :resolution
-          update_game_state_time(game_state)
-          save_game_state(game_state)
-          output_player_data(game_state, player_id)
+          gamestate_time_save_output(game_state, player_id)
         end
       when :won
         output_player_data(game_state, player_id)
       else
-        if current_time - game_state.time >= GAME_RULES[:resolution_time]
+        if phase_time_check(game_state, :resolution_time)
           GameEngine::GameResolver.resolve_round(game_state)
           unless game_state.won?
             game_state.round += 1
@@ -74,7 +75,6 @@ module GameEngine
           save_game_state(game_state)
         end
       end
-
       output_player_data(game_state, player_id)
     end
 
