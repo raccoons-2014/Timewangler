@@ -6,7 +6,9 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    new_game_data = GameEngine::Game.new(@game)
+    new_game_data = GameEngine::GameState.new(@game)
+    new_game_data.player_one.deck.shuffle
+    new_game_data.player_two.deck.shuffle
     GameEngine::Cache.save_game_state(new_game_data)
 
     respond_to do |format|
@@ -49,6 +51,10 @@ class GamesController < ApplicationController
     game_data = Game.find(params[:game_id])
 
     GameEngine::Controller.get_player_move(game_data, session[:user_id].to_i, card_id)
+
+    respond_to do |format|
+      format.js { render :json => "request for card #{card_id} processed".to_json }
+    end
   end
 
   def matching

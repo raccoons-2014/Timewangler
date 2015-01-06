@@ -1,5 +1,5 @@
 require "rails_helper"
-require "spec_helper"
+
 
 feature "Deck building" do
   scenario "User creates a deck and adds a card to his/her deck" do
