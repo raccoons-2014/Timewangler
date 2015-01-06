@@ -47,7 +47,6 @@ module GameEngine
         if phase_time_check(game_state, :setup_time)
           game_state.phase = :move
           GameEngine::GameResolver.deal_cards(game_state)
-
           gamestate_time_save_output(game_state, player_id)
 
         end
