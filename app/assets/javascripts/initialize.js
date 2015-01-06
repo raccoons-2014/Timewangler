@@ -13,9 +13,14 @@ $(document).ready(function() {
   );
 
   if ($('#match').length > 0) {
+
     console.log('matches loaded');
     matchTimeout(60);
-    checkMatch();
+    var id = getGameId();
+    console.log("ID FOUND, EQUAL TO " + id)
+    match = new Match(id);
+    match.listenForConnection();
+    // checkMatch();
     window.onbeforeunload = function() { cancelMatch(); }
   };
 
