@@ -12,7 +12,7 @@ class GamesController < ApplicationController
     GameEngine::Cache.save_game_state(new_game_data)
 
     respond_to do |format|
-      format.html { render 'show', :locals => { game_state: new_game_data }}
+      format.html { render 'show' }
     end
   end
 
