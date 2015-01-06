@@ -15,13 +15,9 @@ $(document).ready(function() {
   if ($('#match').length > 0) {
 
     console.log('matches loaded');
-    matchTimeout(60);
-    var id = getGameId();
-    console.log("ID FOUND, EQUAL TO " + id)
-    match = new Match(id);
-    match.listenForConnection();
-    // checkMatch();
-    window.onbeforeunload = function() { cancelMatch(); }
+    var match = new Match(getGameId());
+    match.timeout(60);
+    match.listenForConfirmation();
   };
 
   if ($('#game-container').length > 0) {
