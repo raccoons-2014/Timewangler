@@ -9,7 +9,8 @@ class GamesController < ApplicationController
     new_game_data = GameEngine::GameState.new(@game)
     new_game_data.player_one.deck.shuffle
     new_game_data.player_two.deck.shuffle
-    GameEngine::Cache.save_game_state(new_game_data)
+    # GameEngine::Cache.save_game_state(new_game_data)
+    GameEngine::Cache.save_game_state(new_game_data, Rails.cache)
 
     respond_to do |format|
       format.html { render 'show' }
@@ -17,8 +18,13 @@ class GamesController < ApplicationController
   end
 
   def poll
+    p "*****"
+    # p Hola.hi
+    # p GAME_RULES
+
+
     @game = Game.find(params[:game_id])
-    response = GameEngine::Controller.advance_game(@game, session[:user_id])
+    response = GameEngine::Controller.advance_game(@game, session[:user_id], Rails.cache)
 
     respond_to do |format|
       format.js { render :json => response.to_json }
@@ -56,9 +62,13 @@ class GamesController < ApplicationController
 
   def move
     card_id = params[:card].to_i
+
+    p "***** card id"
+    puts card_id
+
     game_data = Game.find(params[:game_id])
 
-    GameEngine::Controller.get_player_move(game_data, session[:user_id].to_i, card_id)
+    GameEngine::Controller.get_player_move(game_data, session[:user_id].to_i, card_id, Rails.cache)
 
     respond_to do |format|
       format.js { render :json => "request for card #{card_id} processed".to_json }
