@@ -5,9 +5,9 @@ module GameEngine
 
       case player_id
       when game_state.player_one.id
-        return { player_hand: game_state.player_one.hand, player_points: game_state.player_one.points, round: game_state.round, phase: game_state.phase, time_remaining: time_remaining }
+        return { player_hand: game_state.player_one.hand, player_points: game_state.player_one.points, opponent_points: game_state.player_two.points, player_selection: game_state.player_one.selection, opponent_selection: game_state.player_two.selection, player_name: game_state.player_one.username, :opponent_name: game_state.player_two.username, round: game_state.round, phase: game_state.phase, time_remaining: time_remaining }
       when game_state.player_two.id
-        return { player_hand: game_state.player_two.hand, player_points: game_state.player_two.points, round: game_state.round, phase: game_state.phase, time_remaining: time_remaining  }
+        return { player_hand: game_state.player_two.hand, player_points: game_state.player_two.points, opponent_points: game_state.player_one.points, player_selection: game_state.player_two.selection, opponent_selection: game_state.player_one.selection, player_name: game_state.player_two.username, :opponent_name: game_state.player_one.username,round: game_state.round, phase: game_state.phase, time_remaining: time_remaining }
       end
     end
 
