@@ -68,9 +68,6 @@ module GameEngine
           game_state.phase = :resolution
           updatetime_savegamestate_and_outputplayerdata(game_state, player_id, caching_interface)
         end
-      when :won
-        Game.find(game_state.id).update_attributes(winner_id: game_state.winner.id)
-        output_player_data(game_state, player_id)
       else
         if phase_time_check(game_state, :resolution_time)
           GameEngine::GameResolver.resolve_round(game_state)
