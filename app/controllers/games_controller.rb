@@ -36,14 +36,18 @@ class GamesController < ApplicationController
 
   def join
     @user = User.find(session[:user_id])
-
-    if open_games?
-      @game = open_games.first
-      @game.update_attributes(player_two: @user)
-      redirect_to game_path(@game)
+    if @user.deck == nil
+      flash[:error] = "You can't play the game without a deck! You can make one starting here though."
+      redirect_to new_deck_path
     else
-      @game = Game.create(player_one: @user)
-      redirect_to "/games/#{@game.id}/matching"
+      if open_games?
+        @game = open_games.first
+        @game.update_attributes(player_two: @user)
+        redirect_to game_path(@game)
+      else
+        @game = Game.create(player_one: @user)
+        redirect_to "/games/#{@game.id}/matching"
+      end
     end
   end
 
