@@ -15,8 +15,8 @@
     <h3>Losses: <%= @losses %></h3><br>
     <h3>Win-Loss Ratio: <%= @ratio %></h3>
     <ol><br>
-      <h3>Your Last 3 Games:</h3>
-        <% @user.last_3_games.each do |game| %>
+      <h3>Your Last 20 Games:</h3>
+        <% @user.last_20_games.each do |game| %>
           <li><%= User.find(game.player_one_id).username %> VS. <%= User.find(game.player_two_id).username %></li>
           <p>Winner: <%= User.find(game.winner_id) %></p>
          <% end %>

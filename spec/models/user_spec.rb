@@ -20,9 +20,9 @@ RSpec.describe User, :type => :model do
     end
   end
 
-  describe "User#last_3_games" do
-    it "shows the User's last 3 games" do
-      expect(@user.last_3_games.length).to eq(3)
+  describe "User#last_20_games" do
+    it "shows the User's last 20 games" do
+      expect(@user.last_20_games.length).to eq(3)
     end
   end
 end

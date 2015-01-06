@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @wins = @user.count_wins
     @losses = @user.count_losses
     @ratio = @user.win_loss_ratio
-    @last_3_games = @user.last_3_games
+    @last_20_games = @user.last_20_games
   end
 
 
