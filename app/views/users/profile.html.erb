@@ -2,12 +2,17 @@
 
 <h1>Welcome back, <%= @user.username %>!</h1>
 
-
-
-
-<h3>Join Game
-  <%= form_tag({controller: "games", action: "join"}, method: "post") do %>
-    <%= submit_tag 'Find Game' %>
-  <% end %>
-Your Stats</h3>
+<div class="profile">
+  <h3>Ready to play? Click Join Game!</h3>
+  <br>
+  <br>
+    <%= link_to 'Join Game', join_game_path, method: 'POST' %>
+  <br>
+  <div class="user_stats">
+    <h3>Your Stats</h3>
+    <h3>Wins:<%= @user.count_wins %></h3>
+    <h3>Losses:<%= @user.count_losses %></h3>
+    <h3>Win-Loss Ratio:<%= @user.win_loss_ratio %></h3>
+  </div>
+</div>
 

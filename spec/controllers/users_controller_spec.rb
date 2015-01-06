@@ -25,7 +25,6 @@ RSpec.describe UsersController, :type => :controller do
     it 'should direct a logged-in user to their personal profile page' do
       user = create(:user)
       session[:user_id] = user.id
-
       expect(get :profile).to render_template :profile
     end
 
