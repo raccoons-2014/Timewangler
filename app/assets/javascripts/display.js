@@ -4,6 +4,7 @@ var Display = function() {
 var display = new Display;
 
 // Displays the cards on the game board in the player's hand
+
 Display.prototype.displayCard = function(id, card) {
   $("#"+id+" span.name").html(card.name);
   $("#"+id+" span.picture .card_pic img").attr('src', card.picture_url);
