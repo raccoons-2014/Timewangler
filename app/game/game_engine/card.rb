@@ -20,5 +20,8 @@ module GameEngine
       [strength,intelligence,charisma].max
     end
 
+    def has_effect?
+      effect_dsl != nil
+    end
   end
 end
