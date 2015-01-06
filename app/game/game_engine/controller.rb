@@ -33,34 +33,20 @@ module GameEngine
       player_one = game_state.player_one
       player_two = game_state.player_two
 
-
-      if game_state.phase == :setup
+      case game_state.phase
+      when :setup
         if current_time - game_state.time >= GAME_RULES[:setup_time]
           game_state.phase = :move
 
-          game_state.time = Time.now
-
           GameEngine::GameResolver.deal_cards(game_state)
-          GameEngine::Cache.save_game_state(game_state)
-
 
           update_game_state_time(game_state)
-
-          game_state.deal_cards
-
-          save_game_state
-
-
-          GameEngine::IO.output_player_data(game_state, player_id)
-
-          output_player_data
-
 
           save_game_state(game_state)
           output_player_data(game_state, player_id)
 
         end
-      elsif game_state.phase == :move
+      when :move
         if current_time - game_state.time >= GAME_RULES[:move_time]
           if !selection_made?(current_player)
             current_player.selection << nil
@@ -75,7 +61,7 @@ module GameEngine
           save_game_state(game_state)
           output_player_data(game_state, player_id)
         end
-      elsif game_state.phase == :won
+      when :won
         output_player_data(game_state, player_id)
       else
         if current_time - game_state.time >= GAME_RULES[:resolution_time]
@@ -87,14 +73,14 @@ module GameEngine
           end
           save_game_state(game_state)
         end
-      end
+      endgit
 
       output_player_data(game_state, player_id)
     end
 
     def self.get_player_move(game_data, player_id, card_id)
       game_state = fetch_game_state(game_data)
-      if !selection_made?(current_player) && game_state.phase == :move
+      if game_state.target_player(player_id).selection.empty? && game_state.phase == :move
         GameEngine::IO.input_player_move(game_state, player_id, card_id)
         save_game_state(game_state)
       end
