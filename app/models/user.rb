@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def last_3_games
-    games = self.games.where.not(winner_id: nil).order(created_at: :asc).limit(3)
+  def last_20_games
+    games = self.games.where.not(winner_id: nil).order(created_at: :asc).limit(20)
   end
 
 end
