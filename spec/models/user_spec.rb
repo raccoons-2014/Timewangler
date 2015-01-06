@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, :type => :model do
   before :each do
-
     @user = create(:user)
     @user.games << @game_one = create(:game, player_one_id: @user.id ,winner_id: @user.id)
     @user.games << @game_two = create(:game, player_one_id: @user.id, winner_id: @user.id)
