@@ -1,3 +1,5 @@
+<%= flash.now[:error] %>
+
 <div class="db_introduction">
   <h2>
   Welcome to the Deck Builder!
@@ -11,7 +13,7 @@
 
 <div class="deck_builder">
   <div class="current_deck">
-    <h2>Your Deck</h2>
+    <h2>Your Deck: <%= @deck.cards.count %></h2>
       <ol>
         <% @deck.cards.each do |card| %>
           <li>

@@ -5,6 +5,7 @@ feature "A user tries to join a game" do
   before :each do
     user = create(:user)
     user.create_deck(name: "Whatever")
+    31.times { user.deck.cards << create(:card)}
     visit login_path
     fill_in "session_user_name", with: user.username
     fill_in "session_user_password", with: user.password

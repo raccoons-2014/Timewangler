@@ -37,8 +37,11 @@ class GamesController < ApplicationController
   def join
     @user = User.find(session[:user_id])
     if @user.deck == nil
-      flash[:error] = "You can't play the game without a deck! You can make one starting here though."
+      flash[:error] = "You need to have a deck! You can make one starting here though."
       redirect_to new_deck_path
+    elsif @user.deck.playable_deck? == false
+      flash[:error] = "You can't play the game without a valid deck! It needs to have at least 30 cards"
+      redirect_to deck_path(@user.deck)
     else
       if open_games?
         @game = open_games.first
