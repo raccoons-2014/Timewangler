@@ -3,7 +3,7 @@ module GameEngine
     def self.resolve_effects(game_state)
 
       target_player = self.resolve_target_player(game_state, game_state.player_one)
-
+      target_subset = self.resolve_target_collection(target_player)
       self.resolve_target_player(game_state, game_state.player_two)
     end
 
@@ -36,7 +36,12 @@ module GameEngine
         target_subset = dsl_string.match(/(?<=\>)(.*)(?=\))/)
 
         case target_subset
-          #..
+        when 'all'
+          collection
+        when 'rand'
+          [collection.sample]
+        when /\d/
+          collection[target_subset.to_i]
         end
       end
 
