@@ -33,7 +33,11 @@ module GameEngine
         when 'self'
           return player
         when 'opponent'
-          game_state.player_one.id == player.id ? return game_state.player_two : return game_state.player_one
+          if game_state.player_one.id == player.id
+            return game_state.player_two
+          else
+            return game_state.player_one
+          end
         end
       end
 
