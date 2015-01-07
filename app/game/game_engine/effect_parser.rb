@@ -4,11 +4,11 @@ module GameEngine
 
       target_player = self.resolve_target_player(game_state, game_state.player_one)
       target_subset = self.resolve_target_collection(target_player)
-      target_properties = self.resolve_target_properties(target_subset)
+      target_properties = self.resolve_target_properties
 
       target_subset.each do |card|
+        target_properties.each do |property|
           self.resolve_target_modifier(card, property)
-        target_properties do |property|
         end
       end
 
@@ -17,8 +17,8 @@ module GameEngine
       target_properties = self.resolve_target_properties
 
       target_subset.each do |card|
+        target_properties.each do |property|
           self.resolve_target_modifier(card, property)
-        target_properties do |property|
         end
       end
     end
