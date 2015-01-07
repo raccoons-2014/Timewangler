@@ -61,15 +61,28 @@ module GameEngine
         end
       end
 
-      def self.resolve_target_property(collection)
-        target_property = dsl_string.match(/(?<=\|)(.*)(?=\|)/)
-        all_target_properties = target_property.split(',')
+      def self.resolve_target_properties(collection)
+        target_properties = @dsl_string.match(/(?<=\|)(.*)(?=\|)/)
+        all_target_properties = target_properties.split(',')
       end
 
-      def self.resolve_target_modifier(player)
-        target_modifier = dsl_string.match(/(?<=\{)(.*)(?=\})/)
+      def self.resolve_target_modifier(card, attribute)
+        target_modifier = @dsl_string.match(/(?<=\{)(.*)(?=\})/)
         operator = target_modifier.match(/[\+\*\/\-]/)
-        number = target_modifier.match(/\d+/)
+        number = target_modifier.match(/\d+/).to_i
+
+        original_value = card.instance_variable_get(attribute)
+
+        case operator
+        when '+'
+          card.instance_variable_set("@#{attribute}", original_value + number)
+        when '-'
+          card.instance_variable_set("@#{attribute}", original_value - number)
+        when '*'
+          card.instance_variable_set("@#{attribute}", original_value * number)
+        when '/'
+          card.instance_variable_set("@#{attribute}", original_value / number)
+        end
       end
   end
 end
