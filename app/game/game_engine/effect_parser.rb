@@ -14,7 +14,7 @@ module GameEngine
 
       target_player = self.resolve_target_player(game_state, game_state.player_two)
       target_subset = self.resolve_target_collection(target_player)
-      target_properties = self.resolve_target_properties(target_subset)
+      target_properties = self.resolve_target_properties
 
       target_subset.each do |card|
           self.resolve_target_modifier(card, property)
@@ -65,9 +65,9 @@ module GameEngine
         end
       end
 
-      def self.resolve_target_properties(collection)
-        target_properties = @dsl_string.match(/(?<=\|)(.*)(?=\|)/)
-        all_target_properties = target_properties.split(',')
+      def self.resolve_target_properties
+        target_properties = @dsl_string.match(/(?<=\|)(.*)(?=\|)/).to_s
+        all_target_properties = target_properties.split(',').map { |e| e.strip }
       end
 
       def self.resolve_target_modifier(target_card, attribute)
