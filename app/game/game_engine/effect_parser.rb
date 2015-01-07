@@ -48,7 +48,7 @@ module GameEngine
         when 'hand'
           collection = player.hand
         when 'deck'
-          collection = player.deck
+          collection = player.deck.list
         when 'selection'
           collection = player.selection
         end
