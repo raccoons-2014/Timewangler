@@ -27,10 +27,10 @@ module GameEngine
     private
       def self.resolve_target_player(game_state, player)
         @dsl_string = player.selection[0].effect_dsl
-        target_player = @dsl_string.match(/(?<=\[)(.*)(?=\])/)
+        target_player = @dsl_string.match(/(?<=\[)(.*)(?=\])/).to_s
 
         case target_player
-        when 'self'
+        when 'player'
           return player
         when 'opponent'
           if game_state.player_one.id == player.id
