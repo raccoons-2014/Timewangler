@@ -21,8 +21,6 @@ feature "A user tries to join a game" do
 
     visit profile_path
     click_link "Join Game"
-    expect(page).to have_text "matchmaking"
+    expect(page).to have_text "wormhole"
   end
-
-
 end
