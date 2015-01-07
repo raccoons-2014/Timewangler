@@ -23,7 +23,7 @@ $(document).ready(function() {
   if ($('#game-container').length > 0) {
     window['onbeforeunload'] = undefined;
     $("body").css("display", "none");
-    $("body").fadeIn(22000);
+    $("body").fadeIn(5000);
     console.log('game loaded');
     pollServer();
   };
