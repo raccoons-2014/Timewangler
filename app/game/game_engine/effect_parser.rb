@@ -1,24 +1,34 @@
 module GameEngine
   module EffectParser
     def self.resolve_effects(game_state)
+      player_one_move = game_state.player_one.selection[0]
+      player_two_move = game_state.player_two.selection[0]
 
-      target_player = self.resolve_target_player(game_state, game_state.player_one)
-      target_subset = self.resolve_target_collection(target_player)
-      target_properties = self.resolve_target_properties
+      if player_one_move != nil && player_two_move != nil
+        if player_one_move.has_effect?
+          target_player = self.resolve_target_player(game_state, game_state.player_one)
+          target_subset = self.resolve_target_collection(target_player)
+          target_properties = self.resolve_target_properties
 
-      target_subset.each do |card|
-        target_properties.each do |property|
-          self.resolve_target_modifier(card, property)
+          target_subset.each do |card|
+            target_properties.each do |property|
+              self.resolve_target_modifier(card, property)
+            end
+          end
         end
       end
 
-      target_player = self.resolve_target_player(game_state, game_state.player_two)
-      target_subset = self.resolve_target_collection(target_player)
-      target_properties = self.resolve_target_properties
+      if player_two_move != nil && player_one_move != nil
+        if player_two_move.has_effect?
+          target_player = self.resolve_target_player(game_state, game_state.player_two)
+          target_subset = self.resolve_target_collection(target_player)
+          target_properties = self.resolve_target_properties
 
-      target_subset.each do |card|
-        target_properties.each do |property|
-          self.resolve_target_modifier(card, property)
+          target_subset.each do |card|
+            target_properties.each do |property|
+              self.resolve_target_modifier(card, property)
+            end
+          end
         end
       end
     end
