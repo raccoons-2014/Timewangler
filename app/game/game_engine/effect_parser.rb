@@ -26,8 +26,8 @@ module GameEngine
 
     private
       def self.resolve_target_player(game_state, player)
-        dsl_string = player.selection[0].effect_dsl
-        target_player = dsl_string.match(/(?<=\[)(.*)(?=\])/)
+        @dsl_string = player.selection[0].effect_dsl
+        target_player = @dsl_string.match(/(?<=\[)(.*)(?=\])/)
 
         case target_player
         when 'self'
@@ -38,7 +38,7 @@ module GameEngine
       end
 
       def self.resolve_target_collection(player)
-        target_collection = dsl_string.match(/(?<=\()(.*)(?=\>)/)
+        target_collection = @dsl_string.match(/(?<=\()(.*)(?=\>)/)
 
         case target_collection
         when 'hand'
@@ -49,7 +49,7 @@ module GameEngine
           collection = player.selection
         end
 
-        target_subset = dsl_string.match(/(?<=\>)(.*)(?=\))/)
+        target_subset = @dsl_string.match(/(?<=\>)(.*)(?=\))/)
 
         case target_subset
         when 'all'
