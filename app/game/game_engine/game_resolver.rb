@@ -4,6 +4,7 @@ module GameEngine
       @player_one = game_state.player_one
       @player_two = game_state.player_two
 
+      GameEngine::EffectParser.resolve_effects(game_state)
       calc_points
       reset_selections
       game_state.phase = :won if game_state.won?
