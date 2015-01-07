@@ -25,6 +25,17 @@ describe 'GameEngine::EffectParser' do
       expect(@fake_game.player_two.selection[0].charisma).to eq player_two_card_old_charisma - 3
     end
 
+    it 'should resolve a simple case where both effects are the same, charisma = 0' do
+      dsl_string = '[opponent] (selection>all) |charisma| {=0}'
+      @fake_game.player_one.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+      @fake_game.player_two.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+      player_one_card_old_charisma = @fake_game.player_one.selection[0].charisma
+      player_two_card_old_charisma = @fake_game.player_two.selection[0].charisma
+      GameEngine::EffectParser.resolve_effects(@fake_game)
+      expect(@fake_game.player_one.selection[0].charisma).to eq 0
+      expect(@fake_game.player_two.selection[0].charisma).to eq 0
+    end
+
     it 'should resolve a more complex case' do
       dsl_string_one = '[player] (selection>all) |charisma| {+3}'
       dsl_string_two = '[player] (selection>all) |intelligence| {*2}'
