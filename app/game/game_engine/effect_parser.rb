@@ -52,6 +52,8 @@ module GameEngine
 
       def self.resolve_target_modifier(player)
         target_modifier = dsl_string.match(/(?<=\{)(.*)(?=\})/)
+        operator = target_modifier.match(/[\+\*\/\-]/)
+        number = target_modifier.match(/\d+/)
       end
   end
 end
