@@ -33,9 +33,16 @@ $(document).ready(function() {
     cardInput();
   }
 
+
   if ($('#match').length > 0) {
     console.log('MATCHING PAGE LOADED');
     $("body").css("display", "none");
     $("body").fadeIn(2000);
   };
+
+   if ($('#splash_pic').length > 0) {
+    $("body").css("display", "none");
+    $("body").fadeIn(7000)
+  }
+
 })
