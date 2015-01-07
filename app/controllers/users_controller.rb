@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.create_deck(name:"Beginner Deck").cards.push(Card.where("id <= 30"))
+      @user.create_deck(name:"Your Deck").cards.push(Card.where("id <= 30"))
       login(@user)
       redirect_to profile_path
     else
