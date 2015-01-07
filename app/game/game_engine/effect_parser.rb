@@ -96,6 +96,8 @@ module GameEngine
           target_card.instance_variable_set("@#{attribute}", original_value * number)
         when '/'
           target_card.instance_variable_set("@#{attribute}", original_value / number)
+        when '='
+          target_card.instance_variable_set("@#{attribute}", number)
         end
       end
   end
