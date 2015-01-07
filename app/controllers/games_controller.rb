@@ -18,11 +18,6 @@ class GamesController < ApplicationController
   end
 
   def poll
-    p "*****"
-    # p Hola.hi
-    # p GAME_RULES
-
-
     @game = Game.find(params[:game_id])
     response = GameEngine::Controller.advance_game(@game, session[:user_id], Rails.cache)
 
