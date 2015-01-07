@@ -23,7 +23,7 @@ $(document).ready(function() {
   if ($('#game-container').length > 0) {
     window['onbeforeunload'] = undefined;
     $("body").css("display", "none");
-    $("body").fadeIn(10000);
+    $("body").fadeIn(22000);
     console.log('game loaded');
     pollServer();
   };
@@ -36,6 +36,6 @@ $(document).ready(function() {
   if ($('#match').length > 0) {
     console.log('MATCHING PAGE LOADED');
     $("body").css("display", "none");
-    $("body").fadeIn(7000);
+    $("body").fadeIn(2000);
   };
 })
