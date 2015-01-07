@@ -20,6 +20,21 @@ RSpec.describe User, :type => :model do
     end
   end
 
+  describe "User#win_loss_ratio" do
+    it "calculates the win-loss ratio of the user" do
+      expect(@user.win_loss_ratio).to eq(3)
+    end
+
+    it "returns the win count if the user has no losses" do
+      expect(@user.win_loss_ratio).to eq(3)
+    end
+
+    it "returns a text string if a user hasn't completed any games" do
+      user = create(:user)
+      expect(user.win_loss_ratio).to eq("No completed games.")
+    end
+  end
+
   describe "User#last_20_games" do
     it "shows the User's last 20 games" do
       expect(@user.last_20_games.length).to eq(3)

@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def count_losses
-    losses = self.games.where.not(winner_id: nil).count - count_wins
+    losses = self.games.where.not(winner_id: self.id).count
   end
 
   def win_loss_ratio
@@ -21,10 +21,12 @@ class User < ActiveRecord::Base
       return count_wins
     elsif count_losses == 0 && count_wins == 0
       return "No completed games."
+    else
+      count_wins / count_losses
     end
   end
 
   def last_20_games
-    games = self.games.where.not(winner_id: nil).order(created_at: :asc).limit(20)
+    games = Game.where.not(winner_id: nil).where("player_one_id = ? or player_two_id = ?", self.id, self.id).order(created_at: :asc).limit(20)
   end
 end
