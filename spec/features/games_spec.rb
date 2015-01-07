@@ -23,6 +23,4 @@ feature "A user tries to join a game" do
     click_link "Join Game"
     expect(page).to have_text "wormhole"
   end
-
-
 end

@@ -22,6 +22,8 @@ $(document).ready(function() {
 
   if ($('#game-container').length > 0) {
     window['onbeforeunload'] = undefined;
+    $("body").css("display", "none");
+    $("body").fadeIn(10000);
     console.log('game loaded');
     pollServer();
   };
@@ -30,4 +32,10 @@ $(document).ready(function() {
     console.log('input loaded');
     cardInput();
   }
+
+  if ($('#match').length > 0) {
+    console.log('MATCHING PAGE LOADED');
+    $("body").css("display", "none");
+    $("body").fadeIn(7000);
+  };
 })
