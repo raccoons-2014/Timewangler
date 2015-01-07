@@ -226,6 +226,14 @@ describe 'GameEngine::EffectParser' do
         expect(@fake_card.strength).to eq old_strength / 3
       end
 
+      it 'should correctly make target card strength equal 0' do
+        dsl_string = '[player] (selection>all) |strength| {=0}'
+        old_strength = @fake_card.strength
+        GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+        GameEngine::EffectParser.send(:resolve_target_modifier, @fake_card, 'strength')
+        expect(@fake_card.strength).to eq 0
+      end
+
 
       it 'should only modify the specified card attribute and not others' do
         dsl_string = '[player] (selection>all) |charisma| {-1}'
