@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery.transit.js
 //= require jquery.hoverIntent
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
