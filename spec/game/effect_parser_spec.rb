@@ -5,7 +5,30 @@ describe 'GameEngine::EffectParser' do
     before(:each) { @fake_card = GameEngine::Card.new(create(:card)) }
 
     describe '#resolve_target_player' do
-      #..
+      before(:each) do
+        game_data = create(:game)
+        game_data.player_one = create(:user)
+        game_data.player_one.deck = create(:deck)
+        game_data.player_two = create(:user)
+        game_data.player_two.deck = create(:deck)
+        @fake_game = GameEngine::GameState.new(game_data)
+        @fake_game.player_one.selection << @fake_card
+        @fake_game.player_two.selection << @fake_card.dup
+      end
+
+      it 'should return the correct player when target is player' do
+        dsl_string = '[player] (selection>all) |charisma| {-3}'
+        @fake_game.player_one.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+        @fake_game.player_two.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+        expect(GameEngine::EffectParser.send(:resolve_target_player, @fake_game, @fake_game.player_one)).to eq @fake_game.player_one
+      end
+
+      it 'should return the correct player when target is opponent' do
+        dsl_string = '[opponent] (selection>all) |charisma| {-3}'
+        @fake_game.player_one.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+        @fake_game.player_two.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+        expect(GameEngine::EffectParser.send(:resolve_target_player, @fake_game, @fake_game.player_one)).to eq @fake_game.player_two
+      end
     end
 
     describe '#resolve_target_collection' do
@@ -39,6 +62,44 @@ describe 'GameEngine::EffectParser' do
       dsl_string = '[player] (hand>0) |charisma| {-3}'
       GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
       expect(GameEngine::EffectParser.send(:resolve_target_collection, @fake_player)).to eq [@fake_player.hand[0]]
+    end
+
+    it 'should return the correct collection when called on the third card in player hand' do
+      dsl_string = '[player] (hand>2) |charisma| {-3}'
+      GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+      expect(GameEngine::EffectParser.send(:resolve_target_collection, @fake_player)).to eq [@fake_player.hand[2]]
+    end
+
+    it 'should return a card from the hand when called on a random card in player hand' do
+      dsl_string = '[player] (hand>rand) |charisma| {-3}'
+      GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+      result = GameEngine::EffectParser.send(:resolve_target_collection, @fake_player)
+      expect(@fake_player.hand.include? result[0]).to eq true
+    end
+
+    it 'should return the correct collection when called on all cards in player hand' do
+      dsl_string = '[player] (hand>all) |charisma| {-3}'
+      GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+      expect(GameEngine::EffectParser.send(:resolve_target_collection, @fake_player)).to eq @fake_player.hand
+    end
+
+    it 'should return the correct collection when called on all cards in player deck' do
+      dsl_string = '[player] (deck>all) |charisma| {-3}'
+      GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+      expect(GameEngine::EffectParser.send(:resolve_target_collection, @fake_player)).to eq @fake_player.deck.list
+    end
+
+    it 'should return a card from the deck when called on a random card in player deck' do
+      dsl_string = '[player] (deck>rand) |charisma| {-3}'
+      GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+      result = GameEngine::EffectParser.send(:resolve_target_collection, @fake_player)
+      expect(@fake_player.deck.list.include? result[0]).to eq true
+    end
+
+    it 'should return the correct collection when called on the tenth card in player hand' do
+      dsl_string = '[player] (deck>10) |charisma| {-3}'
+      GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+      expect(GameEngine::EffectParser.send(:resolve_target_collection, @fake_player)).to eq [@fake_player.deck.list[10]]
     end
   end
 
