@@ -41,12 +41,13 @@ module GameEngine
         when 'rand'
           [collection.sample]
         when /\d/
-          collection[target_subset.to_i]
+          [collection[target_subset.to_i]]
         end
       end
 
-      def self.resolve_target_property(player)
+      def self.resolve_target_property(collection)
         target_property = dsl_string.match(/(?<=\|)(.*)(?=\|)/)
+        all_target_properties = target_property.split(',')
       end
 
       def self.resolve_target_modifier(player)
