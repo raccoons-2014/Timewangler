@@ -40,6 +40,8 @@ gem 'transit_rails'
 # Use hoverIntent for calming cards down
 gem 'jquery-hoverIntent-rails'
 
+# Our homemade gem
+gem 'smack_engine'
 
 
 # Use Capistrano for deployment
