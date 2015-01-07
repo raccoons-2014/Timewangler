@@ -74,6 +74,7 @@ module GameEngine
           unless game_state.won?
             game_state.round += 1
             game_state.phase = :move
+            update_game_state_time(game_state)
             GameEngine::GameResolver.deal_cards(game_state)
           end
           save_game_state(game_state, caching_interface)
