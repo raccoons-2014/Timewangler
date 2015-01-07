@@ -14,7 +14,7 @@ describe 'GameEngine::EffectParser' do
       @fake_game.player_two.selection << GameEngine::Card.new(create(:card)).dup
     end
 
-    it 'should resolve a simple case where both effects are the same' do
+    it 'should resolve a simple case where both effects are the same, charisma - 3' do
       dsl_string = '[opponent] (selection>all) |charisma| {-3}'
       @fake_game.player_one.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
       @fake_game.player_two.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
