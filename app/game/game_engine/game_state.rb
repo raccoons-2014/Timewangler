@@ -7,7 +7,7 @@ module GameEngine
       @id = game_data.id
       @player_one = GameEngine::Player.new(game_data.player_one)
       @player_two = GameEngine::Player.new(game_data.player_two)
-      @round = 0
+      @round = 1
       @phase = :setup
       @time = Time.now
     end
