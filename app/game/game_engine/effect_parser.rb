@@ -82,7 +82,7 @@ module GameEngine
 
       def self.resolve_target_modifier(target_card, attribute)
         target_modifier = @dsl_string.match(/(?<=\{)(.*)(?=\})/).to_s
-        operator = target_modifier.match(/[\+\*\/\-]/).to_s
+        operator = target_modifier.match(/[\+\*\/\-\=]/).to_s
         number = target_modifier.match(/\d+/).to_s.to_i
 
         original_value = target_card.instance_variable_get("@#{attribute}")
