@@ -218,7 +218,7 @@ Card.create(card_type: "Hero", name: "Mao Zedong", description: "Commonly referr
 
 Card.create(card_type: "Hero", name: "Nelson Mandela", description: "Was a South African anti-apartheid revolutionary, politician and philanthropist who served as President of South Africa from 1994 to 1999.", strength: 6, intelligence: 8, charisma: 9, picture_url: "http://images.fineartamerica.com/images-medium-large/nelson-mandela-everett.jpg")
 
-Card.create(card_type: "Hero", name:"Matthew D. Huff", description:"Get You Some..." , strength: 10 , intelligence: 10, charisma: 10, picture_url: "/murok_face.jpeg/")
+Card.create(card_type: "Hero", name:"Matthew D. Huff", description:"Get You Some..." , strength: 10 , intelligence: 10, charisma: 10, picture_url: "/murok_face.jpeg/", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
 Card.create(card_type: "Hero", name: "Betsy Carroll", description: "Jackie of all trades, mistress of TONS!!", strength: 5, intelligence: 10, charisma: 10, picture_url: "https://scontent-b-sea.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1522028_10201042105079720_2027409000_n.jpg?oh=ea9fe65c9d057f3de0defa653fb262a7&oe=55356684", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
