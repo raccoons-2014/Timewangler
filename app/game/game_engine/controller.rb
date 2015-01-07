@@ -54,7 +54,7 @@ module GameEngine
 
           updatetime_savegamestate_and_outputplayerdata(game_state, player_id, caching_interface)
 
-          updatetime_savegamestate_and_outputplayerdata(game_state, player_id)
+          updatetime_savegamestate_and_outputplayerdata(game_state, player_id, caching_interface)
 
         end
       when :move
