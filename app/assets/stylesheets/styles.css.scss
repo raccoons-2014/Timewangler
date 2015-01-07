@@ -528,5 +528,24 @@ h2 {
   font-size: 400%;
 }
 
+#game-container {
+    position:fixed;
+    width:717px;
+    height:526px;
 
+    top:50%;
+    left:50%;
 
+    margin:-263px 0 0 -358px;
+    opacity:25;
+
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation: rotateInNewspaper 15s both ease-out;
+}
+
+@-webkit-keyframes rotateInNewspaper {
+  from { -webkit-transform: translateZ(-3000px) rotateZ(-360deg); opacity: 0; }
+}
+@keyframes rotateInNewspaper {
+  from { -webkit-transform: translateZ(-3000px) rotateZ(-360deg); transform: translateZ(-3000px) rotateZ(-360deg); opacity: 0; }
+}
