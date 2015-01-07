@@ -12,12 +12,28 @@ describe 'GameEngine::EffectParser' do
     end
 
     describe '#resolve_target_properties' do
-      #..
+      it 'should derive just one property when only one is specified' do
+        dsl_string = '[player] (selection all) |charisma| {-1}'
+        GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+        expect(GameEngine::EffectParser.send(:resolve_target_properties)).to eq ['charisma']
+      end
+
+      it 'should derive just two properties when two are specified' do
+        dsl_string = '[player] (selection all) |strength, intelligence| {-1}'
+        GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+        expect(GameEngine::EffectParser.send(:resolve_target_properties)).to eq ['strength', 'intelligence']
+      end
+
+      it 'should derive all three properties when three are specified' do
+        dsl_string = '[player] (selection all) |strength, intelligence, charisma| {-1}'
+        GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
+        expect(GameEngine::EffectParser.send(:resolve_target_properties)).to eq ['strength', 'intelligence', 'charisma']
+      end
     end
 
     describe '#resolve_target_modifier' do
 
-      it 'should deduct 1 strength from the target card' do
+      it 'should correctly subtract from strength target card' do
         dsl_string = '[player] (selection all) |strength| {-1}'
         old_strength = @fake_card.strength
         GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
@@ -25,7 +41,7 @@ describe 'GameEngine::EffectParser' do
         expect(@fake_card.strength).to eq old_strength - 1
       end
 
-      it 'should deduct 1 intelligence from the target card' do
+      it 'should correctly subtract intelligence from target card' do
         dsl_string = '[player] (selection all) |intelligence| {-1}'
         old_intelligence = @fake_card.intelligence
         GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
@@ -33,7 +49,7 @@ describe 'GameEngine::EffectParser' do
         expect(@fake_card.intelligence).to eq old_intelligence - 1
       end
 
-      it 'should add 5 intelligence to target card' do
+      it 'should correctly add 5 intelligence to target card' do
         dsl_string = '[player] (selection all) |intelligence| {+5}'
         old_intelligence = @fake_card.intelligence
         GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
@@ -41,7 +57,7 @@ describe 'GameEngine::EffectParser' do
         expect(@fake_card.intelligence).to eq old_intelligence + 5
       end
 
-      it 'should deduct 1 charisma from the target card' do
+      it 'should correctly add 3 intelligence to target card' do
         dsl_string = '[player] (selection all) |charisma| {+3}'
         old_charisma = @fake_card.charisma
         GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
@@ -49,7 +65,7 @@ describe 'GameEngine::EffectParser' do
         expect(@fake_card.charisma).to eq old_charisma + 3
       end
 
-      it 'should multiply the strength of target card by 2' do
+      it 'should correctly multiply target card strength by 2' do
         dsl_string = '[player] (selection all) |strength| {*2}'
         old_strength = @fake_card.strength
         GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
@@ -57,7 +73,7 @@ describe 'GameEngine::EffectParser' do
         expect(@fake_card.strength).to eq old_strength * 2
       end
 
-      it 'should divide the strength of target card by 3' do
+      it 'should correctly divide target card strength by 3' do
         dsl_string = '[player] (selection all) |strength| {/3}'
         old_strength = @fake_card.strength
         GameEngine::EffectParser.instance_variable_set(:@dsl_string, dsl_string)
@@ -66,7 +82,7 @@ describe 'GameEngine::EffectParser' do
       end
 
 
-      it 'should only modify the attribute it is supposed to' do
+      it 'should only modify the specified card attribute and not others' do
         dsl_string = '[player] (selection all) |charisma| {-1}'
         original_strength = @fake_card.strength
         original_charisma = @fake_card.charisma
