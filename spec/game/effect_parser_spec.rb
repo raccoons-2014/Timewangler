@@ -1,7 +1,60 @@
 require 'rails_helper'
 
 describe 'GameEngine::EffectParser' do
-  describe 'private methods' do
+
+  describe '#resolve_effects'do
+    before(:each) do
+      game_data = create(:game)
+      game_data.player_one = create(:user)
+      game_data.player_one.deck = create(:deck)
+      game_data.player_two = create(:user)
+      game_data.player_two.deck = create(:deck)
+      @fake_game = GameEngine::GameState.new(game_data)
+      @fake_game.player_one.selection << GameEngine::Card.new(create(:card))
+      @fake_game.player_two.selection << GameEngine::Card.new(create(:card)).dup
+    end
+
+    it 'should resolve a simple case where both effects are the same' do
+      dsl_string = '[opponent] (selection>all) |charisma| {-3}'
+      @fake_game.player_one.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+      @fake_game.player_two.selection[0].instance_variable_set(:@effect_dsl, dsl_string)
+      player_one_card_old_charisma = @fake_game.player_one.selection[0].charisma
+      player_two_card_old_charisma = @fake_game.player_two.selection[0].charisma
+      GameEngine::EffectParser.resolve_effects(@fake_game)
+      expect(@fake_game.player_one.selection[0].charisma).to eq player_one_card_old_charisma - 3
+      expect(@fake_game.player_two.selection[0].charisma).to eq player_two_card_old_charisma - 3
+    end
+
+    it 'should resolve a more complex case' do
+      dsl_string_one = '[player] (selection>all) |charisma| {+3}'
+      dsl_string_two = '[player] (selection>all) |intelligence| {*2}'
+      @fake_game.player_one.selection[0].instance_variable_set(:@effect_dsl, dsl_string_one)
+      @fake_game.player_two.selection[0].instance_variable_set(:@effect_dsl, dsl_string_two)
+      player_one_card_old_charisma = @fake_game.player_one.selection[0].charisma
+      player_two_card_old_intelligence = @fake_game.player_two.selection[0].intelligence
+      GameEngine::EffectParser.resolve_effects(@fake_game)
+      expect(@fake_game.player_one.selection[0].charisma).to eq player_one_card_old_charisma + 3
+      expect(@fake_game.player_two.selection[0].intelligence).to eq player_two_card_old_intelligence * 2
+    end
+
+    it 'should resolve a complex case where multiple stats are affected' do
+      dsl_string_one = '[player] (selection>all) |charisma, strength| {+3}'
+      dsl_string_two = '[opponent] (selection>rand) |intelligence| {-5}'
+      @fake_game.player_one.selection[0].instance_variable_set(:@effect_dsl, dsl_string_one)
+      @fake_game.player_two.selection[0].instance_variable_set(:@effect_dsl, dsl_string_two)
+      player_one_card_old_charisma = @fake_game.player_one.selection[0].charisma
+      player_one_card_old_strength = @fake_game.player_one.selection[0].strength
+      player_one_card_old_intelligence = @fake_game.player_one.selection[0].intelligence
+      GameEngine::EffectParser.resolve_effects(@fake_game)
+      expect(@fake_game.player_one.selection[0].charisma).to eq player_one_card_old_charisma + 3
+      expect(@fake_game.player_one.selection[0].strength).to eq player_one_card_old_strength + 3
+      expect(@fake_game.player_one.selection[0].intelligence).to eq player_one_card_old_intelligence - 5
+    end
+
+
+  end
+
+  describe 'Private Methods' do
     before(:each) { @fake_card = GameEngine::Card.new(create(:card)) }
 
     describe '#resolve_target_player' do
@@ -12,8 +65,8 @@ describe 'GameEngine::EffectParser' do
         game_data.player_two = create(:user)
         game_data.player_two.deck = create(:deck)
         @fake_game = GameEngine::GameState.new(game_data)
-        @fake_game.player_one.selection << @fake_card
-        @fake_game.player_two.selection << @fake_card.dup
+        @fake_game.player_one.selection << GameEngine::Card.new(create(:card))
+        @fake_game.player_two.selection << GameEngine::Card.new(create(:card)).dup
       end
 
       it 'should return the correct player when target is player' do
