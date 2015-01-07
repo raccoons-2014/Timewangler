@@ -14,12 +14,12 @@ Display.prototype.displayCard = function(id, card) {
   $("#"+id+" span.charisma").html(card.charisma);
 }
 
-Display.prototype.createCard = function() {
+Display.prototype.createCard = function(id) {
     var br = document.createElement("br")
     var br2 = document.createElement("br")
     var card = document.createElement("div");
     card.className = "card";
-    card.id = "1";
+    card.id = id.toString();
     var namespan = document.createElement("span");
     namespan.className = "name";
     var title = document.createTextNode("This is the card's title.");
@@ -71,7 +71,7 @@ Display.prototype.createCard = function() {
 Display.prototype.displayHand = function(hand) {
   var self = this
   $.each(hand, function( i, val) {
-    self.createCard();
+    self.createCard(i+1);
     self.displayCard((i+1), val);
   });
 };
