@@ -69,6 +69,7 @@ Display.prototype.createCard = function(id) {
 
 // Increments through the cards and displays all the cards in the hand as long as there are divs.
 Display.prototype.displayHand = function(hand) {
+
   var self = this
   $.each(hand, function( i, val) {
     self.createCard(i+1);
@@ -102,5 +103,4 @@ $.fn.center = function () {
     return this;
 }
 
-$( document ).on('click', '.card', function() { cardInput(); });
 $( document ).tooltip();

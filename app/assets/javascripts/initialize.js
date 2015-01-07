@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-
   $('.card').hoverIntent(function() {
     $("#"+($(this).attr('id'))+".card").addClass('card_display');
     $( this ).transition({ scale: 2.2, y: -40 });
@@ -13,7 +11,6 @@ $(document).ready(function() {
   );
 
   if ($('#match').length > 0) {
-
     console.log('matches loaded');
     var match = new Match(getGameId());
     match.timeout(60);
@@ -25,7 +22,6 @@ $(document).ready(function() {
     window['onbeforeunload'] = undefined;
     console.log('game loaded');
     pollServer(oldHandLength);
-
   };
 
   if ($('.card').length > 0) {
