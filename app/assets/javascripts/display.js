@@ -102,4 +102,5 @@ $.fn.center = function () {
     return this;
 }
 
+$( document ).on('click', '.card', function() { cardInput(); });
 $( document ).tooltip();

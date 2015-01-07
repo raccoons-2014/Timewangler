@@ -12,8 +12,6 @@ $(document).ready(function() {
     }
   );
 
-
-
   if ($('#match').length > 0) {
 
     console.log('matches loaded');

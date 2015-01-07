@@ -40,7 +40,7 @@ function showHand(gameObject, oldHandLength) {
     $(".card").remove();
     display.displayHand(gameObject['player_hand']);
     $('#hand').center();
-  } else if (gameObject.round === 1 && gameObject.time_remaining === 2 && gameObject.phase === "move") {
+  } else if (gameObject.round === 1 && gameObject.time_remaining === 1 && gameObject.phase === "move") {
     display.displayHand(gameObject['player_hand']);
     $('#hand').center();
   }
