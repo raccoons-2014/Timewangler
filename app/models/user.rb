@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   has_many :games, foreign_key: :player_two_id
 
   validates :password, :presence => true, :length => { :within => 4..40 }
-  validates :username, :presence => true, :length => { :within => 4..40 }
+  validates :username, :presence => true, :length => { :within => 4..40 }, :uniqueness => true
+  validates :email, :presence => true, :uniqueness => true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
   def count_wins
    wins = Game.where(winner_id: self.id).count
