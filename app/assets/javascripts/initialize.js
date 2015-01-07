@@ -23,13 +23,18 @@ $(document).ready(function() {
   };
 
   if ($('#game-container').length > 0) {
+    var oldHandLength = 6;
     window['onbeforeunload'] = undefined;
     console.log('game loaded');
-    pollServer();
+    pollServer(oldHandLength);
+
   };
 
   if ($('.card').length > 0) {
     console.log('input loaded');
     cardInput();
   }
+
+
+
 })
