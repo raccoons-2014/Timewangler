@@ -24,7 +24,12 @@ module GameEngine
     end
 
     def won?
-      winner != nil
+      if winner != nil
+        Game.find(id).update_attributes(winner_id: winner.id)
+        return true
+      else
+        false
+      end
     end
   end
 end

@@ -30,4 +30,9 @@ $(document).ready(function() {
     console.log('input loaded');
     cardInput();
   }
+
+   if ($('#splash_pic').length > 0) {
+    $("body").css("display", "none");
+    $("body").fadeIn(7000)
+  }
 })

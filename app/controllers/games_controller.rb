@@ -5,11 +5,15 @@ class GamesController < ApplicationController
   end
 
   def show
+
     @game = Game.find(params[:id])
+
+
     new_game_data = GameEngine::GameState.new(@game)
     new_game_data.player_one.deck.shuffle
     new_game_data.player_two.deck.shuffle
-    GameEngine::Cache.save_game_state(new_game_data)
+    # GameEngine::Cache.save_game_state(new_game_data)
+    GameEngine::Cache.save_game_state(new_game_data, Rails.cache)
 
     respond_to do |format|
       format.html { render 'show' }
@@ -18,7 +22,7 @@ class GamesController < ApplicationController
 
   def poll
     @game = Game.find(params[:game_id])
-    response = GameEngine::Controller.advance_game(@game, session[:user_id])
+    response = GameEngine::Controller.advance_game(@game, session[:user_id], Rails.cache)
 
     respond_to do |format|
       format.js { render :json => response.to_json }
@@ -36,22 +40,33 @@ class GamesController < ApplicationController
 
   def join
     @user = User.find(session[:user_id])
-
-    if open_games?
-      @game = open_games.first
-      @game.update_attributes(player_two: @user)
-      redirect_to game_path(@game)
+    if @user.deck == nil
+      flash[:error] = "You need to have a deck! You can make one starting here though."
+      redirect_to new_deck_path
+    elsif @user.deck.playable_deck? == false
+      flash[:error] = "You can't play the game without a valid deck! It needs to have at least 30 cards"
+      redirect_to deck_path(@user.deck)
     else
-      @game = Game.create(player_one: @user)
-      redirect_to "/games/#{@game.id}/matching"
+      if open_games?
+        @game = open_games.first
+        @game.update_attributes(player_two: @user)
+        redirect_to game_path(@game)
+      else
+        @game = Game.create(player_one: @user)
+        redirect_to "/games/#{@game.id}/matching"
+      end
     end
   end
 
   def move
     card_id = params[:card].to_i
+
+    p "***** card id"
+    puts card_id
+
     game_data = Game.find(params[:game_id])
 
-    GameEngine::Controller.get_player_move(game_data, session[:user_id].to_i, card_id)
+    GameEngine::Controller.get_player_move(game_data, session[:user_id].to_i, card_id, Rails.cache)
 
     respond_to do |format|
       format.js { render :json => "request for card #{card_id} processed".to_json }
@@ -59,6 +74,12 @@ class GamesController < ApplicationController
   end
 
   def matching
+  end
+
+  def win
+    @game = Game.find(params[:game_id])
+    @game.winner_id == @game.player_one_id ? @winner = @game.player_one.username : @winner = @game.player_two.username
+    render :winscreen
   end
 
   def status

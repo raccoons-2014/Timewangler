@@ -230,18 +230,6 @@ Card.create(card_type: "Hero", name: "Bill Storey", description: "Lawyer turned 
 
 Card.create(card_type: "Hero", name: "Dmitriy Istomin", description: "The father of artificial intelligence (as we, in the future, know it).", strength: 7, intelligence: 10, charisma: 10, picture_url: "https://media.licdn.com/mpr/mpr/shrink_120_120/p/2/005/081/0aa/2838490.jpg")
 
-
-deck1 = Deck.create(user_id: 1)
-deck2 = Deck.create(user_id: 2)
-
-Card.where(:id => 1..15).each do |hero|
-	deck1.deck_card_relationships.create(card: hero)
-end
-
-Card.where(:id => 16..30).each do |hero|
-	deck2.deck_card_relationships.create(card: hero)
-end
-
 # Template for Cards
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
