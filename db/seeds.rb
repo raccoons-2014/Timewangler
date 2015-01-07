@@ -233,3 +233,27 @@ Card.create(card_type: "Hero", name: "Dmitriy Istomin", description: "The father
 # Template for Cards
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
+
+# Users Seeds
+User.create(username: "Steven" , password: "derp" , email: "derp@aol.com" ).create_deck(name: "Herp").cards.push(Card.where("id <= 30"))
+
+User.create(username: "Zack", password: "powder", email: "linkblaine@gmail.com").create_deck(name: "Yin").cards.push(Card.where("id <= 30"))
+
+User.create(username: "test_user1", password: "test", email: "test1@gmail.com").create_deck(name: "Test").cards.push(Card.where("id <= 30"))
+
+User.create(username: "test_user2", password: "test", email: "test2@gmail.com").create_deck(name: "Test").cards.push(Card.where("id <= 30"))
+
+# Games Seeds
+Game.create(player_one_id: 4 , player_two_id: 3 , winner_id: 4 )
+
+Game.create(player_one_id: 3 , player_two_id: 4, winner_id: 3)
+
+Game.create(player_one_id: 3 , player_two_id: 4 , winner_id: 4 )
+
+Game.create(player_one_id: 4 , player_two_id: 3 , winner_id:3 )
+
+Game.create(player_one_id: 3 , player_two_id: 4 , winner_id: 4)
+
+Game.create(player_one_id: 4 , player_two_id: 3 , winner_id: 4)
+
+Game.create(player_one_id: 3 , player_two_id: 4 , winner_id: 3)
