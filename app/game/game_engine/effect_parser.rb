@@ -42,7 +42,7 @@ module GameEngine
       end
 
       def self.resolve_target_collection(player)
-        target_collection = @dsl_string.match(/(?<=\()(.*)(?=\>)/)
+        target_collection = @dsl_string.match(/(?<=\()(.*)(?=\>)/).to_s
 
         case target_collection
         when 'hand'
@@ -53,7 +53,7 @@ module GameEngine
           collection = player.selection
         end
 
-        target_subset = @dsl_string.match(/(?<=\>)(.*)(?=\))/)
+        target_subset = @dsl_string.match(/(?<=\>)(.*)(?=\))/).to_s
 
         case target_subset
         when 'all'
