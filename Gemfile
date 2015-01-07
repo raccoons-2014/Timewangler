@@ -41,7 +41,7 @@ gem 'transit_rails'
 gem 'jquery-hoverIntent-rails'
 
 # Our homemade gem
-gem 'smack_engine'
+# gem 'smack_engine'
 
 
 # Use Capistrano for deployment
