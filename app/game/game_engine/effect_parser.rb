@@ -4,7 +4,23 @@ module GameEngine
 
       target_player = self.resolve_target_player(game_state, game_state.player_one)
       target_subset = self.resolve_target_collection(target_player)
-      self.resolve_target_player(game_state, game_state.player_two)
+      target_properties = self.resolve_target_properties(target_subset)
+
+      target_subset.each do |card|
+          self.resolve_target_modifier(card, property)
+        target_properties do |property|
+        end
+      end
+
+      target_player = self.resolve_target_player(game_state, game_state.player_two)
+      target_subset = self.resolve_target_collection(target_player)
+      target_properties = self.resolve_target_properties(target_subset)
+
+      target_subset.each do |card|
+          self.resolve_target_modifier(card, property)
+        target_properties do |property|
+        end
+      end
     end
 
 
