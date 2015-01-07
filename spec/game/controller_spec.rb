@@ -2,6 +2,8 @@ require 'rails_helper'
 require 'spec_helper'
 
 describe 'GameEngine::Controller' do
+  caching_interface = Rails.cache
+
   describe '#advance_game' do
     before(:each) do
       @game_db_model = create(:game)
@@ -17,45 +19,45 @@ describe 'GameEngine::Controller' do
 
     it 'should be in setup phase if it is not time for move phase' do
       @game_setup.time = Time.now
-      GameEngine::Cache.save_game_state(@game_setup)
-      expect(GameEngine::Controller.advance_game(@game_db_model, @game_setup.player_one.id)[:phase]).to eq :setup
+      GameEngine::Cache.save_game_state(@game_setup, caching_interface)
+      expect(GameEngine::Controller.advance_game(@game_db_model, @game_setup.player_one.id, caching_interface)[:phase]).to eq :setup
     end
 
     it 'should proceed to move phase if time is over the alloted setup time' do
       @game_setup.time = Time.now - GameEngine::GAME_RULES[:setup_time]
-      GameEngine::Cache.save_game_state(@game_setup)
-      expect(GameEngine::Controller.advance_game(@game_db_model, @game_setup.player_one.id)[:phase]).to eq :move
+      GameEngine::Cache.save_game_state(@game_setup, caching_interface)
+      expect(GameEngine::Controller.advance_game(@game_db_model, @game_setup.player_one.id, caching_interface)[:phase]).to eq :move
     end
 
     it 'should be in move phase if it is not time for resolution phase' do
       @game_move.time = Time.now
-      GameEngine::Cache.save_game_state(@game_move)
-      expect(GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)[:phase]).to eq :move
+      GameEngine::Cache.save_game_state(@game_move, caching_interface)
+      expect(GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id, caching_interface)[:phase]).to eq :move
     end
 
     it "should set player one's choice to nil if no choice is made and their request is recieved past alloted move time" do
       @game_move.time = Time.now - GameEngine::GAME_RULES[:move_time]
-      GameEngine::Cache.save_game_state(@game_move)
-      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)
-      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_one.selection).to eq [nil]
-      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_two.selection).to eq []
+      GameEngine::Cache.save_game_state(@game_move, caching_interface)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id, caching_interface)
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model, caching_interface).player_one.selection).to eq [nil]
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model, caching_interface).player_two.selection).to eq []
     end
 
     it 'should set both choices to nil if it is time to proceed to resolution phase' do
       @game_move.time = Time.now - GameEngine::GAME_RULES[:move_time]
-      GameEngine::Cache.save_game_state(@game_move)
-      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)
-      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_two.id)
-      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_one.selection).to eq [nil]
-      expect(GameEngine::Cache.fetch_game_state(@game_db_model).player_two.selection).to eq [nil]
+      GameEngine::Cache.save_game_state(@game_move, caching_interface)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id, caching_interface)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_two.id, caching_interface)
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model, caching_interface).player_one.selection).to eq [nil]
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model, caching_interface).player_two.selection).to eq [nil]
     end
 
     it "should proceed to the resolution phase if both choices have been made" do
       @game_move.time = Time.now - GameEngine::GAME_RULES[:move_time]
-      GameEngine::Cache.save_game_state(@game_move)
-      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id)
-      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_two.id)
-      expect(GameEngine::Cache.fetch_game_state(@game_db_model).phase).to eq :resolution
+      GameEngine::Cache.save_game_state(@game_move, caching_interface)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_one.id, caching_interface)
+      GameEngine::Controller.advance_game(@game_db_model, @game_move.player_two.id, caching_interface)
+      expect(GameEngine::Cache.fetch_game_state(@game_db_model, caching_interface).phase).to eq :resolution
     end
   end
 end

@@ -218,29 +218,17 @@ Card.create(card_type: "Hero", name: "Mao Zedong", description: "Commonly referr
 
 Card.create(card_type: "Hero", name: "Nelson Mandela", description: "Was a South African anti-apartheid revolutionary, politician and philanthropist who served as President of South Africa from 1994 to 1999.", strength: 6, intelligence: 8, charisma: 9, picture_url: "http://images.fineartamerica.com/images-medium-large/nelson-mandela-everett.jpg")
 
-Card.create(card_type: "Hero", name:"Matthew D. Huff", description:"Get You Some..." , strength: 10 , intelligence: 10, charisma: 10, picture_url: "/murok_face.jpeg/")
+Card.create(card_type: "Hero", name:"Matthew D. Huff", description:"Get You Some..." , strength: 10 , intelligence: 10, charisma: 10, picture_url: "/murok_face.jpeg/", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
-Card.create(card_type: "Hero", name: "Betsy Carroll", description: "Jackie of all trades, mistress of TONS!!", strength: 5, intelligence: 10, charisma: 10, picture_url: "https://scontent-b-sea.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1522028_10201042105079720_2027409000_n.jpg?oh=ea9fe65c9d057f3de0defa653fb262a7&oe=55356684")
+Card.create(card_type: "Hero", name: "Betsy Carroll", description: "Jackie of all trades, mistress of TONS!!", strength: 5, intelligence: 10, charisma: 10, picture_url: "https://scontent-b-sea.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1522028_10201042105079720_2027409000_n.jpg?oh=ea9fe65c9d057f3de0defa653fb262a7&oe=55356684", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
 Card.create(card_type: "Hero", name: "Jay-Z" , description: "Allow me to reintroduce myself..." , strength: 6 , intelligence: 8 , charisma: 10, picture_url: "http://upload.wikimedia.org/wikipedia/commons/6/6c/Jay-Z-02-mika.jpg")
 
-Card.create(card_type: "Hero", name: "Mason Norsworthy", description: "Leader of the freemasons and prominent Illuminati member." , strength: 7, intelligence: 10, charisma: 10, picture_url: "https://yt3.ggpht.com/-3obxyu0ohIU/AAAAAAAAAAI/AAAAAAAAAAA/Ve0KzUtTIv4/s88-c-k-no/photo.jpg")
+Card.create(card_type: "Hero", name: "Mason Norsworthy", description: "Leader of the freemasons and prominent Illuminati member." , strength: 7, intelligence: 10, charisma: 10, picture_url: "https://yt3.ggpht.com/-3obxyu0ohIU/AAAAAAAAAAI/AAAAAAAAAAA/Ve0KzUtTIv4/s88-c-k-no/photo.jpg", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
-Card.create(card_type: "Hero", name: "Bill Storey", description: "Lawyer turned coder. Famous for writing code that automatically sues people when they damage your property.", strength: 10, intelligence: 10, charisma: 9, picture_url: "http://s8.postimg.org/4aomfhfet/bill.jpg")
+Card.create(card_type: "Hero", name: "Bill Storey", description: "Lawyer turned coder. Famous for writing code that automatically sues people when they damage your property.", strength: 10, intelligence: 10, charisma: 9, picture_url: "http://s8.postimg.org/4aomfhfet/bill.jpg", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
-Card.create(card_type: "Hero", name: "Dmitriy Istomin", description: "The father of artificial intelligence (as we, in the future, know it).", strength: 7, intelligence: 10, charisma: 10, picture_url: "https://media.licdn.com/mpr/mpr/shrink_120_120/p/2/005/081/0aa/2838490.jpg")
-
-
-deck1 = Deck.create(user_id: 1)
-deck2 = Deck.create(user_id: 2)
-
-Card.where(:id => 1..15).each do |hero|
-	deck1.deck_card_relationships.create(card: hero)
-end
-
-Card.where(:id => 16..30).each do |hero|
-	deck2.deck_card_relationships.create(card: hero)
-end
+Card.create(card_type: "Hero", name: "Dmitriy Istomin", description: "The father of artificial intelligence (as we, in the future, know it).", strength: 7, intelligence: 10, charisma: 10, picture_url: "https://media.licdn.com/mpr/mpr/shrink_120_120/p/2/005/081/0aa/2838490.jpg", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
 # Template for Cards
 

@@ -23,6 +23,6 @@ function drawGame(gameObject) {
     display.displayHand(gameObject.player_hand);
     display.displayScoreBoard(gameObject);
   } else if (gameObject.phase == "won") {
-    display.winScreen(gameObject['player_points'] > 0)
+    display.winScreen(getGameId())
   }
 }

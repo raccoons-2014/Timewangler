@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get 'games/:game_id/matching', to: 'games#matching', as: 'match_game'
   get 'games/:game_id/status', to: 'games#status', as: 'game_status'
   get 'games/:game_id/poll', to: 'games#poll', as: 'game_poll'
+  get "games/:game_id/win", to: "games#win"
   resources :games
 
 
