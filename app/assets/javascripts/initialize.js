@@ -28,7 +28,4 @@ $(document).ready(function() {
     console.log('input loaded');
     cardInput();
   }
-
-
-
 })

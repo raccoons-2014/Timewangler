@@ -71,6 +71,7 @@ Display.prototype.createCard = function(id) {
 Display.prototype.displayHand = function(hand) {
 
   var self = this
+  $(".card").remove();
   $.each(hand, function( i, val) {
     self.createCard(i+1);
     self.displayCard((i+1), val);

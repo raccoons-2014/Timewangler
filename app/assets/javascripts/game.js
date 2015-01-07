@@ -25,9 +25,8 @@ function pollServer(oldHandLength) {
 
 // Displays the player's hand, the scoreboard and the timer.
 function drawScoreboard(gameObject, oldHandLength) {
-  showHand(gameObject, oldHandLength);
-
   if (gameObject.phase == "move") {
+    showHand(gameObject, oldHandLength);
     display.displayScoreBoard(gameObject);
   } else if (gameObject.phase == "won") {
     display.winScreen(gameObject['player_points'] > 0)
@@ -37,12 +36,11 @@ function drawScoreboard(gameObject, oldHandLength) {
 function showHand(gameObject, oldHandLength) {
   console.log(oldHandLength);
   if (gameObject.player_hand.length !== oldHandLength) {
-    $(".card").remove();
     display.displayHand(gameObject['player_hand']);
     $('#hand').center();
-  } else if (gameObject.round === 1 && gameObject.time_remaining === 1 && gameObject.phase === "move") {
-    $(".card").remove();
+  } else if (gameObject.time_remaining === 1) {
     display.displayHand(gameObject['player_hand']);
     $('#hand').center();
    }
+
 }
