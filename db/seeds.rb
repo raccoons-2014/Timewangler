@@ -152,13 +152,13 @@ Card.create(card_type: "Hero", name: "Christopher Columbus", description: "an It
 
 Card.create(card_type: "Hero", name: "George Washington", description: "the first President of the United States, the Commander-in-Chief of the Continental Army during the American Revolutionary War, and one of the Founding Fathers of the United States.", strength: 6, intelligence: 7, charisma: 8, picture_url: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/4/18/1271630795169/George-Washington-001.jpg")
 
-Card.create(card_type: "Hero", name: "John Smith", description: "John Smith, Admiral of New England, was an English soldier, explorer, and author. He was knighted for his services to Sigismund Bathory, Prince of Transylvania and his friend Mózes Székely.", strength: 9, intelligence: 6, charisma: 4, picture_url: "http://apva.org/rediscovery/image/jsmith.jpg")
+Card.create(card_type: "Hero", name: "John Smith", description: "John Smith, Admiral of New England, was an English soldier, explorer, and author. He was knighted for his services to Sigismund Bathory, Prince of Transylvania and his friend Mózes Székely.", strength: 9, intelligence: 6, charisma: 4, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzOTc0MTk1NzI0.jpg")
 
-Card.create(card_type: "Hero", name: "John Rolfe", description: "One of the early English settlers of North America. He is credited with the first successful cultivation of tobacco as an export crop in the Colony of Virginia and is known as the husband of Pocahontas, daughter of the chief of the Powhatan Confederacy.", strength: 8, intelligence: 4, charisma: 5, picture_url: "http://upload.wikimedia.org/wikipedia/commons/d/d7/Pocahontas_Rolfe_crop.jpg")
+Card.create(card_type: "Hero", name: "John Rolfe", description: "One of the early English settlers of North America. He is credited with the first successful cultivation of tobacco as an export crop in the Colony of Virginia and is known as the husband of Pocahontas, daughter of the chief of the Powhatan Confederacy.", strength: 8, intelligence: 4, charisma: 5, picture_url: "http://a2.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2MzYxMTY0Mjk5.jpg")
 
-Card.create(card_type: "Hero", name: "Chief Powhatan", description: "was the paramount chief of Tsenacommacah, an alliance of Algonquian-speaking Virginia Indians in the Tidewater region of Virginia at the time English settlers landed at Jamestown in 1607" , strength: 5, intelligence: 6, charisma: 7, picture_url: "http://www.legendsofamerica.com/photos-nativeamerican/ChiefPowhatan.jpg")
+Card.create(card_type: "Hero", name: "Chief Powhatan", description: "was the paramount chief of Tsenacommacah, an alliance of Algonquian-speaking Virginia Indians in the Tidewater region of Virginia at the time English settlers landed at Jamestown in 1607" , strength: 5, intelligence: 6, charisma: 7, picture_url: "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Powhatan_john_smith_map.jpg/200px-Powhatan_john_smith_map.jpg")
 
-Card.create(card_type: "Hero", name: "Pocahontas", description: "A Virginia Indian notable for her association with the colonial settlement at Jamestown, Virginia.", strength: 8, intelligence: 7, charisma: 9, picture_url: "http://www.history.org/history/teaching/enewsletter/volume4/images/pocahontas_large.jpg")
+Card.create(card_type: "Hero", name: "Pocahontas", description: "A Virginia Indian notable for her association with the colonial settlement at Jamestown, Virginia.", strength: 8, intelligence: 7, charisma: 9, picture_url: "http://www.americaslibrary.gov/assets/aa/pocahonta/aa_pocahonta_subj_e.jpg")
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
 
@@ -175,21 +175,21 @@ Card.create(card_type: "Hero", name: "Pocahontas", description: "A Virginia Indi
 ## ---------------------------------
 TimePeriod.create(name: "Industrial Revolution")
 
-Card.create(card_type: "Hero", name: "Mark Twain", description: "An American author and humorist. He wrote The Adventures of Tom Sawyer and its sequel, Adventures of Huckleberry Finn, the latter often called 'the Great American Novel'", strength: 2, intelligence: 9, charisma: 8, picture_url: "http://www.publishersweekly.com/images/data/ARTICLE_PHOTO/photo/000/028/28129-1.JPG")
+Card.create(card_type: "Hero", name: "Mark Twain", description: "An American author and humorist. He wrote The Adventures of Tom Sawyer and its sequel, Adventures of Huckleberry Finn, the latter often called 'the Great American Novel'", strength: 2, intelligence: 9, charisma: 8, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1MTUzNTA5OTAz.jpg")
 
-Card.create(card_type: "Hero", name: "Sacagawea", description: "a Lemhi Shoshone woman who accompanied the Lewis and Clark Expedition as an interpreter and guide during their exploration of the Western United States.", strength: 9, intelligence: 9, charisma: 4, picture_url: "http://upload.wikimedia.org/wikipedia/en/f/fe/Sacagawea_dollar_obverse.png")
+Card.create(card_type: "Hero", name: "Sacagawea", description: "a Lemhi Shoshone woman who accompanied the Lewis and Clark Expedition as an interpreter and guide during their exploration of the Western United States.", strength: 9, intelligence: 9, charisma: 4, picture_url: "http://cdn.history.com/sites/2/2013/12/sacagawea-AB.jpeg")
 
-Card.create(card_type: "Hero", name: "Meriwether Lewis", description: " an American explorer, soldier, and public administrator, best known for his role as the leader of the Lewis and Clark Expedition", strength: 9, intelligence: 8, charisma: 4, picture_url: "http://upload.wikimedia.org/wikipedia/commons/a/a6/Meriweather_Lewis-Charles_Willson_Peale.jpg")
+Card.create(card_type: "Hero", name: "Meriwether Lewis", description: " an American explorer, soldier, and public administrator, best known for his role as the leader of the Lewis and Clark Expedition", strength: 9, intelligence: 8, charisma: 4, picture_url: "http://hd.housedivided.dickinson.edu/files/images/HD_clarkML.jpg")
 
-Card.create(card_type: "Hero", name: "William Clark", description: "an American explorer, soldier, Indian agent, and territorial governor best known for the Lewis and Clark Expedition.", strength: 9, intelligence: 8, charisma: 3, picture_url: "http://upload.wikimedia.org/wikipedia/commons/6/66/William_Clark-Charles_Willson_Peale.jpg")
+Card.create(card_type: "Hero", name: "William Clark", description: "an American explorer, soldier, Indian agent, and territorial governor best known for the Lewis and Clark Expedition.", strength: 9, intelligence: 8, charisma: 3, picture_url: "http://www-tc.pbs.org/weta/thewest/people/images/clark1.jpg")
 
-Card.create(card_type: "Hero", name: "Abraham Lincoln", description: "Was the 16th President of the United States, serving from March 1861 until his assassination in April 1865", strength: 9, intelligence: 10, charisma: 9, picture_url: "http://upload.wikimedia.org/wikipedia/commons/1/1b/Abraham_Lincoln_November_1863.jpg")
+Card.create(card_type: "Hero", name: "Abraham Lincoln", description: "Was the 16th President of the United States, serving from March 1861 until his assassination in April 1865", strength: 9, intelligence: 10, charisma: 9, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzODg2NTc0MDky.jpg")
 
-Card.create(card_type: "Hero", name: "Friedrich Nietzsche", description: "A German philologist, philosopher, cultural critic, poet and composer.", strength: 3, intelligence: 6, charisma: 5, picture_url: "http://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg")
+Card.create(card_type: "Hero", name: "Friedrich Nietzsche", description: "A German philologist, philosopher, cultural critic, poet and composer.", strength: 3, intelligence: 6, charisma: 5, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2MzMwMTAwMjM1.jpg")
 
-Card.create(card_type: "Hero", name: "Albert Einstein", description: "Aas a German-born theoretical physicist and philosopher of science. He developed the general theory of relativity, one of the two pillars of modern physics.", strength: 2, intelligence: 10, charisma: 8, picture_url: "http://upload.wikimedia.org/wikipedia/commons/4/44/Albert_Einstein_Head_Cleaned_N_Cropped.jpg")
+Card.create(card_type: "Hero", name: "Albert Einstein", description: "Aas a German-born theoretical physicist and philosopher of science. He developed the general theory of relativity, one of the two pillars of modern physics.", strength: 2, intelligence: 10, charisma: 8, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU0OTU2OTAxOTAz.jpg")
 
-Card.create(card_type: "Hero", name: "Henry Ford", description: "Was an American industrialist, the founder of the Ford Motor Company, and sponsor of the development of the assembly line technique of mass production.", strength: 4, intelligence: 9, charisma: 8, picture_url: "http://upload.wikimedia.org/wikipedia/commons/1/18/Henry_ford_1919.jpg")
+Card.create(card_type: "Hero", name: "Henry Ford", description: "Was an American industrialist, the founder of the Ford Motor Company, and sponsor of the development of the assembly line technique of mass production.", strength: 4, intelligence: 9, charisma: 8, picture_url: "http://a1.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU0OTY2NDA0NjIz.jpg")
 
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
 
@@ -202,27 +202,27 @@ Card.create(card_type: "Hero", name: "Henry Ford", description: "Was an American
 
 TimePeriod.create(name: "Contemporary")
 
-Card.create(card_type: "Hero", name: "Amelia Earhart", description: "Was an American aviation pioneer and author. Earhart was the first female aviator to fly solo across the Atlantic Ocean", strength: 7, intelligence: 6, charisma: 5, picture_url: "http://media1.s-nbcnews.com/i/newscms/2014_28/561256/101220-amelia-earhart2-hmed-8a_647062c87f27da2f252df5ce8dc4f432.jpg")
+Card.create(card_type: "Hero", name: "Amelia Earhart", description: "Was an American aviation pioneer and author. Earhart was the first female aviator to fly solo across the Atlantic Ocean", strength: 7, intelligence: 6, charisma: 5, picture_url: "http://a2.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2MjA5NDQ4NDU5.jpg")
 
 Card.create(card_type: "Hero", name: "Kanye West", description: "Was an American rapper, songwriter, record producer, director, entrepreneur, and fashion designer, and god. In the future, he is commonly accepted as the one and only God and true kind og men.", strength: 10, intelligence: 10, charisma: 10, picture_url: "http://cdn.stereogum.com/files/2010/08/Kanye-West-Power-Remix-1.jpg")
 
-Card.create(card_type: "Hero", name: "Princess Diana", description: "Diana, Princess of Wales, was the first wife of Charles, Prince of Wales, who is the eldest child and heir apparent of Queen Elizabeth II.", strength: 1, intelligence: 5, charisma: 6, picture_url: "http://images4.fanpop.com/image/photos/21900000/so-beautiful-princess-diana-21947319-710-644.jpg")
+Card.create(card_type: "Hero", name: "Princess Diana", description: "Diana, Princess of Wales, was the first wife of Charles, Prince of Wales, who is the eldest child and heir apparent of Queen Elizabeth II.", strength: 1, intelligence: 5, charisma: 6, picture_url: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c17.17.215.215/s160x160/935166_491180230935409_693870860_n.jpg?oh=a1e3a35ac4d8f6db140f3cb6de50d9f7&oe=556EA40A&__gda__=1433292600_c67bbd41094737a0de25381aad025c57")
 
-Card.create(card_type: "Hero", name: "Martin Luther King, Jr.", description: "Was an American pastor, activist, humanitarian, and leader in the African-American Civil Rights Movement.", strength: 6, intelligence: 9, charisma: 10, picture_url: "http://www.nobelprize.org/nobel_prizes/peace/laureates/1964/king.jpg")
+Card.create(card_type: "Hero", name: "Martin Luther King, Jr.", description: "Was an American pastor, activist, humanitarian, and leader in the African-American Civil Rights Movement.", strength: 6, intelligence: 9, charisma: 10, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2MjgwNDg5NDgz.jpg")
 
-Card.create(card_type: "Hero", name: "Malcolm X", description: "Was an African-American Muslim minister and a human rights activist.", strength: 8, intelligence: 9, charisma: 8, picture_url: "http://www.colostate.edu/Orgs/MSA/gifs/m_x_1.gif")
+Card.create(card_type: "Hero", name: "Malcolm X", description: "Was an African-American Muslim minister and a human rights activist.", strength: 8, intelligence: 9, charisma: 8, picture_url: "http://a5.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1MDU1ODYxMjYz.jpg")
 
-Card.create(card_type: "Hero", name: "Barack Obama", description: "Barack Hussein Obama II is the 44th President of the United States, and the first African American to hold the office.", strength: 6, intelligence: 10, charisma: 9, picture_url: "http://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg")
+Card.create(card_type: "Hero", name: "Barack Obama", description: "Barack Hussein Obama II is the 44th President of the United States, and the first African American to hold the office.", strength: 6, intelligence: 10, charisma: 9, picture_url: "http://media.washtimes.com/media/image/2012/05/11/obama__live_c0-291-4518-2924_s326x190.jpg?b8990adc8b75b7a9887122323063b64956339cd9")
 
-Card.create(card_type: "Hero", name: "Mao Zedong", description: "Commonly referred to as Chairman Mao, was a Chinese Communist revolutionary and the founding father of the People's Republic of China", strength: 1, intelligence: 4, charisma: 5, picture_url: "http://upload.wikimedia.org/wikipedia/commons/9/94/Mao.jpg")
+Card.create(card_type: "Hero", name: "Mao Zedong", description: "Commonly referred to as Chairman Mao, was a Chinese Communist revolutionary and the founding father of the People's Republic of China", strength: 1, intelligence: 4, charisma: 5, picture_url: "http://a1.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1MDYwMjUyMTc1.jpg")
 
-Card.create(card_type: "Hero", name: "Nelson Mandela", description: "Was a South African anti-apartheid revolutionary, politician and philanthropist who served as President of South Africa from 1994 to 1999.", strength: 6, intelligence: 8, charisma: 9, picture_url: "http://images.fineartamerica.com/images-medium-large/nelson-mandela-everett.jpg")
+Card.create(card_type: "Hero", name: "Nelson Mandela", description: "Was a South African anti-apartheid revolutionary, politician and philanthropist who served as President of South Africa from 1994 to 1999.", strength: 6, intelligence: 8, charisma: 9, picture_url: "http://a2.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzOTAyODkyNTU2.jpg")
 
 Card.create(card_type: "Hero", name:"Matthew D. Huff", description:"Get You Some..." , strength: 10 , intelligence: 10, charisma: 10, picture_url: "/murok_face.jpeg/", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
 Card.create(card_type: "Hero", name: "Betsy Carroll", description: "Jackie of all trades, mistress of TONS!!", strength: 5, intelligence: 10, charisma: 10, picture_url: "https://scontent-b-sea.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1522028_10201042105079720_2027409000_n.jpg?oh=ea9fe65c9d057f3de0defa653fb262a7&oe=55356684", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
-Card.create(card_type: "Hero", name: "Jay-Z" , description: "Allow me to reintroduce myself..." , strength: 6 , intelligence: 8 , charisma: 10, picture_url: "http://upload.wikimedia.org/wikipedia/commons/6/6c/Jay-Z-02-mika.jpg")
+Card.create(card_type: "Hero", name: "Jay-Z" , description: "Allow me to reintroduce myself..." , strength: 6 , intelligence: 8 , charisma: 10, picture_url: "http://a2.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2MTA0MjYzMTc5.jpg")
 
 Card.create(card_type: "Hero", name: "Mason Norsworthy", description: "Leader of the freemasons and prominent Illuminati member." , strength: 7, intelligence: 10, charisma: 10, picture_url: "https://yt3.ggpht.com/-3obxyu0ohIU/AAAAAAAAAAI/AAAAAAAAAAA/Ve0KzUtTIv4/s88-c-k-no/photo.jpg", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
