@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  $('.hand').center();
-
   $('.card').hoverIntent(function() {
     $("#"+($(this).attr('id'))+".card").addClass('card_display');
     $( this ).transition({ scale: 2.2, y: -40 });
