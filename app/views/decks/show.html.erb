@@ -1,20 +1,23 @@
-<%= flash.now[:error] %>
-
+<center><%= flash.now[:error] %></center>
+<br>
+<center>
 <div class="db_introduction">
   <h2>
   Welcome to the Deck Builder!
   </h2>
-  <h3>Click the + to add that Hero to your deck</h3>
-  <h3>Click the - to remove the card from your deck</h3>
+  <br>
+  <h3>Click the + to add that Hero to your deck</h3><br>
+  <h3>Click the - to remove the card from your deck</h3><br>
   <p>Hover over the card to see the Hero's name</p>
 </div>
+</center>
   <br>
 
 
 <div class="deck_builder">
   <div class="current_deck">
     <h2>Your Deck: <%= @deck.cards.count %></h2>
-  
+      <br>
         <% @deck.cards.each do |card| %>
             
             <%= render partial: 'remove_card', locals: { :@card => card} %>
@@ -24,6 +27,7 @@
 
   <div class="card_selector">
     <h2>Your Cards</h2>
+      <br>
       <ol>
         <% @cards.each do |card| %>
             

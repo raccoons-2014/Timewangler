@@ -223,7 +223,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
 }
 
 #splash_pic {
-  background-image: image-url("brokenclock.png");
+  /*background-image: image-url("brokenclock.png");*/
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
@@ -529,15 +529,16 @@ h2 {
 
 .db_introduction {
   text-align: center;
+  background-image: url("space2.gif");
+  padding: 10px;
+  width: 40%;
+  border-radius: 10;
 }
 
 .new_deck {
   text-align: center;
 }
 
-.db_introduction {
-  text-align: center;
-}
 
 .deck_builder {
   text-align: center;
