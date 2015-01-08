@@ -1,7 +1,6 @@
 
-
-    <div class="two columns">
-      <div class="card" id='1'>
+    <div class="three columns">
+      <div class="card_static" id='1'>
         <span class='name'><%= @card.name %></span>
         <span class='picture'>
           <div class = "card_pic">
@@ -17,5 +16,11 @@
           <span class='intelligence'><%= @card.intelligence %></span></h2>
           <h2>Charisma:
           <span class='charisma'><%= @card.charisma %></span></h2>
+          
       </div>
+      <%= button_to "+", add_card_path(card_id: @card), class: "button-primary", method:"POST" %>
     </div>
+
+
+
+            
