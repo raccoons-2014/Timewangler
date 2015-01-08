@@ -2,7 +2,7 @@
 function cardInput() {
   console.log("CARD INPUT LOADED");
   $(".card").click(function() {
-    var id = parseInt(this.id) - 1;
+    var id = parseInt($(this).attr("data-id"));
     console.log('clicked:' + id );
     submitInput(id);
   })
