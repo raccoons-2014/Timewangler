@@ -1,21 +1,20 @@
-
-
-    <div class="two columns">
-      <div class="card" id='1'>
-        <span class='name'><%= @card.name %></span>
-        <span class='picture'>
-          <div class = "card_pic">
-            <img src="<%= @card.picture_url %>">
-          </div>
-        </span>
-          <div class='description'>
-            <p><%=@card.description %></p>
-          </div>
-          <h2>Strength:
-          <span class='strength'><%= @card.strength %></span></h2>
-          <h2>Intelligence:
-          <span class='intelligence'><%= @card.intelligence %></span></h2>
-          <h2>Charisma:
-          <span class='charisma'><%= @card.charisma %></span></h2>
-      </div>
+<div class="card">
+    <span class='name'><h2><%= @card.name %></h2></span>
+    <div class="card_pic">
+        <img src="<%= @card.picture_url %>" , class="portrait">
     </div>
+    <div class='description'>
+        <p>
+            <%=@card.description %>
+        </p>
+    </div>
+    <h2>Strength:
+      <span class='strength'> <%= @card.strength %></span>
+    </h2>
+    <h2>Intelligence:
+    <span class='intelligence'><%= @card.intelligence %></span>
+    </h2>
+    <h2>Charisma:
+    <span class='charisma'><%= @card.charisma %></span>
+    </h2>
+</div>
