@@ -38,7 +38,8 @@ Display.prototype.winScreen = function(id) {
 }
 
 // Creates a .center jquery function which aligns the selected div on the bottom-center of the page based on the current window resolution.
-$.fn.center = function () {
+
+$.fn.center_hand = function () {
     this.css("position","absolute");
     this.css("bottom", Math.min(0, (($(window).height() - $(this).outerHeight()) / 2) +
       $(window).scrollTop()) + "px");
@@ -46,5 +47,21 @@ $.fn.center = function () {
       $(window).scrollLeft()) + "px");
     return this;
 }
+
+
+$.fn.playerSelectionDiv = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height() + 175) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+    return this;
+}
+
+$.fn.opponentSelectionDiv = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height() - 175) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+    return this;
+}
+
 
 $( document ).tooltip();

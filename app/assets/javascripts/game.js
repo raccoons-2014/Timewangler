@@ -46,6 +46,7 @@ function drawGame(gameObject) {
   if (gameObject.phase == "move") {
     display.emptyContainer('.hand');
     display.displayCardCollection(gameObject.player_hand, '.hand');
+    $('.hand').center_hand();
     cardInput();
     display.displayScoreBoard(gameObject);
   } else if (gameObject.phase == "won") {

@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+b, u, i, center, .hand,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -412,13 +412,6 @@ h2 {
 
 .card_display .description {
   color: black;
-}
-
-.hand {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-/*  border: 2px solid green;*/
 }
 
 .score_board {
