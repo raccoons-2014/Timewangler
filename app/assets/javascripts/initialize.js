@@ -33,7 +33,6 @@ $(document).ready(function() {
     cardInput();
   }
 
-
   if ($('#match').length > 0) {
     console.log('MATCHING PAGE LOADED');
     $("body").css("display", "none");
