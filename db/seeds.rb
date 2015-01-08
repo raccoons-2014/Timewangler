@@ -77,7 +77,7 @@ Card.create(card_type: "Hero", name: "Michelangelo", description: "Renaissance s
 
 Card.create(card_type: "Hero", name: "Raphael", description: "Italian painter. One of the three members of the high Renaissance trinity.", strength: 3, intelligence: 9, charisma: 5, picture_url: "http://www.nationalgallery.org.uk/upload/img/raphael-portrait-young-man-NG2510-fm.jpg")
 
-Card.create(card_type: "Hero", name: "Niccolo Machiavelli", description: "was an Italian writer, historian, diplomat and humanist. His greatest work, The Prince is an expose of political machinations.", strength: 4, intelligence: 6, charisma: 2, picture_url: "hhttp://a5.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1MDQ5MzA3NjYz.jpg")
+Card.create(card_type: "Hero", name: "Niccolo Machiavelli", description: "was an Italian writer, historian, diplomat and humanist. His greatest work, The Prince is an expose of political machinations.", strength: 4, intelligence: 6, charisma: 2, picture_url: "http://a5.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1MDQ5MzA3NjYz.jpg")
 
 Card.create(card_type: "Hero", name: "Thomas More", description: "was an English statesman who wrote an ideal political system, Utopia. He was considered a social philosopher and Renaissance humanist.", strength: 4, intelligence: 7, charisma: 5, picture_url: "http://static.guim.co.uk/sys-images/Guardian/About/General/2011/1/12/1294821652638/Portrait-Of-Thomas-More-007.jpg")
 
@@ -87,7 +87,7 @@ Card.create(card_type: "Hero", name: "Galileo", description: "reating one of the
 
 Card.create(card_type: "Hero", name: "Johannes Kepler", description: "German scientist who played a key role in the 17th Century scientific revolution. He created the laws of planetary motion, which influenced Sir Isaac Newton’s theory of gravitation.", strength: 3, intelligence: 8, charisma: 3, picture_url: "http://media-2.web.britannica.com/eb-media/57/139557-004-F4E7E357.jpg")
 
-Card.create(card_type: "Hero", name: "Erasmus", description: "Was a Catholic theologian who has also been called the ‘Prince of the humanists’. He was critical of the abuses of the church and advocated reform from within the church. He was an early advocate of religious tolerance and advocated a middle path between the Catholic and Protestant movements.", strength: 2, intelligence: 9, charisma: 8, picture_url: "hhttp://a1.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1NDAyNDgxMTY3.jpg")
+Card.create(card_type: "Hero", name: "Erasmus", description: "Was a Catholic theologian who has also been called the ‘Prince of the humanists’. He was critical of the abuses of the church and advocated reform from within the church. He was an early advocate of religious tolerance and advocated a middle path between the Catholic and Protestant movements.", strength: 2, intelligence: 9, charisma: 8, picture_url: "http://a1.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1NDAyNDgxMTY3.jpg")
 
 Card.create(card_type: "Hero", name: "Donatello", description: "An Italian painter and sculptor. Donatello was a key figure in the early Florence renaissance. Major works include David, Virgin and Child with Four Angels, St Mark and The Feast of Herod.", strength: 4, intelligence: 7, charisma: 5, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2NTg5MzYwNjUx.jpg")
 
@@ -235,7 +235,7 @@ Card.create(card_type: "Hero", name: "Dmitriy Istomin", description: "The father
 # Card.create(card_type: "Hero", name: , description: , strength: , intelligence: , charisma: , picture_url: )
 
 # Users Seeds
-User.create(username: "Steven" , password: "derp" , email: "derp@aol.com" ).create_deck(name: "Herp").cards.push(Card.where("id <= 30"))
+User.create(username: "Steven", password: "derp" , email: "derp@aol.com" ).create_deck(name: "Herp").cards.push(Card.where("id <= 30"))
 
 User.create(username: "Zack", password: "powder", email: "linkblaine@gmail.com").create_deck(name: "Yin").cards.push(Card.where("id <= 30"))
 
