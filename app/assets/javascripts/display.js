@@ -31,9 +31,13 @@ Display.prototype.displayCardCollection = function(cardCollection, containerElem
 
 // Displays the Scoreboard on the game board.
 Display.prototype.displayScoreBoard = function(gameObject) {
+  $(".score_board .opponent_name").html(gameObject.opponent_name);
+  $(".score_board .opponent_score").html(gameObject.opponent_points);
+  $(".score_board .name").html(gameObject.player_name);
   $(".score_board .score").html(gameObject.player_points);
   $(".score_board .round").html(gameObject.round);
   $(".score_board .time").html(gameObject.time_remaining);
+  $(".score_board .phase").html(gameObject.phase);
 };
 
 // Displays the Win Screen upon the winState being set to true.
@@ -55,15 +59,15 @@ $.fn.center_hand = function () {
 
 $.fn.playerSelectionDiv = function () {
     this.css("position","absolute");
-    this.css("top", ( $(window).height() - this.height() + 175) / 2+$(window).scrollTop() + "px");
-    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+    this.css("top", ( $(window).height() - this.height()) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() + 400) / 2+$(window).scrollLeft() + "px");
     return this;
 }
 
 $.fn.opponentSelectionDiv = function () {
     this.css("position","absolute");
-    this.css("top", ( $(window).height() - this.height() - 175) / 2+$(window).scrollTop() + "px");
-    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+    this.css("top", ( $(window).height() - this.height()) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() - 400) / 2+$(window).scrollLeft() + "px");
     return this;
 }
 

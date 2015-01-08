@@ -19,6 +19,7 @@ function pollServer() {
 
 // Displays the player's hand, the scoreboard and the timer.
 function drawGame(gameObject) {
+    display.displayScoreBoard(gameObject);
   if (gameObject.player_selection[0]) {
     console.log('SOMETHING WRONG, IN PLAYER SELECTION');
     console.log(gameObject.player_selection[0]);
@@ -44,6 +45,17 @@ function drawGame(gameObject) {
     display.emptyContainer('#opponent-move');
   }
 
+  if (gameObject.phase == "resolution") {
+    $('#player-move')
+      .transition({ x: -80 , delay:3000 }, 0, 'snap')
+      .transition({ x: 0 }, 500, 'ease')
+      .transition({ x: 0 } );
+    $('#opponent-move')
+      .transition({ x: 80  , delay:3000 }, 0, 'snap')
+      .transition({ x: 0 }, 500, 'ease')
+      .transition({ x: 0 });
+}
+
   if (gameObject.phase == "move" && gameObject.round > 0 && gameObject.time_remaining <= 2) {
     $('.hand').transition({ y: '0px' });
   }
@@ -52,8 +64,8 @@ function drawGame(gameObject) {
     display.emptyContainer('.hand');
     display.displayCardCollection(gameObject.player_hand, '.hand');
     $('.hand').center_hand();
+    // $('.card').addClass( "glow" );
     cardInput();
-    display.displayScoreBoard(gameObject);
   } else if (gameObject.phase == "won") {
     display.winScreen(getGameId());
   }
