@@ -5,8 +5,7 @@ var display = new Display;
 
 // Displays the cards on the game board in the player's hand
 Display.prototype.buildCard = function(cardObject, index) {
-  var card = "<div class='card', data-id='" + index + "'><span class='name'><h2>" + cardObject.name + "</h2></span><div class='card_pic'><img src="+ cardObject.picture_url + " , class='portrait'></div><div class='description'><p>" + cardObject.description + "</p></div><div class='effect-description'><p>" + cardObject.effect_description + "</p>
-  </div><h2>Strength:<span class='strength'>" + cardObject.strength + "</span></h2><h2>Intelligence:<span class='intelligence'>" + cardObject.intelligence + "</span></h2><h2>Charisma:<span class='charisma'>" + cardObject.charisma + "</span></h2></div>";
+  var card = "<div class='card', data-id='" + index + "'><span class='name'><h2>" + cardObject.name + "</h2></span><div class='card_pic'><img src="+ cardObject.picture_url + " , class='portrait'></div><div class='description'><p>" + cardObject.description + "</p></div><div class='effect-description'><p>" + cardObject['effect_description'] + "</p></div><h2>Strength:<span class='strength'>" + cardObject.strength + "</span></h2><h2>Intelligence:<span class='intelligence'>" + cardObject.intelligence + "</span></h2><h2>Charisma:<span class='charisma'>" + cardObject.charisma + "</span></h2></div>";
   return card;
 };
 
