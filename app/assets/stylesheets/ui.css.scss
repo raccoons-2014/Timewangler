@@ -169,7 +169,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
 }
 
 #splash_pic {
-  /*background-image: image-url("brokenclock.png");*/
+  background-image: image-url("vortex.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
@@ -186,11 +186,14 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
 #splash {
   /*border: 2px solid red;*/
   /*position: block;*/
-  position: absolute;
+  background-image: image-url("vortex.png");
+  background-repeat: no-repeat;
+  background-size: 130%;
+  position: relative;
   bottom: 0%;
-  left: 10%;
-  right: 10%;
-  min-height: 100%;
+/*  left: 10%;
+  right: 10%;*/
+  /*min-height: 100%;*/
   display: block;
   padding-top: 10px;
 }
@@ -628,6 +631,11 @@ h2 {
 }
 
 
+.clock img.resize{
+    width:40px; /* you can use % */
+    height: auto;
+}
+
 
 
 
@@ -660,8 +668,9 @@ background-image: -webkit-linear-gradient(top, #080040 0%, #000000 90%);
 background-image: linear-gradient(to bottom, #080040 0%, #000000 90%);
 }
 
+.bottom_box {
 
-
+}
 
 .button,
 button,
