@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  $('.hand').center();
-
   $('.card').hoverIntent(function() {
     $("#"+($(this).attr('id'))+".card").addClass('card_display');
     $( this ).transition({ scale: 2.2, y: -40 });
@@ -20,7 +18,7 @@ $(document).ready(function() {
     match.listenForConfirmation();
   };
 
-  if ($('#game-container').length > 0) {
+  if ($('#smackwangler-game').length > 0) {
     window['onbeforeunload'] = undefined;
     $("body").css("display", "none");
     $("body").fadeIn(5000);
@@ -32,6 +30,7 @@ $(document).ready(function() {
     console.log('input loaded');
     cardInput();
   }
+
 
   if ($('#match').length > 0) {
     console.log('MATCHING PAGE LOADED');

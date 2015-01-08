@@ -17,6 +17,10 @@ Display.prototype.emptyContainer = function(containerElem) {
   $(containerElem).empty();
 };
 
+Display.prototype.detachContainer = function(containerElem) {
+  $(containerElem).detach();
+};
+
 // Increments through the cards and displays all the cards in the hand as long as there are divs.
 Display.prototype.displayCardCollection = function(cardCollection, containerElem) {
   var self = this
@@ -27,9 +31,13 @@ Display.prototype.displayCardCollection = function(cardCollection, containerElem
 
 // Displays the Scoreboard on the game board.
 Display.prototype.displayScoreBoard = function(gameObject) {
+  $(".score_board .opponent_name").html(gameObject.opponent_name);
+  $(".score_board .opponent_score").html(gameObject.opponent_points);
+  $(".score_board .name").html(gameObject.player_name);
   $(".score_board .score").html(gameObject.player_points);
   $(".score_board .round").html(gameObject.round);
   $(".score_board .time").html(gameObject.time_remaining);
+  $(".score_board .phase").html(gameObject.phase);
 };
 
 // Displays the Win Screen upon the winState being set to true.
@@ -38,7 +46,8 @@ Display.prototype.winScreen = function(id) {
 }
 
 // Creates a .center jquery function which aligns the selected div on the bottom-center of the page based on the current window resolution.
-$.fn.center = function () {
+
+$.fn.center_hand = function () {
     this.css("position","absolute");
     this.css("bottom", Math.min(0, (($(window).height() - $(this).outerHeight()) / 2) +
       $(window).scrollTop()) + "px");
@@ -46,5 +55,21 @@ $.fn.center = function () {
       $(window).scrollLeft()) + "px");
     return this;
 }
+
+
+$.fn.playerSelectionDiv = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height()) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() + 400) / 2+$(window).scrollLeft() + "px");
+    return this;
+}
+
+$.fn.opponentSelectionDiv = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height()) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() - 400) / 2+$(window).scrollLeft() + "px");
+    return this;
+}
+
 
 $( document ).tooltip();

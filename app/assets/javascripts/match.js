@@ -13,7 +13,7 @@ function Match(id) {
 
 Match.prototype.listenForConfirmation = function() {
   var match = this;
-  var serverListenTimer = setTimeout(function() { checkServer() }, 500);
+  setTimeout(function() { checkServer() }, 500);
 
   function checkServer() {
     console.log("Waiting for another player to join...");
@@ -30,7 +30,6 @@ Match.prototype.listenForConfirmation = function() {
             url: response.url,
             method: "GET"}).done(function(response) {
               clearInterval(matchTimer);
-              clearTimeout(serverListenTimer);
               match.directToGame();
           });
         } else {
