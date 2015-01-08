@@ -23,7 +23,6 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
   font-family: 'Futura';
-  /*font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   color: white;
 }
 /* HTML5 display-role reset for older browsers */
@@ -105,7 +104,7 @@ ul#inline-block-test li {
   text-align: center;
   width: 400px;
   height: 90px;
-  /*background-color: gray;*/
+  background-color: gray;
 }
 
 #player_two_name {
@@ -142,7 +141,7 @@ h3 {
   background-color: red;
 }
 
-/*ul#inline_block_of_cards,
+ul#inline_block_of_cards,
   ul#inline_block_of_cards li {
     margin: 0;
 
@@ -165,31 +164,15 @@ h3 {
     background-color: pink;
     width: 100px;
     min-height: 80px;
-  }*/
+  }
 
 body {
-  /* IE10 Consumer Preview */ 
-  background-image: -ms-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-  /* Mozilla Firefox */ 
-  background-image: -moz-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-  /* Opera */ 
-  background-image: -o-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-  /* Webkit (Safari/Chrome 10) */ 
-  background-image: -webkit-gradient(radial, center center, 0, center center, 497, color-stop(0, #080040), color-stop(0.9, #000000));
-
-  /* Webkit (Chrome 11+) */ 
-  background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-  /* W3C Markup, IE10 Release Preview */ 
-  background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%, #000000 90%);
+  background-color: black;
   /*border: 2px solid blue;*/
  }
 
 .container {
-  /*background-color: gray;*/
+  /*border: 2px solid yellow;*/
   position: absolute;
   bottom: 0%;
   left: 0%;
@@ -198,32 +181,12 @@ body {
   display: block;
 }
 
-html {
-  /* IE10 Consumer Preview */ 
-background-image: -ms-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-/* Mozilla Firefox */ 
-background-image: -moz-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-/* Opera */ 
-background-image: -o-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(radial, center center, 0, center center, 497, color-stop(0, #080040), color-stop(0.9, #000000));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
-
-/* W3C Markup, IE10 Release Preview */ 
-background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%, #000000 90%);
-}
-
 .login {
   text-align: center;
 }
 
 #splash_pic {
-  /*background-image: image-url("brokenclock.png");*/
+  background-image: image-url("brokenclock.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
@@ -233,7 +196,6 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
   right: 10%;
   min-height: 60%;
   display: block;
-  z-index: -1;
   /*border: 2px solid green;*/
 }
 
@@ -260,7 +222,10 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
 
 body {
 
-  border: 1px solid black;
+  background-image: image-url("space2.gif");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  /*border: 2px solid red;*/
 }
 
 .menu {
@@ -302,10 +267,6 @@ h1 {
   color: white;
   font-size: 50px;
   padding-top: 30px;
-}
-
-h4 {
-  font-size: 30px;
 }
 
 a {
@@ -359,11 +320,9 @@ nav {
   margin-left: auto;
   border-radius: 10px;
   position: relative;
-  max-height: 200px;
-  min-height: 200px;
-  width: 100%;
+  height: 300px;
+  width: 200px;
   padding: 10px;
-  padding-bottom: 20px;
  /* background-image: image-url("chrome.jpg");*/
   /*border: 2px solid red;*/
 }
@@ -371,8 +330,8 @@ nav {
 .card_pic {
   margin-right: auto;
   margin-left: auto;
-  min-height: 55px;
-  max-height: 55px;
+  min-height: 45%;
+  max-height: 45%;
   overflow: hidden;
   opacity: 1;
   /*border: 2px solid red;*/
@@ -389,75 +348,29 @@ nav {
   right: 0;
   position: absolute;
   padding: 10px;
-  height: 200px;
-  display: block;
-  /*width: 100%;*/
+  height: 300px;
+  width: 200px;
 }
-
-.card_static {
-  display: inline-block;
-  text-align: center;
-  margin-top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 10px;
-  position: relative;
-  max-height: 200px;
-  min-height: 200px;
-  width: 100%;
-  padding: 10px;
-  padding-bottom: 20px;
- /* background-image: image-url("chrome.jpg");*/
-  /*border: 2px solid red;*/
-}
-
-.card_static::after {
-  content: "";
-  border-radius: 10px;
-  background-image: image-url("chrome.jpg");
-  background-size: 200%;
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
-  padding: 10px;
-  height: 200px;
-  display: block;
-  /*width: 100%;*/
-}
-
-.card_static img {
-  position: relative;
-  height: 60%;
-  width: 60%;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-}
-
 
 h2 {
   font-size: 16px;
   text-transform: uppercase;
 }
 
-.card h2 {
-  font-family: Arial;
-}
-
-.card_static h2 {
-  font-family: Arial;
-}
-
 .card img {
   position: relative;
-  height: 60%;
-  width: 60%;
+  height: 90%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
 }
+
+.card img.portrait {
+/*  width: 100%;
+  height: auto;*/
+}
+
 
 .card_display {
   color: black;
@@ -469,21 +382,19 @@ h2 {
   margin-left: auto;
   border-radius: 10px;
   position: relative;
-/*  height: 300px;
-  width: 200px;*/
-  /*padding: 10px;*/
+  height: 300px;
+  width: 200px;
+  padding: 10px;
   background-image: image-url("chrome.jpg");
 }
 
 .description {
-  height: 60px;
-  width: 100%;
+  height: 30%;
   overflow: hidden;
   margin-bottom: 5px;
   margin-top: 5px;
   font-size: 12px;
   color: white;
-  display: block;
   /*border: 2px solid yellow;*/
 }
 
@@ -506,16 +417,14 @@ h2 {
 .hand {
   position: absolute;
   bottom: 0;
-  border: 2px solid red;
-
+  text-align: center;
+/*  border: 2px solid green;*/
 }
 
 .score_board {
   color: red;
   font-size: 50px;
-  display: block;
-  background-color: green;
-  margin: 20px;
+  padding-left: 20px;
 }
 
 .play {
@@ -534,16 +443,15 @@ h2 {
 
 .db_introduction {
   text-align: center;
-  background-image: url("space2.gif");
-  padding: 10px;
-  width: 40%;
-  border-radius: 10;
 }
 
 .new_deck {
   text-align: center;
 }
 
+.db_introduction {
+  text-align: center;
+}
 
 .deck_builder {
   text-align: center;
@@ -579,6 +487,7 @@ h2 {
 
 .current_deck {
   width: 100%;
+  -webkit-column-count: 6;
 }
 
 .current_deck h2 {
@@ -589,6 +498,7 @@ h2 {
   width: 100%;
 
   border-left: 2px solid white;
+  -webkit-column-count: 6;
 }
 
 .card_selector h2 {
@@ -628,7 +538,6 @@ h2 {
   font-size: 400%;
 }
 
-
 #winscreen {
   text-align: center;
   font-size: 300%;
@@ -652,35 +561,4 @@ h2 {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
-}
-
-.columns { 
-}
-
-.two {
-  margin-left: 2.9% !important; 
-}
-
-.three {
-/*  margin-left: 4%;
-  margin-right: 4%;*/
-  margin-left: 8%
-}
-
-.five {
-  height: 300px;
-}
-
-.card h2 {
-  font-size: 12px;
-}
-
-.card_static h2 {
-  font-size: 12px;
-}
-
-.clock {
-  z-index: -1;
-  padding-top: 20px;
-  display: block;
 }
