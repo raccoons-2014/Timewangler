@@ -185,31 +185,7 @@ body {
   text-align: center;
 }
 
-#splash_pic {
-  background-image: image-url("brokenclock.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: top;
-  position: absolute;
-  bottom: 0%;
-  left: 10%;
-  right: 10%;
-  min-height: 60%;
-  display: block;
-  /*border: 2px solid green;*/
-}
 
-#splash {
-  /*border: 2px solid red;*/
-  /*position: block;*/
-  position: absolute;
-  bottom: 0%;
-  left: 10%;
-  right: 10%;
-  min-height: 100%;
-  display: block;
-  padding-top: 10px;
-}
 
 #home {
   position: absolute;
@@ -389,7 +365,7 @@ h2 {
 }
 
 .description {
-  height: 30%;
+  height: 12%;
   overflow: hidden;
   margin-bottom: 5px;
   margin-top: 5px;
@@ -449,14 +425,14 @@ h2 {
 .deck_builder {
   text-align: center;
   font-size: 15px;
-  -webkit-column-count: 2;
+  /*-webkit-column-count: 2;*/
 }
 
 .deck_builder div {
  display: inline-block;
 }
 
-.mini_card {
+/*.mini_card {
   height:50px;
   width:50px;
   padding: 10px;
@@ -471,7 +447,7 @@ h2 {
   -webkit-transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-}
+}*/
 
 .mini_card img.portrait {
   width: 100%;
@@ -480,7 +456,7 @@ h2 {
 
 .current_deck {
   width: 100%;
-  -webkit-column-count: 6;
+  /*-webkit-column-count: 6;*/
 }
 
 .current_deck h2 {
@@ -491,7 +467,7 @@ h2 {
   width: 100%;
 
   border-left: 2px solid white;
-  -webkit-column-count: 6;
+  /*-webkit-column-count: 6;*/
 }
 
 .card_selector h2 {
@@ -512,6 +488,7 @@ h2 {
   box-shadow: 0 0 7px black;
 }
 
+
 .profile {
   text-align: center;
 }
@@ -531,29 +508,8 @@ h2 {
   font-size: 400%;
 }
 
-#winscreen {
+.winscreen {
   text-align: center;
-  font-size: 300%;
-  background-image: image-url('http://giant.gfycat.com/ForkedFineBelugawhale.gif');
-  background-size: 1500px 500px;
-  background-repeat: no-repeat;
-  background-position: center
-
-}
-
-#winscreen h1{
-  text-decoration: underline
-}
-
-.blink {
-    -webkit-animation: blinker 1.7s cubic-bezier(.5, 0, 1, 1) infinite alternate;
-
-}
-
-@-webkit-keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
 }
 
 .glow {

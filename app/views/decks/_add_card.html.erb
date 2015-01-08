@@ -1,0 +1,41 @@
+<div class="three columns">
+      <div class="card_ui" id='1'>
+        <span class='name'><%= @card.name %></span>
+        <span class='picture'>
+          <div class = "card_ui_pic">
+            <img src="<%= @card.picture_url %>">
+          </div>
+        </span>
+          <div class='description_ui'>
+            <p><%=@card.description %></p>
+          </div>
+          <table class="u-full-width">
+            <thead>
+                <th></th>
+                <th></th>
+            </thead>
+            
+          <tbody>
+            <tr>
+              <td>strength</td>
+              <td><%= @card.strength %></td>
+
+            </tr>
+            <tr>
+              <td>intelligence</td>
+              <td><%= @card.intelligence %></td>
+              
+            </tr>
+            <td>charisma</td>
+                <td><%= @card.charisma %></td>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <h2>Power:
+          <span class='power'><%= @card.effect_description %></span></h2>
+          
+      </div>
+      <%= button_to "+", add_card_path(card_id: @card), class: "button-primary", method:"POST" %>
+    </div>
