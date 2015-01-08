@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      @user.create_deck(name:"Your Deck").cards.push(Card.where("id <= 30"))
       login(@user)
       redirect_to profile_path
     else
@@ -26,9 +27,18 @@ class UsersController < ApplicationController
   end
 
   def profile
-    protected_page!
-    @user = current_user
+    if current_user
+      @user = current_user
+      @wins = @user.count_wins
+      @losses = @user.count_losses
+      @ratio = @user.win_loss_ratio
+      @last_20_games = @user.last_20_games
+    else
+      redirect_to root_path
+    end
   end
+
+
 
   private
     def user_params

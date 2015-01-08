@@ -23,6 +23,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
   font-family: 'Futura';
+  /*font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   color: white;
 }
 /* HTML5 display-role reset for older browsers */
@@ -104,7 +105,7 @@ ul#inline-block-test li {
   text-align: center;
   width: 400px;
   height: 90px;
-  background-color: gray;
+  /*background-color: gray;*/
 }
 
 #player_two_name {
@@ -141,7 +142,7 @@ h3 {
   background-color: red;
 }
 
-ul#inline_block_of_cards,
+/*ul#inline_block_of_cards,
   ul#inline_block_of_cards li {
     margin: 0;
 
@@ -164,15 +165,31 @@ ul#inline_block_of_cards,
     background-color: pink;
     width: 100px;
     min-height: 80px;
-  }
+  }*/
 
 body {
-  background-color: black;
+  /* IE10 Consumer Preview */ 
+  background-image: -ms-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+  /* Mozilla Firefox */ 
+  background-image: -moz-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+  /* Opera */ 
+  background-image: -o-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(radial, center center, 0, center center, 497, color-stop(0, #080040), color-stop(0.9, #000000));
+
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+  /* W3C Markup, IE10 Release Preview */ 
+  background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%, #000000 90%);
   /*border: 2px solid blue;*/
  }
 
 .container {
-  /*border: 2px solid yellow;*/
+  /*background-color: gray;*/
   position: absolute;
   bottom: 0%;
   left: 0%;
@@ -181,12 +198,32 @@ body {
   display: block;
 }
 
+html {
+  /* IE10 Consumer Preview */ 
+background-image: -ms-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+/* Opera */ 
+background-image: -o-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(radial, center center, 0, center center, 497, color-stop(0, #080040), color-stop(0.9, #000000));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #080040 0%, #000000 90%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%, #000000 90%);
+}
+
 .login {
   text-align: center;
 }
 
 #splash_pic {
-  background-image: image-url("brokenclock.png");
+  /*background-image: image-url("brokenclock.png");*/
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
@@ -196,6 +233,7 @@ body {
   right: 10%;
   min-height: 60%;
   display: block;
+  z-index: -1;
   /*border: 2px solid green;*/
 }
 
@@ -222,10 +260,7 @@ body {
 
 body {
 
-  background-image: image-url("space2.gif");
-  background-repeat: no-repeat;
-  background-size: 120%;
-  /*border: 2px solid red;*/
+  border: 1px solid black;
 }
 
 .menu {
@@ -269,6 +304,10 @@ h1 {
   padding-top: 30px;
 }
 
+h4 {
+  font-size: 30px;
+}
+
 a {
   text-decoration: none;
   min-height: 100%;
@@ -277,7 +316,17 @@ a {
 nav li{
   display: inline;
   padding: 10px;
+
+
 }
+
+
+nav li:hover {
+
+  box-shadow:
+    inset 0 -2px 1px rgba(255,255,255,0.2),
+    inset 0 3px 2px rgba(0,0,0,0.12);
+  }
 
 input {
   color: black;
@@ -310,9 +359,11 @@ nav {
   margin-left: auto;
   border-radius: 10px;
   position: relative;
-  height: 300px;
-  width: 200px;
+  max-height: 200px;
+  min-height: 200px;
+  width: 100%;
   padding: 10px;
+  padding-bottom: 20px;
  /* background-image: image-url("chrome.jpg");*/
   /*border: 2px solid red;*/
 }
@@ -320,8 +371,8 @@ nav {
 .card_pic {
   margin-right: auto;
   margin-left: auto;
-  min-height: 45%;
-  max-height: 45%;
+  min-height: 55px;
+  max-height: 55px;
   overflow: hidden;
   opacity: 1;
   /*border: 2px solid red;*/
@@ -338,27 +389,74 @@ nav {
   right: 0;
   position: absolute;
   padding: 10px;
-  height: 300px;
-  width: 200px;
+  height: 200px;
+  display: block;
+  /*width: 100%;*/
 }
+
+.card_static {
+  display: inline-block;
+  text-align: center;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  position: relative;
+  max-height: 200px;
+  min-height: 200px;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 20px;
+ /* background-image: image-url("chrome.jpg");*/
+  /*border: 2px solid red;*/
+}
+
+.card_static::after {
+  content: "";
+  border-radius: 10px;
+  background-image: image-url("chrome.jpg");
+  background-size: 200%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 10px;
+  height: 200px;
+  display: block;
+  /*width: 100%;*/
+}
+
+.card_static img {
+  position: relative;
+  height: 60%;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 
 h2 {
   font-size: 16px;
   text-transform: uppercase;
 }
 
+.card h2 {
+  font-family: Arial;
+}
+
+.card_static h2 {
+  font-family: Arial;
+}
+
 .card img {
   position: relative;
-  height: 90%;
-  width: 90%;
+  height: 60%;
+  width: 60%;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
-}
-
-.card img.portrait {
-/*  width: 100%;
-  height: auto;*/
 }
 
 .card_display {
@@ -371,23 +469,21 @@ h2 {
   margin-left: auto;
   border-radius: 10px;
   position: relative;
-  height: 300px;
-  width: 200px;
-  padding: 10px;
+/*  height: 300px;
+  width: 200px;*/
+  /*padding: 10px;*/
   background-image: image-url("chrome.jpg");
 }
 
-.deck_builder div {
- display: inline-block;
-}
-
 .description {
-  height: 30%;
+  height: 60px;
+  width: 100%;
   overflow: hidden;
   margin-bottom: 5px;
   margin-top: 5px;
   font-size: 12px;
   color: white;
+  display: block;
   /*border: 2px solid yellow;*/
 }
 
@@ -410,14 +506,16 @@ h2 {
 .hand {
   position: absolute;
   bottom: 0;
-  text-align: center;
-/*  border: 2px solid green;*/
+  border: 2px solid red;
+
 }
 
 .score_board {
   color: red;
   font-size: 50px;
-  padding-left: 20px;
+  display: block;
+  background-color: green;
+  margin: 20px;
 }
 
 .play {
@@ -428,4 +526,161 @@ h2 {
   background-color: yellow;
   width: 1000px;
   height: 1000px;
+}
+
+.new_deck {
+  text-align: center;
+}
+
+.db_introduction {
+  text-align: center;
+  background-image: url("space2.gif");
+  padding: 10px;
+  width: 40%;
+  border-radius: 10;
+}
+
+.new_deck {
+  text-align: center;
+}
+
+
+.deck_builder {
+  text-align: center;
+  font-size: 15px;
+  -webkit-column-count: 2;
+}
+
+.deck_builder div {
+ display: inline-block;
+}
+
+.mini_card {
+  height:50px;
+  width:50px;
+  padding: 10px;
+}
+
+.mini_card img {
+  position: relative;
+  width: auto;
+  left: 50%;
+  top: 50%;
+  padding-bottom: 2px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.mini_card img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.current_deck {
+  width: 100%;
+}
+
+.current_deck h2 {
+  text-align: center;
+}
+
+.card_selector {
+  width: 100%;
+
+  border-left: 2px solid white;
+}
+
+.card_selector h2 {
+  text-align: center;
+}
+
+.ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+  }
+
+.ui-tooltip {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  font: bold 14px "Helvetica Neue", Sans-Serif;
+  text-transform: uppercase;
+  box-shadow: 0 0 7px black;
+}
+
+.profile {
+  text-align: center;
+}
+
+.join_game {
+  text-align: center;
+  border: 2px solid white;
+  width: 100px;
+  height: 100px;
+}
+
+.user_stats {
+  padding-top: 20px;
+}
+
+#searching {
+  font-size: 400%;
+}
+
+
+#winscreen {
+  text-align: center;
+  font-size: 300%;
+  background-image: image-url('http://giant.gfycat.com/ForkedFineBelugawhale.gif');
+  background-size: 1500px 500px;
+  background-repeat: no-repeat;
+  background-position: center
+
+}
+
+#winscreen h1{
+  text-decoration: underline
+}
+
+.blink {
+    -webkit-animation: blinker 1.7s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+.columns { 
+}
+
+.two {
+  margin-left: 2.9% !important; 
+}
+
+.three {
+/*  margin-left: 4%;
+  margin-right: 4%;*/
+  margin-left: 8%
+}
+
+.five {
+  height: 300px;
+}
+
+.card h2 {
+  font-size: 12px;
+}
+
+.card_static h2 {
+  font-size: 12px;
+}
+
+.clock {
+  z-index: -1;
+  padding-top: 20px;
+  display: block;
 }
