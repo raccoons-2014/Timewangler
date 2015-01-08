@@ -1,0 +1,26 @@
+
+    <div class="three columns">
+      <div class="card_ui" id='1'>
+        <span class='name'><%= @card.name %></span>
+        <span class='picture'>
+          <div class = "card_ui_pic">
+            <img src="<%= @card.picture_url %>">
+          </div>
+        </span>
+          <div class='description_ui'>
+            <p><%=@card.description %></p>
+          </div>
+          <h2>Strength:
+          <span class='strength'><%= @card.strength %></span></h2>
+          <h2>Intelligence:
+          <span class='intelligence'><%= @card.intelligence %></span></h2>
+          <h2>Charisma:
+          <span class='charisma'><%= @card.charisma %></span></h2>
+          <h2>Power:
+          <span class='power'><%= @card.effect_description %></span></h2>
+          
+      </div>
+      
+      <%= button_to "-", remove_card_path(card_id: @card), class: "button-primary", method: :delete %>
+    </div>
+
