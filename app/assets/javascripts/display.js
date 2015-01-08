@@ -17,6 +17,10 @@ Display.prototype.emptyContainer = function(containerElem) {
   $(containerElem).empty();
 };
 
+Display.prototype.detachContainer = function(containerElem) {
+  $(containerElem).detach();
+};
+
 // Increments through the cards and displays all the cards in the hand as long as there are divs.
 Display.prototype.displayCardCollection = function(cardCollection, containerElem) {
   var self = this

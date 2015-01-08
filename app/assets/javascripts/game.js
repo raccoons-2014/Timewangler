@@ -24,6 +24,8 @@ function drawGame(gameObject) {
     console.log(gameObject.player_selection[0]);
     display.emptyContainer('#player-move');
     display.displayCardCollection(gameObject.player_selection, '#player-move');
+    $('#player-move').playerSelectionDiv();
+    $('.hand').transition({ y: '170px' });
   }
 
   if (gameObject.opponent_selection[0]) {
@@ -31,6 +33,7 @@ function drawGame(gameObject) {
     console.log(gameObject.player_selection[0]);
     display.emptyContainer('#opponent-move');
     display.displayCardCollection(gameObject.opponent_selection, '#opponent-move');
+    $('#opponent-move').opponentSelectionDiv();
   }
 
   if (!gameObject.player_selection[0]) {
@@ -41,7 +44,9 @@ function drawGame(gameObject) {
     display.emptyContainer('#opponent-move');
   }
 
-
+  if (gameObject.phase == "move" && gameObject.round > 0 && gameObject.time_remaining <= 2) {
+    $('.hand').transition({ y: '0px' });
+  }
 
   if (gameObject.phase == "move") {
     display.emptyContainer('.hand');
