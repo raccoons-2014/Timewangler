@@ -22,7 +22,7 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Futura';
+  font-family: 'Futura', Arial, sans-serif;
   /*font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   color: white;
 }
@@ -223,9 +223,9 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
 }
 
 #splash_pic {
-  /*background-image: image-url("brokenclock.png");*/
+  background-image: image-url("vortex.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 200%;
   background-position: top;
   position: absolute;
   bottom: 0%;
@@ -240,6 +240,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
 #splash {
   /*border: 2px solid red;*/
   /*position: block;*/
+  background-image: image-url("vortex.png");
   position: absolute;
   bottom: 0%;
   left: 10%;
@@ -247,6 +248,12 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
   min-height: 100%;
   display: block;
   padding-top: 10px;
+}
+
+.container body  {
+  background-image: image-url("vortex.png");
+  background-repeat: no-repeat;
+  background-size: 200%;
 }
 
 #home {
@@ -683,4 +690,8 @@ h2 {
   z-index: -1;
   padding-top: 20px;
   display: block;
+}
+
+nav {
+  background-color: red;
 }

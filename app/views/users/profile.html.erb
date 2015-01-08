@@ -3,17 +3,29 @@
 <h1>Welcome back, <%= @user.username %>!</h1>
 
 <div class="profile">
-  <br>
-  <h3>Ready to play? Click Join Game!</h3>
-  <br>
-  <br>
-    <h2><%= link_to 'Join Game', join_game_path, method: 'POST' %></h2>
-  <br>
+  
   <div class="user_stats">
     <h4>Your Stats</h4><br>
-    <h3>Wins: <%= @wins %></h3><br>
-    <h3>Losses: <%= @losses %></h3><br>
-    <h3>Win-Loss Ratio: <%= @ratio %></h3>
+
+
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Wins</th>
+          <th>Losses</th>
+          <th>Win-Loss Ratio:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th><%= @wins %></th>
+          <th><%= @losses %></th>
+          <th><%= @ratio %></th>
+        </tr>
+      </tbody>
+    </table>
+
     <ol><br>
       <h3>Your Last 20 Games:</h3>
         <% @user.last_20_games.each do |game| %>
