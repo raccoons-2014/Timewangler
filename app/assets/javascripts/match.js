@@ -46,6 +46,8 @@ Match.prototype.cancel = function() {
     url: "/games/" + match.id,
     method: "DELETE"
   })
+
+  window['onbeforeunload'] = undefined;
 }
 
 Match.prototype.directToGame = function() {
