@@ -14,29 +14,21 @@
 <div class="deck_builder">
   <div class="current_deck">
     <h2>Your Deck: <%= @deck.cards.count %></h2>
-      <ol>
+  
         <% @deck.cards.each do |card| %>
-          <li>
-            <%= link_to "-", remove_card_path(card_id: card), method:"DELETE" %>
-            <div class="mini_card">
-              <%= link_to (image_tag card.picture_url, class: "portrait", title: card.name), card_path(card) %>
-            </div>
-          </li>
+            
+            <%= render partial: 'remove_card', locals: { :@card => card} %>
 
         <% end %>
-      </ol>
    </div>
 
   <div class="card_selector">
     <h2>Your Cards</h2>
       <ol>
         <% @cards.each do |card| %>
-          <li>
-          <%= link_to "+", add_card_path(card_id: card), method:"POST" %>
-            <div class="mini_card">
-              <%= link_to (image_tag card.picture_url, class: "portrait", title: card.name), card_path(card) %>
-            </div>
-          </li>
+            
+            <%= render partial: 'add_card', locals: { :@card => card} %>
+
         <% end %>
       </ol>
   </div>
