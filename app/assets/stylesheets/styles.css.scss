@@ -233,6 +233,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #080040 0%,
   right: 10%;
   min-height: 60%;
   display: block;
+  z-index: -1;
   /*border: 2px solid green;*/
 }
 
@@ -676,4 +677,10 @@ h2 {
 
 .card_static h2 {
   font-size: 12px;
+}
+
+.clock {
+  z-index: -1;
+  padding-top: 20px;
+  display: block;
 }
