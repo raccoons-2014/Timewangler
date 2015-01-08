@@ -519,7 +519,6 @@ h2 {
   box-shadow: 0 0 7px black;
 }
 
-
 .profile {
   text-align: center;
 }
@@ -539,7 +538,27 @@ h2 {
   font-size: 400%;
 }
 
-.winscreen {
+#winscreen {
   text-align: center;
+  font-size: 300%;
+  background-image: image-url('http://giant.gfycat.com/ForkedFineBelugawhale.gif');
+  background-size: 1500px 500px;
+  background-repeat: no-repeat;
+  background-position: center
+
 }
 
+#winscreen h1{
+  text-decoration: underline
+}
+
+.blink {
+    -webkit-animation: blinker 1.7s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
