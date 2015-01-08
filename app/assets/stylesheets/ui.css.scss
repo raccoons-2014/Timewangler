@@ -310,9 +310,11 @@ nav {
   position: relative;
   max-height: 300px;
   min-height: 300px;
+  max-width: 190px;
   width: 100%;
   padding: 10px;
   padding-bottom: 20px;
+  /*border: 1px solid gold;*/
  /* background-image: image-url("chrome.jpg");*/
   /*border: 2px solid red;*/
 }
@@ -339,7 +341,9 @@ nav {
   position: absolute;
   padding: 10px;
   height: 300px;
+  max-width: 190px;
   display: block;
+  border: 1px solid #33C3F0;
   /*width: 100%;*/
 }
 
@@ -406,6 +410,8 @@ h2 {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+  border: 1px solid #33C3F0;
+
 }
 
 .card_display {
@@ -425,12 +431,13 @@ h2 {
 }
 
 .description_ui {
-  height: 100px;
+  height: 50px;
   width: 100%;
   overflow: hidden;
   margin-bottom: 5px;
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 10px;
+  font-family: Helvetica;
   color: white;
   display: block;
   /*border: 2px solid yellow;*/
@@ -472,8 +479,8 @@ h2 {
   background-image: url("space2.gif");
   padding: 10px;
   width: 40%;
-  border-radius: 10px;
-  background-color: blue;
+  border-radius: 30px;
+
 }
 
 .new_deck {
@@ -679,11 +686,11 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   height: 38px;
-  padding: 0 20px;
-  /*padding-left: 40px;*/
-
-  margin-left: 20px;
-  color: #555;
+  margin-top: 30px;
+  margin-right: 5px;
+  margin-left: 0;
+  /*color: #555;*/
+  background-color: #555;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -692,7 +699,7 @@ input[type="button"] {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
+  color: white;
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
@@ -717,7 +724,13 @@ input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
   background-color: #33C3F0;
-  border-color: #33C3F0; }
+  border-color: #33C3F0; 
+  padding: 0 20px;
+  /*padding-left: 40px;*/
+
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -731,3 +744,21 @@ input[type="button"].button-primary:focus {
   color: #FFF;
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
+
+
+th,
+td {
+  font-size: 12px;
+  /*padding: 12px 15px;*/
+  padding-top: 4px;
+  padding-bottom: 2px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; 
+  width: 100%;
+  margin-bottom: 3px;}
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }

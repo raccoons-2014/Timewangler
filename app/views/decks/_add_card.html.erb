@@ -9,13 +9,31 @@
           <div class='description_ui'>
             <p><%=@card.description %></p>
           </div>
-          <h2>Strength:
-          <span class='strength'><%= @card.strength %></span></h2>
-          <h2>Intelligence:
-          <span class='intelligence'><%= @card.intelligence %></span></h2>
-          <h2>Charisma:
-          <span class='charisma'><%= @card.charisma %></span></h2>
-          <h2>Power:
+          <table class="u-full-width">
+            <thead>
+                <th></th>
+                <th></th>
+            </thead>
+            
+          <tbody>
+            <tr>
+              <td>strength</td>
+              <td><%= @card.strength %></td>
+
+            </tr>
+            <tr>
+              <td>intelligence</td>
+              <td><%= @card.intelligence %></td>
+              
+            </tr>
+            <td>charisma</td>
+                <td><%= @card.charisma %></td>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <h2>Power:
           <span class='power'><%= @card.effect_description %></span></h2>
           
       </div>
