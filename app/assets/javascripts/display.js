@@ -14,7 +14,139 @@ Display.prototype.displayCard = function(id, card) {
   $("#"+id+" span.charisma").html(card.charisma);
 }
 
-Display.prototype.createCard = function(id) {
+Display.prototype.displaySelectedCard = function(id, card) {
+  $("#"+1+" span.name").html(card.name);
+  $("#"+1+" span.picture .card_pic img").attr('src', card.picture_url);
+  $("#"+1+" .description").html(card.description);
+  $("#"+1+" span.strength").html(card.strength);
+  $("#"+1+" span.intelligence").html(card.intelligence);
+  $("#"+1+" span.charisma").html(card.charisma);
+}
+
+Display.prototype.createPlayerSelectionCard = function(id) {
+    var br = document.createElement("br")
+    var br2 = document.createElement("br")
+    var card = document.createElement("div");
+    card.className = "player";
+    card.className = "card";
+    card.id = 1;
+    var namespan = document.createElement("span");
+    namespan.className = "name";
+    var title = document.createTextNode("This is the card's title.");
+    var picspan = document.createElement("span");
+    picspan.className = "picture";
+    var picdiv = document.createElement("div");
+    picdiv.className = "card_pic";
+    var picture = document.createElement("img");
+    picture.className = "portrait";
+    picture.setAttribute('src', 'http://www.themoderndaypirates.com/pirates/wp-content/uploads/2010/03/flava-flav.jpg');
+    var description = document.createElement("div");
+    description.className ="description";
+    var descriptiontext = document.createTextNode("Nobody cares about Flava Flav.");
+    var strength = document.createElement("span");
+    strength.className ="strength";
+    var strengthtext = document.createTextNode("Strength: ");
+    var intelligence = document.createElement("span");
+    intelligence.className ="intelligence";
+    var intelligencetext = document.createTextNode("Intelligence: ");
+    var charisma = document.createElement("span");
+    charisma.className ="charisma";
+    var charismatext = document.createTextNode("Charisma: ");
+
+    description.appendChild(descriptiontext);
+    namespan.appendChild(title);
+    picdiv.appendChild(picture);
+    picspan.appendChild(picdiv);
+    card.appendChild(namespan);
+    card.appendChild(picspan);
+    card.appendChild(description);
+    card.appendChild(strengthtext);
+    card.appendChild(strength);
+    card.appendChild(br);
+    card.appendChild(intelligencetext);
+    card.appendChild(intelligence);
+    card.appendChild(br2);
+    card.appendChild(charismatext);
+    card.appendChild(charisma);
+    var hand = document.getElementById("player_selection");
+
+    hand.appendChild(card);
+}
+
+// Increments through the cards and displays all the cards in the hand as long as there are divs.
+Display.prototype.displayPlayerSelection = function(playerCollection) {
+  $("#player_selection").empty();
+  var self = this
+  $.each(playerCollection, function( i, val) {
+    console.log("PLAYER:");
+    console.log(val);
+    self.createPlayerSelectionCard(i+1);
+    self.displayCard((i+1), val);
+  });
+};
+
+Display.prototype.displayOpponentSelection = function(playerCollection) {
+  $("#opponent_selection").empty();
+  var self = this
+  $.each(playerCollection, function( i, val) {
+    console.log("OPPONENT:");
+    console.log(val);
+    self.createOpponentSelectionCard(i+1);
+    self.displayCard((i+1), val);
+  });
+};
+
+Display.prototype.createOpponentSelectionCard = function(id) {
+    var br = document.createElement("br")
+    var br2 = document.createElement("br")
+    var card = document.createElement("div");
+    card.className = "opponent";
+    card.className = "card";
+    card.id = 1;
+    var namespan = document.createElement("span");
+    namespan.className = "name";
+    var title = document.createTextNode("This is the card's title.");
+    var picspan = document.createElement("span");
+    picspan.className = "picture";
+    var picdiv = document.createElement("div");
+    picdiv.className = "card_pic";
+    var picture = document.createElement("img");
+    picture.className = "portrait";
+    picture.setAttribute('src', 'http://www.themoderndaypirates.com/pirates/wp-content/uploads/2010/03/flava-flav.jpg');
+    var description = document.createElement("div");
+    description.className ="description";
+    var descriptiontext = document.createTextNode("Nobody cares about Flava Flav.");
+    var strength = document.createElement("span");
+    strength.className ="strength";
+    var strengthtext = document.createTextNode("Strength: ");
+    var intelligence = document.createElement("span");
+    intelligence.className ="intelligence";
+    var intelligencetext = document.createTextNode("Intelligence: ");
+    var charisma = document.createElement("span");
+    charisma.className ="charisma";
+    var charismatext = document.createTextNode("Charisma: ");
+
+    description.appendChild(descriptiontext);
+    namespan.appendChild(title);
+    picdiv.appendChild(picture);
+    picspan.appendChild(picdiv);
+    card.appendChild(namespan);
+    card.appendChild(picspan);
+    card.appendChild(description);
+    card.appendChild(strengthtext);
+    card.appendChild(strength);
+    card.appendChild(br);
+    card.appendChild(intelligencetext);
+    card.appendChild(intelligence);
+    card.appendChild(br2);
+    card.appendChild(charismatext);
+    card.appendChild(charisma);
+    var hand = document.getElementById("opponent_selection");
+
+    hand.appendChild(card);
+}
+
+Display.prototype.createHandCard = function(id) {
     var br = document.createElement("br")
     var br2 = document.createElement("br")
     var card = document.createElement("div");
@@ -43,9 +175,6 @@ Display.prototype.createCard = function(id) {
     charisma.className ="charisma";
     var charismatext = document.createTextNode("Charisma: ");
 
-    // strength.appendChild(strengthtext);
-    // intelligence.appendChild(intelligencetext);
-    // charisma.appendChild(charismatext);
     description.appendChild(descriptiontext);
     namespan.appendChild(title);
     picdiv.appendChild(picture);
@@ -53,7 +182,6 @@ Display.prototype.createCard = function(id) {
     card.appendChild(namespan);
     card.appendChild(picspan);
     card.appendChild(description);
-    // card.appendchild(strengthblock)
     card.appendChild(strengthtext);
     card.appendChild(strength);
     card.appendChild(br);
@@ -67,13 +195,12 @@ Display.prototype.createCard = function(id) {
     hand.appendChild(card);
 }
 
-// Increments through the cards and displays all the cards in the hand as long as there are divs.
-Display.prototype.displayHand = function(hand) {
 
+Display.prototype.displayHand = function(playerCollection) {
   var self = this
   $(".card").remove();
-  $.each(hand, function( i, val) {
-    self.createCard(i+1);
+  $.each(playerCollection, function( i, val) {
+    self.createHandCard(i+1);
     self.displayCard((i+1), val);
   });
 };
@@ -94,13 +221,28 @@ Display.prototype.winScreen = function(winState) {
   }
 }
 
-// Creates a .center jquery function which aligns the selected div on the bottom-center of the page based on the current window resolution.
-$.fn.center = function () {
+// Creates a .center jquery function which aligns the selected div on the bottom-center of the bottom of the page based on the current window resolution.
+$.fn.center_hand = function () {
     this.css("position","absolute");
     this.css("bottom", Math.min(0, (($(window).height() - $(this).outerHeight()) / 2) +
       $(window).scrollTop()) + "px");
     this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
       $(window).scrollLeft()) + "px");
+    return this;
+}
+
+
+$.fn.playerSelectionDiv = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height() + 175) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+    return this;
+}
+
+$.fn.opponentSelectionDiv = function () {
+    this.css("position","absolute");
+    this.css("top", ( $(window).height() - this.height() - 175) / 2+$(window).scrollTop() + "px");
+    this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
     return this;
 }
 
