@@ -22,5 +22,30 @@
          <% end %>
     </ol>
   </div>
+
+    <h1>Your Game History</h1>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Game ID #</th>
+          <th>Player 1</th>
+          <th>Player 2</th>
+          <th>Winner</th>
+        </tr>
+      </thead>
+      <% @user.last_20_games.each do |game| %>
+      <tbody>
+        <tr>
+          <td><%= game.id %></td>
+          <td><%= User.find(game.player_one_id).username %></td>
+          <td><%= User.find(game.player_two_id).username %></td>
+          <td><%= game.winner.username %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  
+
+</table>
 </div>
 

@@ -1,6 +1,4 @@
-
-
-    <div class="two columns">
+    <div class="three columns">
       <div class="card" id='1'>
         <span class='name'><%= @card.name %></span>
         <span class='picture'>
@@ -18,4 +16,9 @@
           <h2>Charisma:
           <span class='charisma'><%= @card.charisma %></span></h2>
       </div>
+      <%= button_to "-", remove_card_path(card_id: @card), method:"DELETE" %>
     </div>
+
+
+
+            
