@@ -11,9 +11,9 @@ Display.prototype.buildCard = function(cardObject, index) {
 
 Display.prototype.effectDescriptionToString = function(effectDescription) {
   if (effectDescription) {
-    return effectDescription
+    return effectDescription;
   } else {
-    return ""
+    return "NO POWER";
   };
 };
 
