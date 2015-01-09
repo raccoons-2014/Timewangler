@@ -146,7 +146,7 @@ Card.create(card_type: "Hero", name: "Marie Curie", description: "a Polish and n
 ## ---------------------------------
 TimePeriod.create(name: "The New World")
 
-Card.create(card_type: "Hero", name: "Christopher Columbus", description: "Under the auspices of the Catholic Monarchs of Spain, he completed four voyages across the Atlantic Ocean.", strength: 1, intelligence: 2, charisma: 3, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_320,q_80,w_300/MTI1MTQzMTAyMDUzNjg5OTg3.jpg", effect_description: "Discovery (*2 S rand your hand).", effect_dsl: '[player] (hand>rand) |strength| {*2}')
+Card.create(card_type: "Hero", name: "Columbus", description: "Under the auspices of the Catholic Monarchs of Spain, he completed four voyages across the Atlantic Ocean.", strength: 1, intelligence: 2, charisma: 3, picture_url: "http://a4.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_320,q_80,w_300/MTI1MTQzMTAyMDUzNjg5OTg3.jpg", effect_description: "Discovery (*2 S rand your hand).", effect_dsl: '[player] (hand>rand) |strength| {*2}')
 
 Card.create(card_type: "Hero", name: "George Washington", description: "the first President of the United States", strength: 6, intelligence: 7, charisma: 8, picture_url: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/4/18/1271630795169/George-Washington-001.jpg")
 
@@ -216,7 +216,7 @@ Card.create(card_type: "Hero", name: "Mao Zedong", description: "Commonly referr
 
 Card.create(card_type: "Hero", name: "Nelson Mandela", description: "Was a South African anti-apartheid revolutionary, politician and philanthropist who served as President of South Africa from 1994 to 1999.", strength: 6, intelligence: 8, charisma: 9, picture_url: "http://a2.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzOTAyODkyNTU2.jpg")
 
-Card.create(card_type: "Hero", name:"Matthew D. Huff", description:"Get You Some..." , strength: 10 , intelligence: 10, charisma: 10, picture_url: "/murok_face.jpeg/", effect_description: "Gets the whole hand crunk. (+10 to S,I,C your hand' stats)", effect_dsl: '[player] (hand>all) |charisma, intelligence, strength| {+10}')
+Card.create(card_type: "Hero", name:"Matthew D. Huff", description:"Get You Some..." , strength: 10 , intelligence: 10, charisma: 10, picture_url: "/murok_face.jpeg/", effect_description: "Gets the whole hand crunk.", effect_dsl: '[player] (hand>all) |charisma, intelligence, strength| {+10}')
 
 Card.create(card_type: "Hero", name: "Betsy Carroll", description: "Jackie of all trades, mistress of TONS!!", strength: 5, intelligence: 10, charisma: 10, picture_url: "https://scontent-b-sea.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1522028_10201042105079720_2027409000_n.jpg?oh=ea9fe65c9d057f3de0defa653fb262a7&oe=55356684", effect_description: "-10 S,I,C their hand", effect_dsl: '[opponent] (hand>all) |charisma, intelligence, strength| {-10}')
 
