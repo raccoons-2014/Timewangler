@@ -1,43 +1,31 @@
-#README
+#TimeWangler#
 
-##SMACKWANGLER
+> Are you a time traveler from the future? Do you and your friends enjoy wrecklessly kidnapping historical figures and pitting them against each other? Then this is the game for you.
 
-##Team: 
-Dmitriy
-Matthew
-Bill
-Mason
-Betsy
+TimeWangler is a real-time multiplayer card game built using Ruby on Rails and JavaScript. It supports the creation of custom decks for each player and allows for online play.
 
-##Working Agreement:
+The rules are fairly simple: each card is a historical figure with three stats: Intelligence, Strength, and Charisma. Both players put down a card each turn and the card with the highest overall stat wins. There are also secret powers for certain cards: Cleopatra's card poisons a random card in your hand, for instance. Build the best deck you can and battle players for dominance online!
 
-Slack/HipChat:
-- we will always be doing hip chat
+## Demo ##
+Play a game [right here](http://timewangler.herokuapp.com/). It's a two-player game, so you might want to ask a friend to play with you in case no one else is online.
 
-Stand ups:
-- OPTIONAL DAILY STANDUPS: starting at 10am: every 4 hours there will be a stand up!
-	- everyone who is working then will checking with everyone else 
-- MANDATORY DAILY STANDUPS: at 6pm
+## Setup ##
+If you want to host TimeWagler yourself, it should be fairly painless.The most important dependency is [Memcached](http://memcached.org/), which is used to persist game state on the server. Install it, run ```bundle install && bundle exec rails s``` and you should be good to go!
 
-We all have off:
-- 20th
-- 25th
-- 1st
-- Everyone should take off one or two other days. Use your discretion for the rest, discuss with the team, and let everyone know when you are planning on taking off, ask for and freely accept feedback regarding how much you are/should be contributing.
+## Developers ##
++ [Dmitriy Istomin](https://github.com/dm-istomin)
++ [Matthew Huff](https://github.com/matthewhuff89)
++ [Bill Storey](https://github.com/wcstorey)
++ [Beatrix Carroll](https://github.com/beatrixbetsycarroll)
++ [Mason Norsworthy](https://github.com/kaylorburdell)
 
-Git Rules:
-- always issue a pull request
-	- @2 people
-	- different people
-- use the merging workflow thing from steven
-- use the diff view in git
-- if there is a merge conflict:
-- the second person to read the pull request does the merge
-- they read, final approve, and merge
-- you stop the merge. notify the team. and then
-- have a “merge” channel in slack. notify everyone when you make a pull request/merge
+## License ##
+```
+The MIT License
 
-Social Contract:
-- lets be kind but honest
-- be open to feedback and don’t give up on people bc a conversation is difficult!
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, THE SOFTWARE.
+```
