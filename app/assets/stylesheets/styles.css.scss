@@ -235,51 +235,12 @@ body {
   font-size: 20px;
   text-transform: uppercase;
 }
-
-
-h1 {
-  text-align: center;
-  color: white;
-  font-size: 50px;
-  padding-top: 30px;
-}
-
-a {
-  text-decoration: none;
-  min-height: 100%;
-}
-
-nav li{
-  display: inline;
-  padding: 10px;
-
-
-}
-
-
 nav li:hover {
 
   box-shadow:
     inset 0 -2px 1px rgba(255,255,255,0.2),
     inset 0 3px 2px rgba(0,0,0,0.12);
   }
-
-input {
-  color: black;
-  min-height: 40px;
-  font-size: 15px;
-}
-
-/*ol {
-  margin-left: auto;
-  margin-right: auto;
-}*/
-
-nav {
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
 
 .error {
   text-align: center;
@@ -325,11 +286,6 @@ nav {
   padding: 10px;
   height: 300px;
   width: 200px;
-}
-
-h2 {
-  font-size: 16px;
-  text-transform: uppercase;
 }
 
 .card img {
@@ -430,23 +386,6 @@ h2 {
 .deck_builder div {
  display: inline-block;
 }
-
-/*.mini_card {
-  height:50px;
-  width:50px;
-  padding: 10px;
-}
-
-.mini_card img {
-  position: relative;
-  width: auto;
-  left: 50%;
-  top: 50%;
-  padding-bottom: 2px;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}*/
 
 .mini_card img.portrait {
   width: 100%;
