@@ -68,12 +68,6 @@ RSpec.describe DecksController, :type => :controller do
   end
 
   describe "PUT#update" do
-    xit "changes @deck's attributes" do
-      original_name = deck_one.name
-      patch :update, id: deck_one, deck: attributes_for(:deck, name: "Juice")
-      expect(deck_one.name).to_not eq(original_name)
-    end
-
     it "redirects to the updated Deck" do
       put :update, id: deck_one, deck: attributes_for(:deck)
       expect(response).to redirect_to deck_path(deck_one)
